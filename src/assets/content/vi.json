@@ -1,32 +1,31 @@
 {
-  
-    "contact": {
-      "heading": "Liên hệ",
-      "description": "Có thắc mắc hoặc cần tư vấn pháp lý? Hãy liên hệ với chúng tôi!",
-      "office_address": "Địa chỉ văn phòng",
-      "address_details": {
-        "line1": "Công ty Luật TK",
-        "line2": "1234 Đại lộ Pháp luật, Phòng 101",
-        "city_country": "Hà Nội, Việt Nam"
-      },
-      "contact_info": "Thông tin liên hệ",
-      "phone_label": "Điện thoại",
-      "email_label": "Email"
+  "contact": {
+    "heading": "Liên Hệ",
+    "description": "Có thắc mắc hoặc cần tư vấn pháp lý? Liên hệ với chúng tôi!",
+    "office_address": "Địa Chỉ Văn Phòng",
+    "address_details": {
+      "line1": "Văn Phòng Luật Sư TK",
+      "line2": "1234 Đại Lộ Pháp Lý, Phòng 101",
+      "city_country": "Hà Nội, Việt Nam"
     },
-    "businessInfo": {
-      "name": "TK & Associates",
-      "hotline": "+84 2 222 1697",
-      "longHotlineText": "Gọi ngay để đặt lịch tư vấn: ",
-      "shortHotlineText": "Gọi: ",
-      "buttonText": "Gọi ngay để được tư vấn miễn phí!",
-      "ctaText": "Đừng chờ đợi - hãy bắt đầu giải quyết các vấn đề pháp lý của bạn ngay hôm nay!",
-      "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH",
-      "email": "contact@tklawfirm.vn",
-      "alternatePhone": "+84 3 333 1698",
-      "officeHours": "Thứ hai đến thứ sáu, 9 giờ sáng - 6 giờ chiều",
-      "mapLink": "https://goo.gl/maps/example"
-    },
-  
+    "contact_info": "Thông Tin Liên Hệ",
+    "phone_label": "Điện Thoại",
+    "email_label": "Email"
+  },
+  "businessInfo": {
+    "name": "TK & Associates",
+    "hotline": "+84 28 2221 6597",
+    "longHotlineText": "Gọi ngay để đặt lịch tư vấn: ",
+    "shortHotlineText": "Gọi: ",
+    "buttonText": "Gọi ngay để được tư vấn miễn phí!",
+    "ctaText": "Đừng chần chừ - Hãy thực hiện bước đầu tiên để giải quyết các vấn đề pháp lý của bạn!",
+    "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH",
+    "email": "contact@tklawfirm.vn",
+    "alternatePhone": "+84 3 333 1698",
+    "officeHours": "Thứ Hai đến Thứ Sáu, 9:00 - 18:00",
+    "mapLink": "https://www.google.com/maps/dir/?api=1&destination=TK%20Associates%20Location",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.291526518625!2d106.6969846388218!3d10.788969489404884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0272f66439%3A0x7a79dd0713b75f29!2sG%20Office%20Chi%20nh%C3%A1nh%20Rosana%20Building!5e0!3m2!1sen!2s!4v1727671807556!5m2!1sen!2s"
+  },
   "menu": {
     "about": "Về chúng tôi",
     "practices": "Lĩnh vực",
@@ -46,40 +45,40 @@
     "privacyPolicy": "Chính sách bảo mật",
     "cookiePolicy": "Chính sách cookie",
     "termsOfUse": "Điều khoản sử dụng",
-    "phone":"Số điện thoại",
+    "phone": "Số điện thoại",
     "phoneNum": "+84 2 222 1697",
     "faxNum": "+84 8 222 02201",
     "email": "khuongdinhtien@gmail.com"
   },
   "attorneysSection": {
-  "heading": "Đội ngũ luật sư",
-  "description": "Đội ngũ luật sư giàu kinh nghiệm của chúng tôi cam kết cung cấp tư vấn pháp lý toàn diện và phù hợp với từng khách hàng. Chúng tôi chuyên về nhiều lĩnh vực pháp luật khác nhau. Với hiểu biết sâu sắc về hệ thống pháp luật và cam kết về chất lượng, chúng tôi nỗ lực đạt được kết quả tốt nhất cho khách hàng của mình.",
-  "buttonText": "Tìm hiểu thêm",
-  "attorneys": [
-    {
-      "name": "Lương Trung Tín",
-      "title": "Luật sư tố tụng",
-      "image": "attorney01"
-    },
-    {
-      "name": "Khương Đình Tiến",
-      "title": "Luật sư trường",
-      "image": "attorney02"
-    },
-    {
-      "name": "Trần Thị Như Ý",
-      "title": "Luật sư cộng sự",
-      "image": "attorney03"
-    }
-  ]
-},
-"CTASection": {
-  "heading": "Bạn cần tư vấn pháp lý chuyên nghiệp?",
-  "description": "Đội ngũ luật sư tận tâm của chúng tôi luôn sẵn sàng cung cấp các giải pháp pháp lý phù hợp với từng nhu cầu của bạn. Cho dù bạn đang đối mặt với một thách thức pháp lý hay chỉ cần lời khuyên, chúng tôi chỉ cách một cuộc gọi!",
-  "buttonText": "Gọi ngay để được tư vấn miễn phí!",
-  "subText": "Đừng chần chừ—hãy thực hiện bước đầu tiên để giải quyết các vấn đề pháp lý của bạn ngay hôm nay!"
-},
-"practicesSection": {
+    "heading": "Đội ngũ luật sư",
+    "description": "Đội ngũ luật sư giàu kinh nghiệm của chúng tôi cam kết cung cấp tư vấn pháp lý toàn diện và phù hợp với từng khách hàng. Chúng tôi chuyên về nhiều lĩnh vực pháp luật khác nhau. Với hiểu biết sâu sắc về hệ thống pháp luật và cam kết về chất lượng, chúng tôi nỗ lực đạt được kết quả tốt nhất cho khách hàng của mình.",
+    "buttonText": "Tìm hiểu thêm",
+    "attorneys": [
+      {
+        "name": "Lương Trung Tín",
+        "title": "Luật sư tố tụng",
+        "image": "attorney01"
+      },
+      {
+        "name": "Khương Đình Tiến",
+        "title": "Luật sư trường",
+        "image": "attorney02"
+      },
+      {
+        "name": "Trần Thị Như Ý",
+        "title": "Luật sư cộng sự",
+        "image": "attorney03"
+      }
+    ]
+  },
+  "CTASection": {
+    "heading": "Bạn cần tư vấn pháp lý chuyên nghiệp?",
+    "description": "Đội ngũ luật sư tận tâm của chúng tôi luôn sẵn sàng cung cấp các giải pháp pháp lý phù hợp với từng nhu cầu của bạn. Cho dù bạn đang đối mặt với một thách thức pháp lý hay chỉ cần lời khuyên, chúng tôi chỉ cách một cuộc gọi!",
+    "buttonText": "Gọi ngay để được tư vấn miễn phí!",
+    "subText": "Đừng chần chừ—hãy thực hiện bước đầu tiên để giải quyết các vấn đề pháp lý của bạn ngay hôm nay!"
+  },
+  "practicesSection": {
     "heading": "Dịch vụ pháp lý",
     "description": "Đội ngũ luật sư giàu kinh nghiệm của chúng tôi cam kết cung cấp tư vấn và đại diện pháp lý toàn diện và phù hợp cho khách hàng của chúng tôi. Chúng tôi chuyên về các lĩnh vực pháp luật khác nhau. Với sự hiểu biết sâu sắc về bối cảnh pháp lý và cam kết về sự xuất sắc, chúng tôi phấn đấu đạt được kết quả tốt nhất có thể cho khách hàng của chúng tôi.",
     "practices": [
@@ -87,31 +86,43 @@
         "name": "Tư vấn pháp lý",
         "description": "Chúng tôi cung cấp dịch vụ tư vấn và hỗ trợ pháp lý cho cá nhân, doanh nghiệp và tổ chức, giúp họ hiểu và tuân thủ các quy định pháp lý.",
         "image": "practice01",
-        "services": ["Tư vấn doanh nghiệp", "Tư vấn đầu tư", "Tư vấn hợp đồng"]
+        "services": [
+          "Tư vấn doanh nghiệp",
+          "Tư vấn đầu tư",
+          "Tư vấn hợp đồng"
+        ]
       },
       {
         "name": "Tham gia tố tụng",
         "description": "Luật sư của chúng tôi tham gia tố tụng, đại diện và bào chữa cho khách hàng trong các vụ án pháp lý. Dựa trên chi tiết vụ án, chuẩn bị.",
         "image": "practice02",
-        "services": ["Giải quyết tranh chấp", "Đại diện trong phiên tòa", "Khảo kháng"]
+        "services": [
+          "Giải quyết tranh chấp",
+          "Đại diện trong phiên tòa",
+          "Khảo kháng"
+        ]
       },
       {
         "name": "Dịch vụ pháp lý",
         "description": "Chúng tôi hỗ trợ khách hàng trong việc giải quyết các vấn đề pháp lý như soạn thảo và đánh giá các văn bản pháp lý như hợp đồng, thỏa thuận.",
         "image": "practice03",
-        "services": ["Soạn thảo hợp đồng", "Xem xét văn bản", "Nghiên cứu pháp lý"]
+        "services": [
+          "Soạn thảo hợp đồng",
+          "Xem xét văn bản",
+          "Nghiên cứu pháp lý"
+        ]
       }
     ]
   },
-    "hero": {
-      "title": "TK & ASSOCIATES\nLAW OFFICE",
-      "subtitle": "20 năm bảo vệ quyền lợi hợp pháp cho cá nhân và tổ chức",
-      "description": "Chúng tôi cung cấp dịch vụ tư vấn và hỗ trợ pháp lý cho cá nhân, doanh nghiệp và tổ chức, giúp họ hiểu và tuân thủ các quy định pháp lý.",
-      "buttonText": "Liên hệ tư vấn",
-      "buttonLink": "https://google.com",
-      "scrollDownText": "Xem thêm"
-    },
-    "aboutOurFirmSection": {
+  "hero": {
+    "title": "TK & ASSOCIATES\nLAW OFFICE",
+    "subtitle": "20 năm bảo vệ quyền lợi hợp pháp cho cá nhân và tổ chức",
+    "description": "Chúng tôi cung cấp dịch vụ tư vấn và hỗ trợ pháp lý cho cá nhân, doanh nghiệp và tổ chức, giúp họ hiểu và tuân thủ các quy định pháp lý.",
+    "buttonText": "Liên hệ tư vấn",
+    "buttonLink": "https://google.com",
+    "scrollDownText": "Xem thêm"
+  },
+  "aboutOurFirmSection": {
     "title": "TK & Associates",
     "description": "Là một công ty luật hàng đầu tại Thành phố Hồ Chí Minh, TK & Associates tự hào có sự hiểu biết sâu sắc về những phức tạp của hệ thống pháp luật Việt Nam. Với hơn 20 năm kinh nghiệm, công ty chúng tôi đã thành công trong việc giải quyết một loạt các vấn đề pháp lý cho cá nhân và tổ chức trên khắp Việt Nam. Đội ngũ luật sư giàu kinh nghiệm của chúng tôi cam kết cung cấp các giải pháp phù hợp, tận dụng kiến ​​thức và chuyên môn sâu rộng của chúng tôi, đảm bảo kết quả tối ưu cho khách hàng.",
     "buttonText": "Liên hệ",
@@ -124,26 +135,26 @@
     "practice4": "Luật tài chính",
     "subtitle4": "Tư vấn về quy định tài chính và tranh chấp"
   },
- "whyUs": {
-      "title": "Tại sao chọn chúng tôi",
-      "subtitle": "Tại TK & Associates, chúng tôi cam kết cung cấp các dịch vụ pháp lý xuất sắc phù hợp với nhu cầu riêng của bạn. Đội ngũ luật sư tài năng của chúng tôi cung cấp nhiều chuyên môn pháp lý, từ các tranh chấp dân sự đến đại diện tại tòa án và hơn thế nữa. Chúng tôi cam kết mang lại sự chú ý cá nhân, các giải pháp hiệu quả và đại diện pháp lý với chi phí hợp lý. Phương pháp của chúng tôi tập trung vào việc xây dựng mối quan hệ bền chặt với khách hàng, hiểu rõ mục tiêu của họ và nỗ lực không ngừng để đạt được kết quả tốt nhất có thể.",
-      "buttonText": "Gọi ngay hôm nay",
-      "points": [
-        {
-          "title": "Chú trọng đến từng khách hàng",
-          "description": "Đội ngũ của chúng tôi bao gồm các chuyên gia dày dạn kinh nghiệm trong các lĩnh vực của họ."
-        },
-        {
-          "title": "Giải pháp hướng đến kết quả",
-          "description": "Chúng tôi ưu tiên nhu cầu của bạn và cung cấp các giải pháp được cá nhân hóa."
-        },
-        {
-          "title": "Thành tích đáng tin cậy",
-          "description": "Chúng tôi có lịch sử thành công lâu dài và sự hài lòng của khách hàng."
-        }
-      ]
-    },
-    "cookiesPolicy": {
+  "whyUs": {
+    "title": "Tại sao chọn chúng tôi",
+    "subtitle": "Tại TK & Associates, chúng tôi cam kết cung cấp các dịch vụ pháp lý xuất sắc phù hợp với nhu cầu riêng của bạn. Đội ngũ luật sư tài năng của chúng tôi cung cấp nhiều chuyên môn pháp lý, từ các tranh chấp dân sự đến đại diện tại tòa án và hơn thế nữa. Chúng tôi cam kết mang lại sự chú ý cá nhân, các giải pháp hiệu quả và đại diện pháp lý với chi phí hợp lý. Phương pháp của chúng tôi tập trung vào việc xây dựng mối quan hệ bền chặt với khách hàng, hiểu rõ mục tiêu của họ và nỗ lực không ngừng để đạt được kết quả tốt nhất có thể.",
+    "buttonText": "Gọi ngay hôm nay",
+    "points": [
+      {
+        "title": "Chú trọng đến từng khách hàng",
+        "description": "Đội ngũ của chúng tôi bao gồm các chuyên gia dày dạn kinh nghiệm trong các lĩnh vực của họ."
+      },
+      {
+        "title": "Giải pháp hướng đến kết quả",
+        "description": "Chúng tôi ưu tiên nhu cầu của bạn và cung cấp các giải pháp được cá nhân hóa."
+      },
+      {
+        "title": "Thành tích đáng tin cậy",
+        "description": "Chúng tôi có lịch sử thành công lâu dài và sự hài lòng của khách hàng."
+      }
+    ]
+  },
+  "cookiesPolicy": {
     "title": "Chính sách Cookies",
     "introduction": "Chúng tôi sử dụng cookies để cải thiện trải nghiệm của bạn trên trang web của chúng tôi.",
     "whatAreCookies": {
@@ -229,11 +240,9 @@
     "heroTitle": "Giới Thiệu Về Công Ty",
     "heroDescription": "Chúng tôi cam kết cung cấp các dịch vụ pháp lý hàng đầu với sự hài lòng của khách hàng là trọng tâm.",
     "heroButton": "Liên Hệ Chúng Tôi",
-
     "title": "Giới Thiệu Công Ty",
     "description": "Công ty chúng tôi đã cung cấp các dịch vụ pháp lý chuyên nghiệp hơn 50 năm, chuyên về các lĩnh vực luật doanh nghiệp, kiện tụng và nhiều lĩnh vực khác.",
     "ctaButton": "Liên Hệ Ngay",
-
     "areasOfLaw": [
       {
         "title": "Luật Doanh Nghiệp",
@@ -260,7 +269,6 @@
         "icon": "EmploymentIcon"
       }
     ],
-
     "valuesTitle": "Giá Trị Cốt Lõi",
     "valuesDescription": "Chúng tôi tin tưởng vào sự chính trực, minh bạch và cam kết thành công của khách hàng.",
     "values": [
@@ -337,9 +345,8 @@
     "ctaDescription": "Liên hệ với văn phòng của chúng tôi hôm nay để được tư vấn và xem cách chúng tôi có thể hỗ trợ bạn.",
     "ctaButtonText": "Liên Hệ Ngay"
   },
-    "cta": {
-      "buttonText": "Tìm hiểu thêm",
-      "buttonLink": "https://google.com"
-    }
+  "cta": {
+    "buttonText": "Tìm hiểu thêm",
+    "buttonLink": "https://google.com"
   }
-  
+}
