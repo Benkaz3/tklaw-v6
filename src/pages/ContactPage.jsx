@@ -5,7 +5,7 @@ const ContactPage = () => {
   const { content } = useLanguage();
 
   return (
-    <section className="bg-background py-section-margin">
+    <section className="bg-background py-section-margin mt-16">
       <div className="container mx-auto max-w-container-desktop px-4">
         <h2 className="text-h1 font-bold text-center text-primary mb-section-margin">
           {content.contact.heading}
@@ -24,9 +24,7 @@ const ContactPage = () => {
               {content.contact.address_details.line2}<br />
               {content.contact.address_details.city_country}
             </p>
-            <a href={content.businessInfo.mapLink} className="text-navLinkAccent underline" target="_blank" rel="noopener noreferrer">
-              View on Google Maps
-            </a>
+         
           </div>
 
           <div className="w-full md:w-1/2 lg:w-1/3 p-card-padding">
