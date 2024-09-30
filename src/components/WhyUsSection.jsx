@@ -11,9 +11,9 @@ function WhyUsSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 sm:px-8 md:px-16">
         {/* Left side: Title, Subtitle, and Button */}
         <div className="bg-white p-6 sm:p-8 md:p-10 rounded-md text-center lg:text-left flex flex-col justify-center">
-          <h2 className="font-primary text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
+          <h1 className="font-primary text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
             {content.whyUs.title}
-          </h2>
+          </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6">
             {content.whyUs.subtitle}
           </p>

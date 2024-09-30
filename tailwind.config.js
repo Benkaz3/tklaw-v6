@@ -21,7 +21,7 @@ export default {
       },
       
       fontFamily: {
-        primary: ['Be Vietnam Pro', 'sans-serif'],
+        primary: ['Tisa Sans Pro', 'sans-serif'],
         secondary: ['Georgia', 'serif'],
         logo: ['Georgia', 'sans-serif']
       },
