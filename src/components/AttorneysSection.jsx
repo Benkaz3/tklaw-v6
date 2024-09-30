@@ -34,7 +34,7 @@ const AttorneysSection = () => {
         {attorneys.map((attorney, index) => (
           <div
             key={index}
-            className={`flex flex-col sm:flex-row items-center bg-white p-4 ${index !== attorneys.length - 1 ? 'border-b border-gray-300' : ''}`}
+            className={`mb-4 flex flex-col sm:flex-row items-center bg-white p-4 ${index !== attorneys.length - 1 ? 'border-b border-gray-300' : ''}`}
           >
             {/* Attorney Image */}
             <div className="w-16 h-16 sm:w-24 sm:h-24 flex-shrink-0 overflow-hidden rounded-full bg-buttonBg transition-colors duration-300 hover:bg-opacity-90">
@@ -46,7 +46,7 @@ const AttorneysSection = () => {
             </div>
 
             {/* Name, Title */}
-            <div className="sm:ml-6 mt-4 sm:mt-0 flex-grow text-center sm:text-left">
+            <div className="sm:ml-6 mt-4 sm:mt-0 flex-grow text-center sm:text-left ">
               <h3 className="font-bold text-lg text-gray-900">{attorney.name}</h3>
               <p className="text-sm text-gray-600">{attorney.title}</p>
 
