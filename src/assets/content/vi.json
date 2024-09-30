@@ -1,13 +1,32 @@
 {
- "businessInfo": {
-  "name": "TK & Associates",
-  "hotline": "+84 2 222 1697",
-  "longHotlineText": "Gọi để đặt lịch tư vấn hôm nay: ",
-  "shortHotlineText": "Gọi: ",
-  "buttonText": "Gọi ngay để được tư vấn miễn phí!",
-  "ctaText": "Đừng chần chừ - hãy thực hiện bước đầu tiên để giải quyết vấn đề pháp lý của bạn hôm nay!",
-  "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH"
-}, 
+  
+    "contact": {
+      "heading": "Liên hệ",
+      "description": "Có thắc mắc hoặc cần tư vấn pháp lý? Hãy liên hệ với chúng tôi!",
+      "office_address": "Địa chỉ văn phòng",
+      "address_details": {
+        "line1": "Công ty Luật TK",
+        "line2": "1234 Đại lộ Pháp luật, Phòng 101",
+        "city_country": "Hà Nội, Việt Nam"
+      },
+      "contact_info": "Thông tin liên hệ",
+      "phone_label": "Điện thoại",
+      "email_label": "Email"
+    },
+    "businessInfo": {
+      "name": "TK & Associates",
+      "hotline": "+84 2 222 1697",
+      "longHotlineText": "Gọi ngay để đặt lịch tư vấn: ",
+      "shortHotlineText": "Gọi: ",
+      "buttonText": "Gọi ngay để được tư vấn miễn phí!",
+      "ctaText": "Đừng chờ đợi - hãy bắt đầu giải quyết các vấn đề pháp lý của bạn ngay hôm nay!",
+      "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH",
+      "email": "contact@tklawfirm.vn",
+      "alternatePhone": "+84 3 333 1698",
+      "officeHours": "Thứ hai đến thứ sáu, 9 giờ sáng - 6 giờ chiều",
+      "mapLink": "https://goo.gl/maps/example"
+    },
+  
   "menu": {
     "about": "Về chúng tôi",
     "practices": "Lĩnh vực",

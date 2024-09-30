@@ -1,13 +1,31 @@
 {
+  "contact": {
+    "heading": "Contact Us",
+    "description": "Have questions or need legal advice? Reach out to us!",
+    "office_address": "Office Address",
+    "address_details": {
+      "line1": "TKLaw Firm",
+      "line2": "1234 Legal Avenue, Suite 101",
+      "city_country": "Hanoi, Vietnam"
+    },
+    "contact_info": "Contact Info",
+    "phone_label": "Phone",
+    "email_label": "Email"
+  },
   "businessInfo": {
     "name": "TK & Associates",
-    "hotline": "+84 2 222 1697",
+    "hotline": "+84 28 222 1697",
     "longHotlineText": "Call to schedule your consultation today: ",
     "shortHotlineText": "Call: ",
     "buttonText": "Call now for a free consultation!",
     "ctaText": "Don't wait - take the first step towards resolving your legal issues today!",
-    "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH"
-  }, 
+    "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH",
+    "email": "contact@tklawfirm.vn",
+    "alternatePhone": "+84 3 333 1698",
+    "officeHours": "Monday to Friday, 9 AM - 6 PM",
+    "mapLink": "https://www.google.com/maps/dir/?api=1&destination=TK%20Associates%20Location",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.291526518625!2d106.6969846388218!3d10.788969489404884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0272f66439%3A0x7a79dd0713b75f29!2sG%20Office%20Chi%20nh%C3%A1nh%20Rosana%20Building!5e0!3m2!1sen!2s!4v1727671807556!5m2!1sen!2s"
+  },
   "menu": {
     "about": "About",
     "practices": "Practices",
@@ -28,7 +46,7 @@
     "cookiePolicy": "Cookie policy",
     "termsOfUse": "Terms of use",
     "phone": "Phone",
-    "phoneNum": "+84 2 222 1697",
+    "phoneNum": "+84 28 222 1697",
     "faxNum": "+84 8 222 02201",
     "email": "khuongdinhtien@gmail.com"
   },
@@ -68,19 +86,31 @@
         "name": "Legal Consultation",
         "description": "We provide legal advice and support services to individuals, businesses, and organizations, helping them understand and comply with legal regulations.",
         "image": "practice01",
-        "services": ["Business consulting services", "Investment consulting", "Contract consulting"]
+        "services": [
+          "Business consulting services",
+          "Investment consulting",
+          "Contract consulting"
+        ]
       },
       {
         "name": "Litigation",
         "description": "Our lawyers participate in litigation, representing and defending clients in legal cases. Based on the details of the case, preparations are made.",
         "image": "practice02",
-        "services": ["Dispute resolution", "Trial representation", "Appeal"]
+        "services": [
+          "Dispute resolution",
+          "Trial representation",
+          "Appeal"
+        ]
       },
       {
         "name": "Legal Services",
         "description": "We assist clients in resolving legal issues such as drafting and reviewing legal documents like contracts and agreements.",
         "image": "practice03",
-        "services": ["Contract drafting", "Document review", "Legal research"]
+        "services": [
+          "Contract drafting",
+          "Document review",
+          "Legal research"
+        ]
       }
     ]
   },
@@ -105,8 +135,7 @@
     "practice4": "Finance Law",
     "subtitle4": "Advising on financial regulations and disputes"
   },
-  
-   "whyUs": {
+  "whyUs": {
     "title": "Why Choose Us",
     "subtitle": "At TK & Associates, we are dedicated to providing exceptional legal services tailored to your unique needs. Our team of skilled attorneys offers a comprehensive range of legal expertise, from civil disputes to court representation and beyond. We are committed to delivering personalized attention, results-driven solutions, and affordable legal representation. Our approach is centered on building strong relationships with our clients, understanding their goals, and working tirelessly to achieve the best possible outcomes.",
     "buttonText": "Call today",
@@ -211,11 +240,9 @@
     "heroTitle": "About Our Firm",
     "heroDescription": "We are committed to providing top-tier legal services with a focus on client satisfaction.",
     "heroButton": "Contact Us",
-
     "title": "Introducing Our Firm",
     "description": "Our firm has been providing expert legal services for over 50 years, specializing in areas of corporate law, litigation, and more.",
     "ctaButton": "Get in Touch",
-
     "areasOfLaw": [
       {
         "title": "Corporate Law",
@@ -242,7 +269,6 @@
         "icon": "EmploymentIcon"
       }
     ],
-
     "valuesTitle": "Our Core Values",
     "valuesDescription": "We believe in integrity, transparency, and dedication to our clients’ success.",
     "values": [
@@ -323,5 +349,4 @@
     "buttonText": "Get Free Consultation",
     "buttonLink": "https://google.com"
   }
-
 }

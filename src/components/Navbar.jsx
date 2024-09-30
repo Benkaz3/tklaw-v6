@@ -3,6 +3,7 @@ import { FaBars, FaTimes, FaMapMarkerAlt, FaInfoCircle, FaChevronDown } from 're
 import { Link } from 'react-router-dom';
 import { useLanguage } from './LanguageProvider';
 import logoBlack from '/logoBlack.png'; // Black logo for light background
+import logoColor from '/logoColor.png'; // blueish logo
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,12 +42,12 @@ function Navbar() {
           <div className="flex items-center space-x-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             <Link to="/">
               <img 
-                src={logoBlack} 
+                src={logoColor} 
                 alt="TK & Associates Logo" 
-                className="h-9 w-auto max-w-full rounded border border-black"  
+                className="h-9 w-auto max-w-full rounded border border-buttonBg"  
               />
             </Link>
-            <Link to="/" className={`hidden md:block font-secondary font-bold text-black hover:text-buttonBg transition duration-300`}>
+            <Link to="/" className={`hidden md:block font-secondary font-bold text-buttonBg hover:text-buttonBg transition duration-300`}>
               {content.businessInfo.name}
             </Link>
           </div>

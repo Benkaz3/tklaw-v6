@@ -17,7 +17,7 @@ function AboutUsPage() {
       {/* Our Values Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-secondary text-3xl sm:text-4xl font-bold mb-6">
+          <h2 className="font-primary text-3xl sm:text-4xl font-bold mb-6">
             {content.aboutUs.valuesTitle}
           </h2>
           <p className="text-lg mb-8">

@@ -1,5 +1,5 @@
 import { useLanguage } from './LanguageProvider';  // Adjust the path as necessary
-import logo from '/logoBlack.png'; // Update this path to the actual logo file location
+import logoColor from '/logoColor.png'; // Update this path to the actual logo file location
 
 function CTASection() {
   const { content } = useLanguage(); // Fetch business info using the useLanguage hook
@@ -7,9 +7,9 @@ function CTASection() {
   return (
     <section className="bg-background py-8">
       <div className="container mx-auto px-6 text-center">
-        <img src={logo} alt={`${content.businessInfo.name} Logo`} className="h-16 mx-auto mb-4 border border-black rounded" />
+        <img src={logoColor} alt={`${content.businessInfo.name} Logo`} className="h-16 mx-auto mb-4 border border-buttonBg rounded" />
         
-        <h2 className="font-secondary text-4xl font-bold text-primary mb-2">
+        <h2 className="font-secondary text-4xl font-bold text-buttonBg mb-2">
           {content.businessInfo.name}
         </h2>
         

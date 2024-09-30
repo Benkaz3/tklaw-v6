@@ -13,7 +13,7 @@ export default {
         background: '#f0f0f0', // Softer white/gray for page backgrounds
         text: '#1c1c1c', // Dark gray for text for better readability
         muted: '#7f7f7f', // Muted gray for less important text
-        buttonBg: '#800008', // Muted dark red for button background
+        buttonBg: '#21235d', // Muted dark red for button background
         navLinkAccent: '#be000c', // brighter red accent for navbar links
         secondaryButtonBg: '#535353', // Gray for secondary button background
         photoBg: '#D9D9D9', // light grey for headshot background
@@ -21,9 +21,9 @@ export default {
       },
       
       fontFamily: {
-        primary: ['Roboto', 'sans-serif'],
+        primary: ['Be Vietnam Pro', 'sans-serif'],
         secondary: ['Georgia', 'serif'],
-        logo: ['Roboto', 'sans-serif']
+        logo: ['Georgia', 'sans-serif']
       },
       fontSize: {
         'h1': '2.25rem',  // 36px
