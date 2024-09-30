@@ -123,7 +123,7 @@
     "scrollDownText": "See more"
   },
   "aboutOurFirmSection": {
-    "title": "about our firm",
+    "title": "About TK & Associates",
     "description": "As a leading law firm in Ho Chi Minh City, TK & Associates boasts a profound understanding of the intricacies of the Vietnamese legal system. With over 20 years of experience, our firm has successfully navigated a wide range of legal matters for individuals and organizations across Vietnam. Our team of skilled attorneys is dedicated to providing tailored solutions that leverage our deep-rooted knowledge and expertise, ensuring optimal outcomes for our clients.",
     "buttonText": "Call us",
     "practice1": "Litigation",
@@ -137,7 +137,7 @@
   },
   "whyUs": {
     "title": "Why Choose Us",
-    "subtitle": "At TK & Associates, we are dedicated to providing exceptional legal services tailored to your unique needs. Our team of skilled attorneys offers a comprehensive range of legal expertise, from civil disputes to court representation and beyond. We are committed to delivering personalized attention, results-driven solutions, and affordable legal representation. Our approach is centered on building strong relationships with our clients, understanding their goals, and working tirelessly to achieve the best possible outcomes.",
+    "subtitle": "At TK & Associates, we provide trusted legal services tailored to your needs, ensuring personalized attention and a commitment to your success.",
     "buttonText": "Call today",
     "points": [
       {

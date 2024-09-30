@@ -31,6 +31,9 @@ const AttorneysSection = () => {
   return (
     <section className="bg-background py-8">
       <div className="container mx-auto">
+      <h1 className="font-secondary text-center text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary mb-4">
+            Our Attorneys
+          </h1>
         {attorneys.map((attorney, index) => (
           <div
             key={index}

@@ -3,7 +3,7 @@ import { FaBars, FaTimes, FaMapMarkerAlt, FaInfoCircle, FaChevronDown } from 're
 import { Link } from 'react-router-dom';
 import { useLanguage } from './LanguageProvider';
 import logoBlack from '/logoBlack.png'; // Black logo for light background
-import logoColor from '/logoColor.png'; // blueish logo
+import logoColor from '/logoColor.png'; // Blueish logo
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +11,18 @@ function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleClickOutside = (event) => {
-    if (event.target.closest('.language-dropdown')) {
-      return; // Do nothing if clicked inside the dropdown
+    if (
+      event.target.closest('.language-dropdown') ||
+      event.target.closest('.navbar') ||
+      event.target.closest('.menu-button') // Adjust this class to your button class
+    ) {
+      return; // Do nothing if clicked inside the dropdown or navbar
     }
     setIsDropdownOpen(false);
+    setIsOpen(false); // Close the mobile menu if clicked outside
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      // No need for scroll logic since the navbar is always white
-    };
-
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
@@ -36,7 +37,7 @@ function Navbar() {
   const { content } = useLanguage();
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white text-black shadow">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white text-black shadow navbar">
       <div className="container mx-auto py-2 px-4 sm:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -64,9 +65,7 @@ function Navbar() {
             <Link to="/blog" className="hover:text-buttonBg transition duration-300 text-black">
               {content.menu.blog}
             </Link>
-            <Link to="/location" className="flex items-center hover:text-buttonBg transition duration-300 text-black">
-              <FaMapMarkerAlt className="mr-2" /> {content.menu.location}
-            </Link>
+            
             <Link to="/contact" className="flex items-center hover:text-buttonBg transition duration-300 text-black">
               <FaInfoCircle className="mr-2" /> {content.menu.contact}
             </Link>
@@ -101,7 +100,7 @@ function Navbar() {
             </div>
             <button 
               onClick={toggleMenu} 
-              className="block lg:hidden focus:outline-none transition-transform delay-150 duration-1000 transform hover:scale-110 text-black"
+              className="block lg:hidden focus:outline-none transition-transform delay-150 duration-1000 transform hover:scale-110 text-black menu-button"
               >
               {isOpen ? <FaTimes size={32} /> : <FaBars size={32} />}
             </button>

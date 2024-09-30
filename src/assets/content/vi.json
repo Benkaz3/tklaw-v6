@@ -137,19 +137,19 @@
   },
   "whyUs": {
     "title": "Tại sao chọn chúng tôi",
-    "subtitle": "Tại TK & Associates, chúng tôi cam kết cung cấp các dịch vụ pháp lý xuất sắc phù hợp với nhu cầu riêng của bạn. Đội ngũ luật sư tài năng của chúng tôi cung cấp nhiều chuyên môn pháp lý, từ các tranh chấp dân sự đến đại diện tại tòa án và hơn thế nữa. Chúng tôi cam kết mang lại sự chú ý cá nhân, các giải pháp hiệu quả và đại diện pháp lý với chi phí hợp lý. Phương pháp của chúng tôi tập trung vào việc xây dựng mối quan hệ bền chặt với khách hàng, hiểu rõ mục tiêu của họ và nỗ lực không ngừng để đạt được kết quả tốt nhất có thể.",
-    "buttonText": "Gọi ngay hôm nay",
+    "subtitle": "Tại TK & Associates, chúng tôi cung cấp dịch vụ pháp lý đáng tin cậy được điều chỉnh theo nhu cầu của bạn, đảm bảo sự chú ý cá nhân và cam kết với sự thành công của bạn.",
+    "buttonText": "Gọi ngay",
     "points": [
       {
-        "title": "Chú trọng đến từng khách hàng",
-        "description": "Đội ngũ của chúng tôi bao gồm các chuyên gia dày dạn kinh nghiệm trong các lĩnh vực của họ."
+        "title": "Chú ý cá nhân đến từng khách hàng",
+        "description": "Đội ngũ của chúng tôi gồm các chuyên gia dày dạn kinh nghiệm trong các lĩnh vực tương ứng."
       },
       {
-        "title": "Giải pháp hướng đến kết quả",
-        "description": "Chúng tôi ưu tiên nhu cầu của bạn và cung cấp các giải pháp được cá nhân hóa."
+        "title": "Giải pháp hướng tới kết quả",
+        "description": "Chúng tôi ưu tiên nhu cầu của bạn và cung cấp các giải pháp cá nhân hóa."
       },
       {
-        "title": "Thành tích đáng tin cậy",
+        "title": "Hồ sơ thành công đã được chứng minh",
         "description": "Chúng tôi có lịch sử thành công lâu dài và sự hài lòng của khách hàng."
       }
     ]
