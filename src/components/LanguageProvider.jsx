@@ -5,7 +5,7 @@ import viContent from '../assets/content/vi.json';
 const LanguageContext = React.createContext();
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('vi');
   const [content, setContent] = useState(enContent);
 
   useEffect(() => {
