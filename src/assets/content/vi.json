@@ -274,6 +274,31 @@
       }
     ]
   },
+  "faqs_section": {
+    "title": "Các Câu Hỏi Thường Gặp",
+    "faqs": [
+      {
+        "question": "Những lĩnh vực pháp lý chính mà TK Law cung cấp là gì?",
+        "answer": "TK Law chuyên về luật doanh nghiệp, sở hữu trí tuệ, luật gia đình và giải quyết tranh chấp."
+      },
+      {
+        "question": "Làm thế nào để tôi đặt lịch tư vấn với TK Law?",
+        "answer": "Bạn có thể đặt lịch tư vấn bằng cách liên hệ với chúng tôi qua điện thoại, email hoặc điền vào mẫu tư vấn trên trang web."
+      },
+      {
+        "question": "Phí tư vấn là bao nhiêu?",
+        "answer": "Phí tư vấn khác nhau tùy theo độ phức tạp của vụ việc. Vui lòng liên hệ với chúng tôi để biết chi tiết."
+      },
+      {
+        "question": "TK Law có thể giúp đỡ với các vấn đề pháp lý quốc tế không?",
+        "answer": "Có, TK Law có kinh nghiệm xử lý các vụ việc quốc tế, bao gồm sáp nhập xuyên biên giới và tranh chấp sở hữu trí tuệ."
+      },
+      {
+        "question": "Tôi nên mang theo những tài liệu nào khi đến buổi tư vấn đầu tiên?",
+        "answer": "Vui lòng mang theo các tài liệu liên quan như hợp đồng, thỏa thuận hoặc các thư từ liên quan đến vụ việc của bạn."
+      }
+    ]
+  },
 
   "contact": {
     "heading": "Liên Hệ",

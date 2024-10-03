@@ -274,6 +274,32 @@
       }
     ]
   },
+  "faqs_section": {
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "question": "What are the main areas of legal expertise TK Law offers?",
+        "answer": "TK Law specializes in corporate law, intellectual property, family law, and dispute resolution."
+      },
+      {
+        "question": "How can I schedule a consultation with TK Law?",
+        "answer": "You can schedule a consultation by contacting us via phone, email, or filling out the consultation form on our website."
+      },
+      {
+        "question": "What are the consultation fees?",
+        "answer": "Consultation fees vary depending on the complexity of your case. Please contact us for a detailed fee schedule."
+      },
+      {
+        "question": "Can TK Law help with international legal issues?",
+        "answer": "Yes, TK Law has experience in handling international cases, including cross-border mergers and intellectual property disputes."
+      },
+      {
+        "question": "What documents should I bring to my first consultation?",
+        "answer": "Please bring any relevant documents such as contracts, agreements, or correspondence related to your case."
+      }
+    ]
+  },
+  
 
   "contact": {
     "heading": "Contact Us",

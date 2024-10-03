@@ -13,28 +13,28 @@ function Footer({ transparent, textColor }) {
     >
       <div className="container mx-auto flex flex-col items-start space-y-4">
         {/* First Row: Contact Us, Our Team, Policies */}
-        <div className="flex space-x-4 text-start">
+        <div className="container mx-auto flex flex-wrap items-start gap-4">
           <Link 
             to="/contact" 
-className={`${textColor} text-xs sm:text-base uppercase hover:text-linkActive transition duration-300`}
+className={`${textColor} uppercase hover:text-linkActive transition duration-300`}
           >
             {content.global.labels.contact_us_label}
           </Link>
           <Link 
             to="/team" 
-className={`${textColor} text-xs sm:text-base uppercase hover:text-linkActive transition duration-300`}
+className={`${textColor} uppercase hover:text-linkActive transition duration-300`}
           >
             {content.global.labels.our_team_label}
           </Link>
           <Link 
             to="/policies" 
-className={`${textColor} text-xs sm:text-base uppercase hover:text-linkActive transition duration-300`}
+className={`${textColor} uppercase hover:text-linkActive transition duration-300`}
           >
             {content.global.labels.policies_label}
           </Link>
           <Link 
             to="/expertise" 
-className={`${textColor} text-xs sm:text-base uppercase hover:text-linkActive transition duration-300`}
+className={`${textColor} uppercase hover:text-linkActive transition duration-300`}
           >
             {content.global.labels.expertise_label}
           </Link>
