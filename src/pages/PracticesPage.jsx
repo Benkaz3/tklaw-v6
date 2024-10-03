@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBriefcase, FaUsers, FaHome, FaGavel } from 'react-icons/fa'; // Importing specific icons
 import { useLanguage } from '../components/LanguageProvider';
 import heroBg from '../assets/practices_hero_bg.png';
+import Breadcrumb from '../components/Breadcrumb';
 
 function PracticesPage() {
   const { content } = useLanguage();
@@ -43,7 +44,7 @@ function PracticesPage() {
     <div>
       {/* Hero Section */}
       <section
-        className="relative h-[50vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[30vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
@@ -60,6 +61,7 @@ function PracticesPage() {
           </p>
         </div>
       </section>
+      <Breadcrumb />
 
       {/* Practices Section */}
       <section className="py-16 bg-gray-100">
