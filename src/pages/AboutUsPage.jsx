@@ -3,6 +3,7 @@ import { useLanguage } from '../components/LanguageProvider';
 import heroBg from '../assets/practices_hero_bg.png';
 import Breadcrumb from '../components/Breadcrumb';
 import { useState, useEffect } from 'react';
+import FAQSection from '../components/FAQs';
 
 
 // Import SVG icons
@@ -12,6 +13,7 @@ import LitigationIcon from '../assets/litigation.svg';
 import ProtectIcon from '../assets/protect.svg';
 import HomeSecondHalf from "../components/HomeSecondHalf"
 import AttorneysSection from '../components/AttorneysSection';
+
 
 const iconMapping = {
   integrity: IntegrityIcon,
@@ -105,7 +107,9 @@ function AboutUsPage() {
         
       </section>
       <AttorneysSection />
+      <FAQSection />
       <HomeSecondHalf />
+      
     </div>
   );
 }

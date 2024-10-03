@@ -4,6 +4,7 @@ import heroBg from '../assets/practices_hero_bg.png';
 import Breadcrumb from '../components/Breadcrumb';
 import ExpertiseSection from '../components/ExpertiseSection';
 import HomeSecondHalf from '../components/HomeSecondHalf';
+import FAQSection from '../components/FAQs';
 
 const Expertise = () => {
   const { content } = useLanguage();
@@ -28,6 +29,7 @@ const Expertise = () => {
       </section>
       <Breadcrumb />
       <ExpertiseSection />
+      <FAQSection />
       <HomeSecondHalf isHomepage={false}/>
     </div>
   );

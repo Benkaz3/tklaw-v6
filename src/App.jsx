@@ -8,6 +8,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import ContactPage from './pages/ContactPage';
 import ExpertisePage from './pages/ExpertisePage';
 import NotFoundPage from './pages/NotFoundPage'; // Import NotFoundPage
+import BlogPage from './pages/BlogPage';
 
 import { LanguageProvider } from './components/LanguageProvider';
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/expertise" element={<ExpertisePage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             {/* 404 Page */}
             <Route path="*" element={<NotFoundPage />} />
           </Route>

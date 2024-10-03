@@ -11,7 +11,7 @@ function HomeSecondHalf({ isHomepage }) { // Accepting a prop to determine if it
         <div className={`w-full border-t ${isHomepage ? 'border-gray-300' : 'border-black'} mb-6`}></div>
 
         {/* News & Insights Section */}
-        <Link to="/news" className="w-full text-left">
+        <Link to="/blog" className="w-full text-left">
           <h2 className={`text-2xl ${isHomepage ? 'text-white' : 'text-black'} uppercase hover:text-linkActive`}>
             {content.global.labels.news_label}
           </h2>
