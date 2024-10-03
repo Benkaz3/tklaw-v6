@@ -1,37 +1,51 @@
-// src/pages/HomePage.jsx
-import useContentful from '../useContentful';
+import { useState, useEffect } from 'react';
 import HeroSection from '../components/HeroSection';
-import CTASection from '../components/CTASection';
-import AboutUsSection from '../components/AboutUsSection';
-import AttorneysSection from '../components/AttorneysSection';
-import WhyUsSection from '../components/WhyUsSection';
-import AwardSection from '../components/Awards';
-
+import HomeSecondHalf from '../components/HomeSecondHalf';
+import heroBg from "../assets/hero_bg.webp";
 
 function HomePage() {
-  const { data, loading, error } = useContentful([
-    { content_type: 'heroSection' }
-  ]);
+  const [blur, setBlur] = useState(0);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const maxBlur = 20; // Maximum blur in pixels
+    const maxScroll = window.innerHeight; // Set max scroll to the viewport height for a smooth transition
 
-  const heroData = data.heroSection?.[0]?.fields || {};
+    // Calculate blur based on the scroll position
+    const blurValue = Math.min((scrollY / maxScroll) * maxBlur, maxBlur);
+    setBlur(blurValue);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div>
-      <HeroSection
-        title={heroData.title}
-        subtitle={heroData.subtitle}
-        backgroundImage={heroData.backgroundImage?.fields.file.url}
-        buttonText={heroData.buttonText}
-        buttonLink={heroData.buttonLink}
-      />
-      <AboutUsSection />
-      <AttorneysSection />
-      <WhyUsSection />
-      <AwardSection />
-      <CTASection />
+    <div className="relative min-h-screen">
+      {/* Background image with dynamic blur */}
+      <div
+        className="fixed inset-0 bg-cover bg-center grayscale"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          filter: `blur(${blur}px) grayscale(100%)`, // Grayscale effect applied
+          transition: 'filter 0.3s ease',
+        }}
+      ></div>
+
+      {/* Dark overlay applied across the whole page */}
+      <div className="fixed inset-0 bg-black opacity-40 z-0"></div>
+
+      {/* Hero Section */}
+      <div className="relative z-10">
+        <section className="h-screen flex items-center justify-center">
+          <HeroSection />
+        </section>
+        <HomeSecondHalf isHomepage={true}/>
+       
+      </div>
     </div>
   );
 }

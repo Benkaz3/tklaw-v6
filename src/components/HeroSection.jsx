@@ -1,44 +1,21 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { useLanguage } from "./LanguageProvider";
-import heroBg from "../assets/hero_bg.webp";
 
-function HeroSection({ title, subtitle }) {
+
+function HeroSection() {
   const { content } = useLanguage();
-  const [imageLoaded, setImageLoaded] = useState(false); // State to track when the image is loaded
-
   const scrollToNextSection = () => {
-    const nextSection = document.getElementById("about-section");
+    const nextSection = document.getElementById("home-second-half");
     if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
+      nextSection.scrollIntoView({ behavior: "smooth"});
     }
   };
 
   return (
-    <section className="relative h-screen bg-cover bg-center flex items-center justify-center">
-      {/* Skeleton Placeholder */}
-      <div
-        className={`absolute inset-0 bg-gray-300 ${
-          imageLoaded ? "opacity-0 transition-opacity duration-500" : "opacity-100"
-        }`}
-      ></div>
-
-      {/* Lazy-loaded Background Image */}
-      <img
-        src={heroBg}
-        alt="Hero Background"
-        className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-700 ${
-          imageLoaded ? "opacity-100" : "opacity-0"
-        }`}
-        onLoad={() => setImageLoaded(true)}
-      />
-
-      {/* Subtle overlay to prevent too much contrast */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-
+    <section className="relative h-screen flex items-center justify-center">
       {/* Hero Content */}
-      <div className="relative z-10 max-w-3xl text-center px-6 md:px-12 lg:px-24 transition duration-300 opacity-0 fade-in">
+      <div className="relative z-10 max-w-3xl text-center px-6 md:px-12 lg:px-24 transition duration-300 fade-in">
         <p className="text-sm lg:text-base mb-2 text-slate-100">
           {content.hero.subtitle}
         </p>
@@ -57,7 +34,7 @@ function HeroSection({ title, subtitle }) {
         {/* CTA Button */}
         <Link
           to="/contact"
-          className="uppercase inline-flex items-center justify-center rounded bg-buttonBg text-white py-3 px-6 hover:bg-white hover:text-buttonBg transition duration-300"
+          className="uppercase inline-flex items-center justify-center rounded bg-buttonBg text-white py-3 px-6 hover:bg-linkActive transition duration-300"
         >
           <span>{content.hero.buttonText}</span>
           <FiArrowRight className="ml-2" />
@@ -65,12 +42,11 @@ function HeroSection({ title, subtitle }) {
       </div>
 
       {/* Scroll-down Indicator */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center opacity-0 scroll-indicator">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center">
         <button
           onClick={scrollToNextSection}
-          className="flex flex-col items-center text-white hover:text-buttonBg transition focus:outline-none"
+          className="flex flex-col items-center text-white hover:text-linkActive transition focus:outline-none"
         >
-          {/* Custom SVG for scroll indicator */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -85,7 +61,6 @@ function HeroSection({ title, subtitle }) {
           >
             <polyline points="8 12 12 16 16 12"></polyline>
           </svg>
-          <span className="text-sm">{content.hero.scrollDownText}</span>
         </button>
       </div>
     </section>

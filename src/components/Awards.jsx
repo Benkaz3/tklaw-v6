@@ -1,26 +1,26 @@
-import React from 'react';
-import award1 from '../assets/award1.webp';
-import award2 from '../assets/award2.webp';
-import award3 from '../assets/award3.webp';
-import award4 from '../assets/award4.webp';
-import award5 from '../assets/award5.webp';
+import award1 from '../assets/award1.png';
+import award2 from '../assets/award2.png';
+import award3 from '../assets/award3.png';
+import award4 from '../assets/award4.png';
+import { useLanguage } from './LanguageProvider';
 
 function AwardsSection() {
+  const { content } = useLanguage();
+
   // List of awards
   const awards = [
     { id: 1, image: award1 },
     { id: 2, image: award2 },
     { id: 3, image: award3 },
     { id: 4, image: award4 },
-    { id: 5, image: award5 },
   ];
 
   return (
-    <section className="py-8 px-4 sm:px-8 md:px-16 bg-gray-50">
-      <h2 className="text-center text-3xl font-bold mb-6">Our Awards</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <section className="py-8 px-4 sm:px-8 md:px-16">
+      <h2 className="text-start text-white text-3xl mb-4">{content.global.labels.awards_label}</h2>
+      <div className="flex items-center justify-center space-x-5">
         {awards.map((award) => (
-          <div key={award.id} className="flex items-center justify-center p-4 border border-gray-300 rounded-md">
+          <div key={award.id} className="flex items-center justify-center p-1 rounded-md">
             <img
               src={award.image}
               alt={`Award ${award.id}`}

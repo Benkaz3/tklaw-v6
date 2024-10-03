@@ -16,10 +16,12 @@ const slugify = (text) => {
 const AboutUsSection = () => {
   const { content } = useLanguage(); 
 
+  const description = content.about_us_section.description
+  const descriptionLines = description.split('\n');
+  const heading = content.about_us_section.heading
+  const buttonText = content.about_us_section.button_text
+
   const {
-    title,
-    description,
-    buttonText,
     practice1,
     subtitle1,
     practice2,
@@ -31,7 +33,9 @@ const AboutUsSection = () => {
   } = content.aboutOurFirmSection;
 
   return (
-    <section id="about-section" className="bg-transparent py-16">
+    
+  
+    <section id="about-section" className="bg-transparent py-16 px-4">
       <div className="relative">
         {/* Background Seal Image */}
         <img 
@@ -40,13 +44,15 @@ const AboutUsSection = () => {
           className="absolute inset-0 w-full h-full object-cover opacity-95"
         />
         <div className="container mx-auto relative z-10 text-center mb-12">
-          <h1 className="font-secondary text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary mb-4">
-            {title}
+          <h1 className=" text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary mb-4">
+            {heading}
           </h1>
-          <p className="text-body text-muted mb-6 max-w-2xl mx-auto">
-            {description}
-          </p>
-          <Link to="/contact" className="uppercase inline-flex items-center justify-center rounded-sm bg-buttonBg text-white py-3 px-5 hover:bg-white hover:text-buttonBg transition duration-300">
+          {descriptionLines.map((line, index) => (
+        <p key={index} className="mb-4"> {/* Adjust classes as needed */}
+          {line.trim()}
+        </p>
+      ))}
+          <Link to="/contact" className="uppercase inline-flex items-center justify-center rounded-sm bg-buttonBg text-white py-3 px-5  hover:bg-linkActive transition duration-300">
             {buttonText}
             <FiArrowRight className="ml-2" />
           </Link>
@@ -56,32 +62,32 @@ const AboutUsSection = () => {
       {/* Key Practice Areas */}
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Area of Law 1 */}
-        <Link to={`/practice-area/${slugify(practice1)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
+        {/* <Link to={`/practice-area/${slugify(practice1)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
           <FaGavel className="text-primary text-5xl mb-2" />
           <h3 className="text-primary font-bold text-lg">{practice1}</h3>
           <p className="text-muted">{subtitle1}</p>
-        </Link>
+        </Link> */}
         
         {/* Area of Law 2 */}
-        <Link to={`/practice-area/${slugify(practice2)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
+        {/* <Link to={`/practice-area/${slugify(practice2)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
           <FaBalanceScale className="text-primary text-5xl mb-2" />
           <h3 className="text-primary font-bold text-lg">{practice2}</h3>
           <p className="text-muted">{subtitle2}</p>
-        </Link>
+        </Link> */}
         
         {/* Area of Law 3 */}
-        <Link to={`/practice-area/${slugify(practice3)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
+        {/* <Link to={`/practice-area/${slugify(practice3)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
           <FaRegBuilding className="text-primary text-5xl mb-2" />
           <h3 className="text-primary font-bold text-lg">{practice3}</h3>
           <p className="text-muted">{subtitle3}</p>
-        </Link>
+        </Link> */}
         
         {/* Area of Law 4 */}
-        <Link to={`/practice-area/${slugify(practice4)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
+        {/* <Link to={`/practice-area/${slugify(practice4)}`} className="flex flex-col items-center text-center p-4 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300">
           <FaHandHoldingUsd className="text-primary text-5xl mb-2" />
           <h3 className="text-primary font-bold text-lg">{practice4}</h3>
           <p className="text-muted">{subtitle4}</p>
-        </Link>
+        </Link> */}
       </div>
     </section>
   );

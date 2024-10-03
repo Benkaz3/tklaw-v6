@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaMapMarkerAlt, FaInfoCircle, FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useLanguage } from './LanguageProvider';
-import logoBlack from '/logoBlack.png'; // Black logo for light background
 import logoColor from '/logoColor.png'; // Blueish logo
 
 function Navbar() {
@@ -59,7 +58,7 @@ function Navbar() {
               className="hover:text-buttonBg transition duration-300 text-black">
               {content.menu.about}
             </Link>
-            <Link to="/practices" className="hover:text-buttonBg transition duration-300 text-black">
+            <Link to="/expertise" className="hover:text-buttonBg transition duration-300 text-black">
               {content.menu.practices}
             </Link>
             <Link to="/blog" className="hover:text-buttonBg transition duration-300 text-black">
@@ -82,7 +81,7 @@ function Navbar() {
               </button>
 
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-16 bg-white border border-primary rounded shadow-lg z-50">
+                <div className="absolute right-0 mt-2 w-16 bg-white border border-buttonBg rounded shadow-lg z-50">
                   <button 
                     onClick={() => { setLanguage('en'); setIsDropdownOpen(false); }} 
                     className="block px-4 py-2 text-left text-primary hover:bg-primary hover:text-white w-full transition duration-200"
@@ -102,31 +101,29 @@ function Navbar() {
               onClick={toggleMenu} 
               className="block lg:hidden focus:outline-none transition-transform delay-150 duration-1000 transform hover:scale-110 text-black menu-button"
               >
-              {isOpen ? <FaTimes size={32} /> : <FaBars size={32} />}
+              {isOpen ? <FaTimes size={32} className='text-buttonBg' /> : <FaBars size={32} className='text-buttonBg' />}
             </button>
           </div>
         </div>
 
         {isOpen && (
-          <div className="bg-white text-black shadow-lg overflow-hidden transition-transform duration-1000 ease-in-out transform">
+          <div className="bg-white text-black overflow-hidden transition-transform duration-1000 ease-in-out transform">
             <div className="flex flex-col items-center space-y-4 py-4">
               <Link to="/about" className="hover:text-accent transition duration-300 font-bold text-black" onClick={toggleMenu}>
-                {content.menu.about}
+                {content.global.labels.about_label}
               </Link>
-              <Link to="/practices" className="hover:text-accent transition duration-300 font-bold text-black" onClick={toggleMenu}>
-                {content.menu.practices}
+              <Link to="/expertise" className="hover:text-accent transition duration-300 font-bold text-black" onClick={toggleMenu}>
+                {content.global.labels.expertise_label}
               </Link>
               <Link to="/blog" className="hover:text-accent transition duration-300 font-bold text-black" onClick={toggleMenu}>
-                {content.menu.blog}
+                {content.global.labels.blog_label}
               </Link>
 
               <hr className="w-4/5 border-accent opacity-50" />
 
-              <Link to="/location" className="flex items-center hover:text-accent transition duration-300 font-bold text-black" onClick={toggleMenu}>
-                <FaMapMarkerAlt className="mr-2" /> {content.menu.location}
-              </Link>
+              
               <Link to="/contact" className="flex items-center hover:text-accent transition duration-300 font-bold text-black" onClick={toggleMenu}>
-                <FaInfoCircle className="mr-2" /> {content.menu.contact}
+                <FaInfoCircle className="mr-2" /> {content.global.labels.contact_label}
               </Link>
             </div>
           </div>
