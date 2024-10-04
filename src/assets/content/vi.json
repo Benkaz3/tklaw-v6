@@ -278,11 +278,11 @@
     "title": "Các Câu Hỏi Thường Gặp",
     "faqs": [
       {
-        "question": "Những lĩnh vực pháp lý chính mà TK Law cung cấp là gì?",
-        "answer": "TK Law chuyên về luật doanh nghiệp, sở hữu trí tuệ, luật gia đình và giải quyết tranh chấp."
+        "question": "Những lĩnh vực pháp lý chính mà TK & Associates cung cấp là gì?",
+        "answer": "TK & Associates chuyên về luật doanh nghiệp, sở hữu trí tuệ, luật gia đình và giải quyết tranh chấp."
       },
       {
-        "question": "Làm thế nào để tôi đặt lịch tư vấn với TK Law?",
+        "question": "Làm thế nào để tôi đặt lịch tư vấn với TK & Associates?",
         "answer": "Bạn có thể đặt lịch tư vấn bằng cách liên hệ với chúng tôi qua điện thoại, email hoặc điền vào mẫu tư vấn trên trang web."
       },
       {
@@ -290,14 +290,58 @@
         "answer": "Phí tư vấn khác nhau tùy theo độ phức tạp của vụ việc. Vui lòng liên hệ với chúng tôi để biết chi tiết."
       },
       {
-        "question": "TK Law có thể giúp đỡ với các vấn đề pháp lý quốc tế không?",
-        "answer": "Có, TK Law có kinh nghiệm xử lý các vụ việc quốc tế, bao gồm sáp nhập xuyên biên giới và tranh chấp sở hữu trí tuệ."
+        "question": "TK & Associates có thể giúp đỡ với các vấn đề pháp lý quốc tế không?",
+        "answer": "Có, TK & Associates có kinh nghiệm xử lý các vụ việc quốc tế, bao gồm sáp nhập xuyên biên giới và tranh chấp sở hữu trí tuệ."
       },
       {
         "question": "Tôi nên mang theo những tài liệu nào khi đến buổi tư vấn đầu tiên?",
         "answer": "Vui lòng mang theo các tài liệu liên quan như hợp đồng, thỏa thuận hoặc các thư từ liên quan đến vụ việc của bạn."
       }
     ]
+  },
+  "policies": {
+    "privacy_policy": {
+      "title": "Chính Sách Bảo Mật",
+      "content": [
+        "Chúng tôi thu thập các thông tin cá nhân như tên, địa chỉ email và hành vi duyệt web để cung cấp dịch vụ pháp lý và đáp ứng yêu cầu của khách hàng.",
+        "Chúng tôi bảo mật thông tin cá nhân bằng các biện pháp bảo mật hợp lý và không chia sẻ thông tin của bạn với bên thứ ba mà không có sự đồng ý của bạn.",
+        "Chúng tôi sử dụng cookie để cải thiện trải nghiệm duyệt web của bạn."
+      ]
+    },
+    "terms_of_use": {
+      "title": "Điều Khoản Sử Dụng",
+      "content": [
+        "Người dùng không được phép sử dụng nội dung trên trang web này mà không có sự cho phép của TK & Associates.",
+        "Chúng tôi không chịu trách nhiệm cho các lỗi hoặc thiếu sót trên trang web này."
+      ]
+    },
+    "disclaimer": {
+      "title": "Miễn Trừ Trách Nhiệm",
+      "content": [
+        "Thông tin trên trang web này chỉ mang tính chất tham khảo và không phải là lời khuyên pháp lý.",
+        "Liên hệ với TK & Associates không tạo ra mối quan hệ luật sư-khách hàng."
+      ]
+    },
+    "cookie_policy": {
+      "title": "Chính Sách Cookie",
+      "content": [
+        "Chúng tôi sử dụng cookie để theo dõi hành vi duyệt web của bạn và cải thiện trải nghiệm của bạn trên trang web.",
+        "Bạn có thể kiểm soát cookie trong cài đặt trình duyệt của mình."
+      ]
+    },
+    "accessibility_statement": {
+      "title": "Tuyên Bố Về Khả Năng Truy Cập",
+      "content": [
+        "Chúng tôi cam kết đảm bảo trang web của chúng tôi có thể truy cập được cho tất cả người dùng, bao gồm cả những người có khuyết tật."
+      ]
+    },
+    "client_rights": {
+      "title": "Quyền Lợi Của Khách Hàng",
+      "content": [
+        "Khách hàng có quyền yêu cầu sự bảo mật tuyệt đối đối với thông tin trao đổi với luật sư.",
+        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chuyên nghiệp và kịp thời."
+      ]
+    }
   },
 
   "contact": {
