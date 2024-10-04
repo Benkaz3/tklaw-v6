@@ -10,6 +10,7 @@ import ExpertisePage from './pages/ExpertisePage';
 import NotFoundPage from './pages/NotFoundPage'; // Import NotFoundPage
 import BlogPage from './pages/BlogPage';
 import PoliciesPage from './pages/PoliciesPage';
+import BlogPost from './pages/BlogPost';
 
 import { LanguageProvider } from './components/LanguageProvider';
 
@@ -28,6 +29,8 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/policies" element={<PoliciesPage />} />
+            <Route path="/blog/:id" element={<BlogPost />} /> {/* Dynamic route for blog post */}
+
             {/* 404 Page */}
             <Route path="*" element={<NotFoundPage />} />
           </Route>
