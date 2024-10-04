@@ -278,11 +278,11 @@
     "title": "Frequently Asked Questions",
     "faqs": [
       {
-        "question": "What are the main areas of legal expertise TK Law offers?",
-        "answer": "TK Law specializes in corporate law, intellectual property, family law, and dispute resolution."
+        "question": "What are the main areas of legal expertise TK & Associates offers?",
+        "answer": "TK & Associates specializes in corporate law, intellectual property, family law, and dispute resolution."
       },
       {
-        "question": "How can I schedule a consultation with TK Law?",
+        "question": "How can I schedule a consultation with TK & Associates?",
         "answer": "You can schedule a consultation by contacting us via phone, email, or filling out the consultation form on our website."
       },
       {
@@ -290,8 +290,8 @@
         "answer": "Consultation fees vary depending on the complexity of your case. Please contact us for a detailed fee schedule."
       },
       {
-        "question": "Can TK Law help with international legal issues?",
-        "answer": "Yes, TK Law has experience in handling international cases, including cross-border mergers and intellectual property disputes."
+        "question": "Can TK & Associates help with international legal issues?",
+        "answer": "Yes, TK & Associates has experience in handling international cases, including cross-border mergers and intellectual property disputes."
       },
       {
         "question": "What documents should I bring to my first consultation?",
@@ -299,7 +299,50 @@
       }
     ]
   },
-  
+  "policies": {
+    "privacy_policy": {
+      "title": "Privacy Policy",
+      "content": [
+        "We collect personal information such as names, emails, and browsing behavior to provide legal services and respond to client inquiries.",
+        "We secure your personal information with reasonable security measures and do not share your information with third parties without your consent.",
+        "We use cookies to enhance your browsing experience."
+      ]
+    },
+    "terms_of_use": {
+      "title": "Terms of Use",
+      "content": [
+        "Users may not use the content on this website without permission from TK & Associates.",
+        "We are not responsible for any errors or omissions on this website."
+      ]
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": [
+        "The information on this website is for informational purposes only and does not constitute legal advice.",
+        "Contacting TK & Associates does not establish an attorney-client relationship."
+      ]
+    },
+    "cookie_policy": {
+      "title": "Cookie Policy",
+      "content": [
+        "We use cookies to track your browsing behavior and improve your experience on our website.",
+        "You can control cookies through your browser settings."
+      ]
+    },
+    "accessibility_statement": {
+      "title": "Accessibility Statement",
+      "content": [
+        "We are committed to ensuring that our website is accessible to all users, including those with disabilities."
+      ]
+    },
+    "client_rights": {
+      "title": "Client Rights",
+      "content": [
+        "Clients have the right to expect absolute confidentiality regarding communications with their attorney.",
+        "We are committed to providing timely and professional legal services."
+      ]
+    }
+  },
 
   "contact": {
     "heading": "Contact Us",
