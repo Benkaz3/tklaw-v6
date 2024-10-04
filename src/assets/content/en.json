@@ -21,7 +21,9 @@
         "home": "Home",
         "about": "About",
         "expertise": "Expertise",
-        "contact": "Contact"
+        "contact": "Contact",
+        "policies": "Policies",
+        "blog": "Blog"
       }
     }
   },

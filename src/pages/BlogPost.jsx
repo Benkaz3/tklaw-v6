@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useContentful from '../useContentful';
 import Breadcrumb from '../components/Breadcrumb';
-import heroBg from '../assets/practices_hero_bg.png';
+import heroBg from '../assets/practices_hero_bg.webp';
 import { useLanguage } from '../components/LanguageProvider';
 
 // Utility function to convert Rich Text to JSX recursively
@@ -28,13 +28,14 @@ const renderRichText = (richTextNode) => {
 
 const BlogPost = () => {
   const { content } = useLanguage();
-  const { id } = useParams(); // Get the blog post ID from the URL
+//   const { id } = useParams(); // Get the blog post ID from the URL
+    const { slug } = useParams(); 
 
   // Fetch the individual blog post by ID
   const { data, loading, error } = useContentful([
     {
       content_type: 'blogPage',
-      'sys.id': id, // Filter by post ID
+      'fields.slug': slug, // Filter by post ID
     },
   ]);
 
@@ -58,7 +59,7 @@ const BlogPost = () => {
     <div className="container mx-auto lg:px-8">
       {/* Hero Section */}
       <section
-        className="relative h-[30vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[20vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}

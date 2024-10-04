@@ -29,7 +29,8 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/policies" element={<PoliciesPage />} />
-            <Route path="/blog/:id" element={<BlogPost />} /> {/* Dynamic route for blog post */}
+            {/* <Route path="/blog/:id" element={<BlogPost />} /> Dynamic route for blog post */}
+            <Route path="/blog/:slug" element={<BlogPost />} />
 
             {/* 404 Page */}
             <Route path="*" element={<NotFoundPage />} />

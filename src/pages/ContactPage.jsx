@@ -1,6 +1,6 @@
 import { useLanguage } from '../components/LanguageProvider';
 import Breadcrumb from '../components/Breadcrumb';
-import heroBg from '../assets/practices_hero_bg.png'
+import heroBg from '../assets/practices_hero_bg.webp'
 
 const ContactPage = () => {
   const { content } = useLanguage();
@@ -9,7 +9,7 @@ const ContactPage = () => {
     <div>
       {/* Hero Section */}
       <section
-        className="relative h-[30vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[20vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',

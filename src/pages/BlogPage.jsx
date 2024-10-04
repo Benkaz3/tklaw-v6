@@ -1,6 +1,6 @@
 import useContentful from '../useContentful';
 import Breadcrumb from '../components/Breadcrumb';
-import heroBg from '../assets/practices_hero_bg.png';
+import heroBg from '../assets/practices_hero_bg.webp';
 import { useLanguage } from '../components/LanguageProvider';
 import { Link } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ const BlogPage = () => {
     <div className="container mx-auto">
        {/* Hero Section */}
       <section
-        className="relative h-[15vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[20vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
@@ -90,7 +90,7 @@ const BlogPage = () => {
               <h2 className="text-2xl font-semibold mb-2">{post.fields.title}</h2>
               <p className="text-sm text-gray-500 mb-4">{new Date(post.sys.createdAt).toLocaleDateString()}</p> {/* Date Published */}
               <p className="mb-4">{previewText}</p> {/* Display the preview text */}
-              <Link to={`/blog/${post.sys.id}`} className="flex items-center text-blue-600 hover:underline">
+              <Link to={`/blog/${post.fields.slug}`} className="flex items-center text-blue-600 hover:underline">
                 <span className="mr-1 text-sm">Read More</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
