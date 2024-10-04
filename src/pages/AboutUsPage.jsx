@@ -1,6 +1,6 @@
 import AboutUsSection from '../components/AboutUsSection';
 import { useLanguage } from '../components/LanguageProvider';
-import heroBg from '../assets/practices_hero_bg.png';
+import heroBg from '../assets/practices_hero_bg.webp';
 import Breadcrumb from '../components/Breadcrumb';
 import { useState, useEffect } from 'react';
 import FAQSection from '../components/FAQs';

@@ -1,5 +1,7 @@
 
 import { useLanguage } from '../components/LanguageProvider'; // Assuming you have a language provider
+import heroBg from '../assets/practices_hero_bg.webp';
+import BreadCrumb from '../components/Breadcrumb';
 
 function PoliciesPage() {
   const { language, content } = useLanguage(); // Fetch language and corresponding content from context
@@ -7,8 +9,21 @@ function PoliciesPage() {
   const policies = content.policies; // Access policies content
   
   return (
-    <div className="container mx-auto p-4 mt-28">
-      <h1 className="text-4xl font-bold text-center mb-8">{language === 'vi' ? 'Chính Sách' : 'Policies'}</h1>
+    <div className="container mx-auto">
+      <section
+        className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+       
+      </section>
+       <BreadCrumb />
+      <div className='px-4 py-16'>
+        <h1 className="text-4xl font-bold text-center mb-8">{language === 'vi' ? 'Chính Sách' : 'Policies'}</h1>
 
       {/* Privacy Policy */}
       <section className="mb-6">
@@ -57,6 +72,8 @@ function PoliciesPage() {
           <p key={index} className="text-lg mb-4">{paragraph}</p>
         ))}
       </section>
+      </div>
+      
     </div>
   );
 };

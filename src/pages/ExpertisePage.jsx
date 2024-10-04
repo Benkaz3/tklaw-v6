@@ -1,6 +1,6 @@
 
 import { useLanguage } from '../components/LanguageProvider';
-import heroBg from '../assets/practices_hero_bg.png';
+import heroBg from '../assets/practices_hero_bg.webp';
 import Breadcrumb from '../components/Breadcrumb';
 import ExpertiseSection from '../components/ExpertiseSection';
 import HomeSecondHalf from '../components/HomeSecondHalf';
@@ -13,7 +13,7 @@ const Expertise = () => {
   return (
     <div className="expertise-page-container py-8 max-w-7xl mx-auto">
       <section
-        className="relative h-[15vh] bg-cover bg-center flex items-center justify-start"
+        className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
