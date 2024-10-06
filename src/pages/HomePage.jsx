@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import HeroSection from '../components/HeroSection';
 import HomeSecondHalf from '../components/HomeSecondHalf';
 import heroBg from "../assets/hero_bg.webp";
+import OurTeamSection from '../components/OurTeamSection';
 
 function HomePage() {
   const [blur, setBlur] = useState(0);
@@ -43,6 +44,7 @@ function HomePage() {
         <section className="h-screen flex items-center justify-center">
           <HeroSection />
         </section>
+        <OurTeamSection />
         <HomeSecondHalf isHomepage={true}/>
        
       </div>

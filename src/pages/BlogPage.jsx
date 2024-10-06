@@ -1,61 +1,67 @@
-import useContentful from '../useContentful';
-import Breadcrumb from '../components/Breadcrumb';
-import heroBg from '../assets/practices_hero_bg.webp';
-import { useLanguage } from '../components/LanguageProvider';
-import { Link } from 'react-router-dom';
-import LoadingDots from '../components/LoadingDots';
-
+import useContentful from "../useContentful";
+import Breadcrumb from "../components/Breadcrumb";
+import heroBg from "../assets/practices_hero_bg.webp";
+import { useLanguage } from "../components/LanguageProvider";
+import { Link } from "react-router-dom";
+import LoadingDots from "../components/LoadingDots";
 
 // Utility function to convert Rich Text to string recursively
 const convertRichTextToString = (richTextNode) => {
-  if (!richTextNode || !Array.isArray(richTextNode.content)) return '';
+  if (!richTextNode || !Array.isArray(richTextNode.content)) return "";
 
-  return richTextNode.content.map((node) => {
-    switch (node.nodeType) {
-      case 'paragraph':
-        // Recursively extract content from paragraph nodes
-        return convertRichTextToString(node);
-      case 'text':
-        // Handle plain text nodes
-        return node.value;
-      case 'hyperlink':
-        // Extract the text from the hyperlink and append it
-        return node.content.map((linkNode) => linkNode.value).join('');
-      default:
-        return ''; // Return empty string for unsupported node types
-    }
-  }).join(''); // Join the array of strings into a single string
+  return richTextNode.content
+    .map((node) => {
+      switch (node.nodeType) {
+        case "paragraph":
+          // Recursively extract content from paragraph nodes
+          return convertRichTextToString(node);
+        case "text":
+          // Handle plain text nodes
+          return node.value;
+        case "hyperlink":
+          // Extract the text from the hyperlink and append it
+          return node.content.map((linkNode) => linkNode.value).join("");
+        default:
+          return ""; // Return empty string for unsupported node types
+      }
+    })
+    .join(""); // Join the array of strings into a single string
 };
 
-
 const BlogPage = () => {
-
-  const { content } = useLanguage()
+  const { content, language } = useLanguage();
 
   const { data, loading, error } = useContentful([
     {
-      content_type: 'blogPage',
-      order: '-sys.createdAt',
+      content_type: "blogPage",
+      order: "-sys.createdAt",
+      locale: language
     },
   ]);
 
   // Handle loading and error states
   if (loading) {
-    return <div className="flex bg-background items-center justify-center h-screen text-center py-10">
-      <LoadingDots />
-    </div>;
+    return (
+      <div className="flex bg-background items-center justify-center h-screen text-center py-10">
+        <LoadingDots />
+      </div>
+    );
   }
 
   if (error) {
     console.error(error);
-    return <div className="text-red-500 text-center py-10">Error: {error.message}</div>;
+    return (
+      <div className="text-red-500 text-center py-10">
+        Error: {error.message}
+      </div>
+    );
   }
 
   const blogPosts = data.blogPage || [];
 
   return (
     <div className="container mx-auto">
-       {/* Hero Section */}
+      {/* Hero Section */}
       <section
         className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
         style={{
@@ -71,31 +77,91 @@ const BlogPage = () => {
       {/* Breadcrumb */}
       <Breadcrumb />
 
-      {/* Top Section */}
-
       {/* Blog Posts Section */}
       <div className="space-y-8">
         {blogPosts.map((post) => {
           // Check the body content
           const bodyText = convertRichTextToString(post.fields.body);
-          const previewText = bodyText.length > 300 ? bodyText.substring(0, 300) + '...' : bodyText;
-
+          const previewText =
+            bodyText.length > 300
+              ? bodyText.substring(0, 300) + "..."
+              : bodyText;
+         
           return (
             <div key={post.sys.id} className="p-6">
-              <h2 className="text-2xl font-semibold mb-2">{post.fields.title}</h2>
-              <p className="text-sm text-gray-500 mb-4">{new Date(post.sys.createdAt).toLocaleDateString()}</p> {/* Date Published */}
-              <p className="mb-4">{previewText}</p> {/* Display the preview text */}
-              <Link to={`/blog/${post.fields.slug}`} className="flex items-center text-blue-600 hover:underline">
-                <span className="mr-1 text-sm">{content.global.labels.read_more_label}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path fillRule="evenodd" d="M10.293 15.293a1 1 0 001.414 0l5-5a1 1 0 000-1.414l-5-5a1 1 0 00-1.414 1.414L14.586 10H3a1 1 0 100 2h11.586l-4.293 4.293a1 1 0 000 1.414z" clipRule="evenodd" />
-                </svg>
+              <h2 className="text-2xl font-semibold mb-2">
+                {post.fields.title}
+              </h2>
+             
+              {/* Date and Author Section */}
+              <div className="flex items-center text-sm text-gray-500 mb-4 space-x-2">
+                 {/* Blog Category */}
+              {Array.isArray(post.fields.categories) && (
+                <span className="flex items-center space-x-2">
+                  {post.fields.categories.map((category, index) => (
+                    <span
+                      key={category.sys.id}
+                      className="flex items-center space-x-2"
+                    >
+                      {/* Category name */}
+                      <Link
+                        to={`/category/${category.fields.slug}`}
+                        className="text-white font-bold hover:underline bg-buttonBg px-2 py-1"
+                      >
+                        {category.fields.name}
+                      </Link>
+                      {/* Add comma between categories, but not after the last one */}
+                      {index < post.fields.categories.length - 1 && ", "}
+                    </span>
+                  ))}
+                </span>
+              )}
+                {/* Check if post.fields.author exists and is an array */}
+                {Array.isArray(post.fields.author) && (
+                  <span className="flex items-center space-x-2">
+                    {post.fields.author.map((author, index) => (
+                      <span
+                        key={author.sys.id}
+                        className="flex items-center space-x-2"
+                      >
+                        {/* Author's photo */}
+                        {author.fields.profilePhoto?.fields?.file?.url && (
+                          <img
+                            src={author.fields.profilePhoto.fields.file.url}
+                            alt={author.fields.name}
+                            className="w-6 h-6 rounded-full object-cover bg-buttonBg"
+                          />
+                        )}
+                        {/* Author's name */}
+                        <Link
+                          to={`/attorneys/${author.fields.slug}`}
+                          className="text-buttonBg font-bold uppercase hover:underline"
+                        >
+                          {author.fields.name}
+                        </Link>
+                        {/* Add comma between authors, but not after the last one */}
+                        {index < post.fields.author.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </span>
+                )}
+                {/* Separator between authors and date */}
+                {Array.isArray(post.fields.author) && (
+                  <span className="mx-2">|</span>
+                )}
+                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>{" "}
+                {/* Date Published */}
+              </div>
+              <p className="mb-4">{previewText}</p>{" "}
+              {/* Display the preview text */}
+              <Link
+                to={`/blog/${post.fields.slug}`}
+                className="flex items-center text-buttonBg hover:underline"
+              >
+                <span className="mr-1 text-sm font-bold">
+                  {content.global.labels.read_more_label}
+                </span>
+               
               </Link>
             </div>
           );

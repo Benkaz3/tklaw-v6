@@ -18,7 +18,7 @@
       "expertise_label": "Lĩnh vực",
       "about_label": "Về chúng tôi",
       "contact_label": "Liên hệ",
-      "read_more_label": "Đọc thêm",
+      "read_more_label": "Đọc tiếp...",
       "breadcrumb_labels": {
         "home": "Trang chủ",
         "about": "Về chúng tôi",
@@ -35,6 +35,10 @@
       "work_experience": "Kinh nghiệm làm việc",
       "introduction": "Giới thiệu",
       "professional_associations": "Hiệp hội chuyên môn"
+    },
+    "blog": {
+      "about_the_author": "Về tác giả",
+      "for_media_inquiries": "Liên hệ báo chí tại: "
     }
   },
   "about_us_section": {
@@ -194,7 +198,11 @@
         "name": "Khương Đình Tiến",
         "title": "Trưởng văn phòng",
         "image": "attorney01",
-        "areas_of_practice": ["Luật Doanh Nghiệp", "Sáp Nhập và Mua Lại", "Tranh Chấp Kinh Doanh"],
+        "areas_of_practice": [
+          "Luật Doanh Nghiệp",
+          "Sáp Nhập và Mua Lại",
+          "Tranh Chấp Kinh Doanh"
+        ],
         "education": [
           "J.D. từ Trường Luật Harvard",
           "B.A. ngành Kinh Doanh từ Đại học Stanford"
@@ -225,7 +233,11 @@
         "name": "Lương Trung Tín",
         "title": "Luật sư cộng sự",
         "image": "attorney02",
-        "areas_of_practice": ["Luật Gia Đình", "Lập Kế Hoạch Tài Sản", "Quyền Nuôi Dưỡng"],
+        "areas_of_practice": [
+          "Luật Gia Đình",
+          "Lập Kế Hoạch Tài Sản",
+          "Quyền Nuôi Dưỡng"
+        ],
         "education": [
           "J.D. từ Trường Luật Yale",
           "B.A. ngành Tâm lý học từ Đại học California, Berkeley"
@@ -256,7 +268,11 @@
         "name": "Ngô Đức Long",
         "title": "Cố vấn Pháp lý",
         "image": "attorney03",
-        "areas_of_practice": ["Sở Hữu Trí Tuệ", "Luật Công Nghệ", "Bảo Vệ Dữ Liệu"],
+        "areas_of_practice": [
+          "Sở Hữu Trí Tuệ",
+          "Luật Công Nghệ",
+          "Bảo Vệ Dữ Liệu"
+        ],
         "education": [
           "J.D. từ Trường Luật Columbia",
           "B.S. ngành Khoa học Máy tính từ MIT"
