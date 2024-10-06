@@ -17,7 +17,7 @@
       "expertise_label": "Expertise",
       "about_label": "About",
       "contact_label": "Contact",
-      "read_more_label": "Read more",
+      "read_more_label": "Continue Reading...",
       "breadcrumb_labels": {
         "home": "Home",
         "about": "About",
@@ -34,6 +34,10 @@
       "work_experience": "Work Experience",
       "introduction": "Introduction",
       "professional_associations": "Professional Associations"
+    },
+    "blog": {
+      "about_the_author": "About the author",
+      "for_media_inquiries": "For media inquiries: "
     }
   },
   "about_us_section": {
@@ -194,7 +198,11 @@
         "name": "Khương Đình Tiến",
         "title": "Managing Partner",
         "image": "attorney01",
-        "areas_of_practice": ["Corporate Law", "Mergers and Acquisitions", "Business Litigation"],
+        "areas_of_practice": [
+          "Corporate Law",
+          "Mergers and Acquisitions",
+          "Business Litigation"
+        ],
         "education": [
           "J.D. from Harvard Law School",
           "B.A. in Business from Stanford University"
@@ -256,7 +264,11 @@
         "name": "Ngô Đức Long",
         "title": "Legal Counsel",
         "image": "attorney03",
-        "areas_of_practice": ["Intellectual Property", "Technology Law", "Data Privacy"],
+        "areas_of_practice": [
+          "Intellectual Property",
+          "Technology Law",
+          "Data Privacy"
+        ],
         "education": [
           "J.D. from Columbia Law School",
           "B.S. in Computer Science from MIT"
