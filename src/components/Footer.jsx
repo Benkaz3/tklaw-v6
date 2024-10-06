@@ -21,7 +21,7 @@ className={`${textColor} uppercase hover:text-linkActive transition duration-300
             {content.global.labels.contact_us_label}
           </Link>
           <Link 
-            to="/team" 
+            to="/attorneys" 
 className={`${textColor} uppercase hover:text-linkActive transition duration-300`}
           >
             {content.global.labels.our_team_label}
