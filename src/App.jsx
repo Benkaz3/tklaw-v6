@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage'; // Import NotFoundPage
 import BlogPage from './pages/BlogPage';
 import PoliciesPage from './pages/PoliciesPage';
 import BlogPost from './pages/BlogPost';
+import OurTeamPage from './pages/OurTeamPage';
 
 import { LanguageProvider } from './components/LanguageProvider';
 import AuthorProfile from './pages/AuthorProfile';
@@ -32,6 +33,7 @@ function App() {
             <Route path="/policies" element={<PoliciesPage />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/attorneys/:slug" element={<AuthorProfile />} />
+            <Route path="/attorneys" element={<OurTeamPage />} />
 
             {/* 404 Page */}
             <Route path="*" element={<NotFoundPage />} />
