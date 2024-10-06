@@ -13,6 +13,7 @@ import PoliciesPage from './pages/PoliciesPage';
 import BlogPost from './pages/BlogPost';
 
 import { LanguageProvider } from './components/LanguageProvider';
+import AuthorProfile from './pages/AuthorProfile';
 
 function App() {
   return (
@@ -29,8 +30,8 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/policies" element={<PoliciesPage />} />
-            {/* <Route path="/blog/:id" element={<BlogPost />} /> Dynamic route for blog post */}
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/attorneys/:authorId" element={<AuthorProfile />} />
 
             {/* 404 Page */}
             <Route path="*" element={<NotFoundPage />} />

@@ -41,7 +41,7 @@ const BlogPage = () => {
 
   // Handle loading and error states
   if (loading) {
-    return <div className="flex items-center justify-center h-screen text-center py-10">
+    return <div className="flex bg-background items-center justify-center h-screen text-center py-10">
       <LoadingDots />
     </div>;
   }

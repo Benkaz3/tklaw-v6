@@ -3,7 +3,8 @@ import useContentful from '../useContentful';
 import Breadcrumb from '../components/Breadcrumb';
 import heroBg from '../assets/practices_hero_bg.webp';
 import { useLanguage } from '../components/LanguageProvider';
-import LoadingDots from '../components/LoadingDots'
+import LoadingDots from '../components/LoadingDots';
+import { Link } from 'react-router-dom';
 
 // Utility function to convert Rich Text to JSX recursively
 const renderRichText = (richTextNode) => {
@@ -71,28 +72,42 @@ const BlogPost = () => {
 
       {/* Breadcrumb */}
      
-        <Breadcrumb />
+        <Breadcrumb postTitle={post.fields.title}/>
       
 
       {/* Post Content */}
       <div className="py-10 max-w-3xl px-4 mx-auto">
-        <div className="relative z-10 max-w-4xl text-start text-white mb-4">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{post.fields.title}</h1>
-        </div>
-        <p className="text-sm text-gray-500 mb-4">
-          {new Date(post.sys.createdAt).toLocaleDateString()} {/* Date Published */}
-        </p>
-        <div className="mb-8 text-lg leading-relaxed text-gray-800">
-          {renderRichText(post.fields.body)} {/* Render Rich Text content */}
-        </div>
+  <div className="relative z-10 max-w-4xl text-start text-white mb-4">
+    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{post.fields.title}</h1>
+  </div>
 
-        <p className="text-lg mt-4">
-          Liên hệ báo chí tại:{' '}
-          <a href={`mailto:${content.global.email}`} className="text-blue-600 hover:underline">
-            {content.global.email}
-          </a>
-        </p>
-      </div>
+  <div className="flex items-center text-sm text-gray-500 mb-4">
+    <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span> {/* Date Published */}
+    <span className="mx-2">|</span> {/* Separator */}
+    <span className='text-blue-600'>
+      {post.fields.author.map((author, index) => (
+        <span key={author.sys.id}>
+          <Link to={`/attorneys/${author.sys.id}`} className="hover:underline">
+            {author.fields.name}
+          </Link>
+          {index < post.fields.author.length - 1 && ', '}
+        </span>
+      ))}
+    </span>
+  </div>
+
+  <div className="mb-8 text-lg leading-relaxed text-gray-800">
+    {renderRichText(post.fields.body)} {/* Render Rich Text content */}
+  </div>
+
+  <p className="text-lg mt-4">
+    Liên hệ báo chí tại:{' '}
+    <a href={`mailto:${content.global.email}`} className="text-blue-600 hover:underline">
+      {content.global.email}
+    </a>
+  </p>
+</div>
+
     </div>
   );
 };
