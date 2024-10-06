@@ -25,8 +25,16 @@
         "expertise": "Lĩnh vực",
         "contact": "Liên hệ",
         "policies": "Chính sách",
-        "blog": "Bài viết"
+        "blog": "Bài viết",
+        "attorneys": "Luật sư"
       }
+    },
+    "attorney_profile": {
+      "areas_of_practice": "Lĩnh vực hành nghề",
+      "education": "Học vấn",
+      "work_experience": "Kinh nghiệm làm việc",
+      "introduction": "Giới thiệu",
+      "professional_associations": "Hiệp hội chuyên môn"
     }
   },
   "about_us_section": {

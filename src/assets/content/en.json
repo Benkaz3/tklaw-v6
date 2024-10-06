@@ -24,8 +24,16 @@
         "expertise": "Expertise",
         "contact": "Contact",
         "policies": "Policies",
-        "blog": "Blog"
+        "blog": "Blog",
+        "attorneys": "Attorneys"
       }
+    },
+    "attorney_profile": {
+      "areas_of_practice": "Areas of Practice",
+      "education": "Education",
+      "work_experience": "Work Experience",
+      "introduction": "Introduction",
+      "professional_associations": "Professional Associations"
     }
   },
   "about_us_section": {

@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { useLanguage } from './LanguageProvider'; // Import the language context
 
-const Breadcrumb = ({postTitle}) => {
+const Breadcrumb = ({postTitle, attorneyName}) => {
   const location = useLocation();
   const { content } = useLanguage(); // Get the content from your language provider
   const pathnames = location.pathname.split('/').filter(Boolean);
@@ -35,7 +35,7 @@ const Breadcrumb = ({postTitle}) => {
               {/* Icon separator */}
               <FiChevronRight className="mx-2 text-accent" />
               {isLast ? (
-                <span className="text-gray-500 text-base overflow-hidden whitespace-nowrap text-ellipsis max-w-[150px] sm:max-w-full">{postTitle || translatedName}</span>
+                <span className="text-gray-500 text-base overflow-hidden whitespace-nowrap text-ellipsis max-w-[150px] sm:max-w-full">{postTitle || attorneyName || translatedName}</span>
               ) : (
                 <Link to={routeTo} className="text-buttonBg hover:underline">
                   {translatedName}
