@@ -3,6 +3,7 @@ import useContentful from '../useContentful';
 import Breadcrumb from '../components/Breadcrumb';
 import heroBg from '../assets/practices_hero_bg.webp';
 import { useLanguage } from '../components/LanguageProvider';
+import LoadingDots from '../components/LoadingDots'
 
 // Utility function to convert Rich Text to JSX recursively
 const renderRichText = (richTextNode) => {
@@ -41,7 +42,7 @@ const BlogPost = () => {
 
   // Handle loading and error states
   if (loading) {
-    return <div className="text-center py-10">Loading...</div>;
+    return <LoadingDots />
   }
 
   if (error) {
@@ -59,7 +60,7 @@ const BlogPost = () => {
     <div className="container mx-auto lg:px-8">
       {/* Hero Section */}
       <section
-        className="relative h-[20vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}

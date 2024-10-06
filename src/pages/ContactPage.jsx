@@ -9,7 +9,7 @@ const ContactPage = () => {
     <div>
       {/* Hero Section */}
       <section
-        className="relative h-[20vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
@@ -17,14 +17,6 @@ const ContactPage = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 max-w-4xl text-center text-white">
-          <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">
-            {content.practices.heroTitle}
-          </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl mt-4">
-            {content.practices.heroSubtitle}
-          </p>
-        </div>
       </section>
       <Breadcrumb />
     <section className="bg-background mt-16">
@@ -46,11 +38,24 @@ const ContactPage = () => {
             <h3 className="text-h2 font-semibold mb-4 text-primary">
               {content.global.labels.office_address_label}
             </h3>
-            <p className="text-text">
-              {content.global.office_address}<br />
-              {content.global.labels.phone_label}: {content.global.phone}<br />
-              {content.global.labels.email_label}: {content.global.email}<br />
-            </p>
+            <div>
+  <p className="text-text">
+    {content.global.office_address}
+  </p>
+  <p className="text-text text-xl font-bold">
+    {content.global.labels.phone_label}:{' '}
+    <a href={`tel:${content.global.phone}`} className="text-blue-600 font-bold hover:underline">
+      {content.global.phone}
+    </a>
+  </p>
+  <p className="text-text">
+    {content.global.labels.email_label}:{' '}
+    <a href={`mailto:${content.global.email}`} className="hover:underline">
+      {content.global.email}
+    </a>
+  </p>
+</div>
+
           </div>
         </div>
       </div>

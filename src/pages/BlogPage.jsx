@@ -3,6 +3,7 @@ import Breadcrumb from '../components/Breadcrumb';
 import heroBg from '../assets/practices_hero_bg.webp';
 import { useLanguage } from '../components/LanguageProvider';
 import { Link } from 'react-router-dom';
+import LoadingDots from '../components/LoadingDots';
 
 
 // Utility function to convert Rich Text to string recursively
@@ -40,7 +41,9 @@ const BlogPage = () => {
 
   // Handle loading and error states
   if (loading) {
-    return <div className="text-center py-10">Loading...</div>;
+    return <div className="flex items-center justify-center h-screen text-center py-10">
+      <LoadingDots />
+    </div>;
   }
 
   if (error) {
@@ -54,7 +57,7 @@ const BlogPage = () => {
     <div className="container mx-auto">
        {/* Hero Section */}
       <section
-        className="relative h-[20vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
@@ -69,14 +72,6 @@ const BlogPage = () => {
       <Breadcrumb />
 
       {/* Top Section */}
-      <div className="text-center my-10">
-        <h1 className="text-3xl font-bold">Truyền Thông</h1>
-        <p className="text-lg mt-1">
-          Liên hệ báo chí tại: <a href={`mailto:${content.global.email}`} className="text-blue-600 hover:underline">{content.global.email}</a>
-        </p>
-      </div>
-
-     
 
       {/* Blog Posts Section */}
       <div className="space-y-8">
@@ -91,7 +86,7 @@ const BlogPage = () => {
               <p className="text-sm text-gray-500 mb-4">{new Date(post.sys.createdAt).toLocaleDateString()}</p> {/* Date Published */}
               <p className="mb-4">{previewText}</p> {/* Display the preview text */}
               <Link to={`/blog/${post.fields.slug}`} className="flex items-center text-blue-600 hover:underline">
-                <span className="mr-1 text-sm">Read More</span>
+                <span className="mr-1 text-sm">{content.global.labels.read_more_label}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"

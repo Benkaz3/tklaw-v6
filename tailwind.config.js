@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -16,7 +17,7 @@ export default {
         photoBg: "#D9D9D9", // light grey for headshot background
         whyUsBg: "#464646",
         linkActive: "#d1beb0",
-        linkHover: ""
+        linkHover: "",
       },
 
       fontFamily: {
@@ -43,6 +44,11 @@ export default {
         "card-padding": "1.25rem", // 20px
         "button-padding": "0.625rem", // 10px
       },
+    },
+    animation: {
+      bounce: "bounce 0.6s infinite alternate",
+      "bounce-200": "bounce 0.6s infinite 0.2s alternate",
+      "bounce-400": "bounce 0.6s infinite 0.4s alternate",
     },
   },
   plugins: [],

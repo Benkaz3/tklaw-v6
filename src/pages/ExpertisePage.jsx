@@ -13,7 +13,7 @@ const Expertise = () => {
   return (
     <div className="expertise-page-container py-8 max-w-7xl mx-auto">
       <section
-        className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
+        className="relative h-[25vh] bg-cover bg-center flex items-center justify-start"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
