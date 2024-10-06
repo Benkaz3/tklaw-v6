@@ -31,7 +31,7 @@ function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/policies" element={<PoliciesPage />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/attorneys/:authorId" element={<AuthorProfile />} />
+            <Route path="/attorneys/:slug" element={<AuthorProfile />} />
 
             {/* 404 Page */}
             <Route path="*" element={<NotFoundPage />} />

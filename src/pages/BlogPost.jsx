@@ -30,20 +30,19 @@ const renderRichText = (richTextNode) => {
 
 const BlogPost = () => {
   const { content } = useLanguage();
-//   const { id } = useParams(); // Get the blog post ID from the URL
-    const { slug } = useParams(); 
+  const { slug } = useParams(); 
 
-  // Fetch the individual blog post by ID
+  // Fetch the individual blog post by slug
   const { data, loading, error } = useContentful([
     {
       content_type: 'blogPage',
-      'fields.slug': slug, // Filter by post ID
+      'fields.slug': slug, // Filter by slug
     },
   ]);
 
   // Handle loading and error states
   if (loading) {
-    return <LoadingDots />
+    return <LoadingDots />;
   }
 
   if (error) {
@@ -67,47 +66,43 @@ const BlogPost = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        
       </section>
 
       {/* Breadcrumb */}
-     
-        <Breadcrumb postTitle={post.fields.title}/>
-      
+      <Breadcrumb postTitle={post.fields.title} />
 
       {/* Post Content */}
       <div className="py-10 max-w-3xl px-4 mx-auto">
-  <div className="relative z-10 max-w-4xl text-start text-white mb-4">
-    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{post.fields.title}</h1>
-  </div>
+        <div className="relative z-10 max-w-4xl text-start text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{post.fields.title}</h1>
+        </div>
 
-  <div className="flex items-center text-sm text-gray-500 mb-4">
-    <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span> {/* Date Published */}
-    <span className="mx-2">|</span> {/* Separator */}
-    <span className='text-blue-600'>
-      {post.fields.author.map((author, index) => (
-        <span key={author.sys.id}>
-          <Link to={`/attorneys/${author.sys.id}`} className="hover:underline">
-            {author.fields.name}
-          </Link>
-          {index < post.fields.author.length - 1 && ', '}
-        </span>
-      ))}
-    </span>
-  </div>
+        <div className="flex items-center text-sm text-gray-500 mb-4">
+          <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span> {/* Date Published */}
+          <span className="mx-2">|</span> {/* Separator */}
+          <span className="text-blue-600">
+            {post.fields.author.map((author, index) => (
+              <span key={author.sys.id}>
+                <Link to={`/attorneys/${author.fields.slug}`} className="hover:underline">
+                  {author.fields.name}
+                </Link>
+                {index < post.fields.author.length - 1 && ', '}
+              </span>
+            ))}
+          </span>
+        </div>
 
-  <div className="mb-8 text-lg leading-relaxed text-gray-800">
-    {renderRichText(post.fields.body)} {/* Render Rich Text content */}
-  </div>
+        <div className="mb-8 text-lg leading-relaxed text-gray-800">
+          {renderRichText(post.fields.body)} {/* Render Rich Text content */}
+        </div>
 
-  <p className="text-lg mt-4">
-    Liên hệ báo chí tại:{' '}
-    <a href={`mailto:${content.global.email}`} className="text-blue-600 hover:underline">
-      {content.global.email}
-    </a>
-  </p>
-</div>
-
+        <p className="text-lg mt-4">
+          Liên hệ báo chí tại:{' '}
+          <a href={`mailto:${content.global.email}`} className="text-blue-600 hover:underline">
+            {content.global.email}
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
