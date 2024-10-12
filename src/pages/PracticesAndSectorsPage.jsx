@@ -125,6 +125,7 @@ const PracticesAndSectorsSection = () => {
         <div className='absolute inset-0 bg-black opacity-50'></div>
       </section>
       <Breadcrumb />
+
       <div className='max-w-container-desktop mx-auto px-4 mt-8'>
         <h1 className='font-primary text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
           {t('homepage.practices_and_sectors_title')}

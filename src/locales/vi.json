@@ -188,7 +188,24 @@
         "attorneys": "Luật sư",
         "luat-su": "Luật sư",
         "linh-vuc-va-nganh-nghe": "Lĩnh vực & ngành nghề",
-        "lien-he": "Liên hệ"
+        "lien-he": "Liên hệ",
+        "ban-le": "Bán lẻ",
+
+        "nganh-bat-dong-san": "Bất động sản",
+
+        "cham-soc-suc-khoe": "Chăm sóc sức khỏe",
+
+        "cong-nghe": "Công nghệ",
+
+        "dich-vu-tai-chinh": "Dịch vụ tài chính",
+
+        "luat-bat-dong-san": "Luật Bất Động Sản",
+
+        "luat-doanh-nghiep": "Luật Doanh Nghiệp",
+
+        "luat-gia-dinh": "Luật Gia Đình",
+
+        "luat-lao-dong": "Luật Lao Động"
       }
     },
     "attorney_profile": {
