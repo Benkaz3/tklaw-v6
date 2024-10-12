@@ -147,7 +147,7 @@
   },
   "menu": {
     "attorneys": "Attorneys",
-    "practices": "Practices & Sectors",
+    "practices": "Practices",
     "blog": "Blog",
     "location": "Location",
     "contact": "Contact us",
@@ -190,7 +190,16 @@
         "blog": "Blog",
         "attorneys": "Attorneys",
         "luat-su": "Attorneys",
-        "linh-vuc-va-nganh-nghe": "Practices & sectors"
+        "practices-and-sectors": "Practices & Sectors",
+        "corporate-law": "Corporate Law",
+        "employment-law": "Employment Law",
+        "family-law": "Family Law",
+        "financial-services": "Financial Services",
+        "healthcare": "Healthcare",
+        "real-estate-sector": "Real Estate",
+        "real-estate-law": "Real Estate Law",
+        "retail": "Retail",
+        "technology": "Technology"
       }
     },
     "attorney_profile": {

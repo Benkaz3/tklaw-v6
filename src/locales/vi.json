@@ -146,8 +146,8 @@
     "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.291526518625!2d106.6969846388218!3d10.788969489404884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0272f66439%3A0x7a79dd0713b75f29!2sG%20Office%20Chi%20nh%C3%A1nh%20Rosana%20Building!5e0!3m2!1sen!2s!4v1727671807556!5m2!1sen!2s"
   },
   "menu": {
-    "attorneys": "Đội ngũ luật sư",
-    "practices": "Lĩnh vực và ngành nghề",
+    "attorneys": "Luật sư",
+    "practices": "Lĩnh vực",
     "blog": "Blog",
     "location": "Location",
     "contact": "Liên hệ",
@@ -188,7 +188,24 @@
         "attorneys": "Luật sư",
         "luat-su": "Luật sư",
         "linh-vuc-va-nganh-nghe": "Lĩnh vực & ngành nghề",
-        "lien-he": "Liên hệ"
+        "lien-he": "Liên hệ",
+        "ban-le": "Bán lẻ",
+
+        "nganh-bat-dong-san": "Bất động sản",
+
+        "cham-soc-suc-khoe": "Chăm sóc sức khỏe",
+
+        "cong-nghe": "Công nghệ",
+
+        "dich-vu-tai-chinh": "Dịch vụ tài chính",
+
+        "luat-bat-dong-san": "Luật Bất Động Sản",
+
+        "luat-doanh-nghiep": "Luật Doanh Nghiệp",
+
+        "luat-gia-dinh": "Luật Gia Đình",
+
+        "luat-lao-dong": "Luật Lao Động"
       }
     },
     "attorney_profile": {

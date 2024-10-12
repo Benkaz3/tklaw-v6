@@ -107,7 +107,9 @@ const BlogPage = () => {
                         )}
                         {/* Author's name */}
                         <Link
-                          to={`/attorneys/${author.fields.slug}`}
+                          to={`/${
+                            language === 'vi' ? 'vi/luat-su/' : 'en/attorneys/'
+                          }${author.fields.slug}`}
                           className='text-buttonBg font-bold uppercase hover:underline'
                         >
                           {author.fields.name}
