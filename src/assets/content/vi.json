@@ -41,6 +41,156 @@
       "for_media_inquiries": "Liên hệ báo chí tại: "
     }
   },
+  "homepage": {
+    "hero": {
+      "title": "Giải pháp pháp lý tối ưu cho mỗi khách hàng.",
+      "subtitle": "TK & Associates hoạt động trong các lĩnh vực luật kinh doanh, bất động sản, và dịch vụ pháp lý cá nhân với cam kết tận tình và hiệu quả.",
+      "button_text": "Liên hệ với chúng tôi"
+    },
+    "practices_section_title": "Lĩnh Vực Hoạt Động",
+    "practices": [
+      {
+        "title": "Luật Doanh Nghiệp",
+        "description": "Hỗ trợ doanh nghiệp vượt qua các quy định phức tạp về doanh nghiệp.",
+        "link": "/expertise/practices/corporate-law"
+      },
+      {
+        "title": "Luật Gia Đình",
+        "description": "Cung cấp sự hỗ trợ tận tâm cho các vấn đề pháp lý liên quan đến gia đình.",
+        "link": "/expertise/practices/family-law"
+      },
+      {
+        "title": "Luật Lao Động",
+        "description": "Hướng dẫn nhà tuyển dụng và người lao động qua các tranh chấp và luật lao động.",
+        "link": "/expertise/practices/employment-law"
+      },
+      {
+        "title": "Luật Bất Động Sản",
+        "description": "Hỗ trợ khách hàng trong việc mua bán và cho thuê bất động sản.",
+        "link": "/expertise/practices/real-estate-law"
+      }
+    ],
+    "why_choose_us_section_title": "Tại Sao Chọn TK & Associates?",
+    "why_choose_us": [
+      {
+        "title": "Giải pháp hiệu quả",
+        "description": [
+          {
+            "type": "text",
+            "value": "từ đội ngũ "
+          },
+          {
+            "type": "link",
+            "value": "luật sư",
+            "to": "/attorneys"
+          },
+          {
+            "type": "text",
+            "value": " giàu kinh nghiệm."
+          }
+        ]
+      },
+      {
+        "title": "Chuyên Môn Pháp Lý",
+        "description": [
+          {
+            "type": "text",
+            "value": "trong nhiều "
+          },
+          {
+            "type": "link",
+            "value": "ngành nghề",
+            "to": "/practices"
+          },
+          {
+            "type": "text",
+            "value": "."
+          }
+        ]
+      },
+      {
+        "title": "Kinh Nghiệm Dày Dặn",
+        "description": [
+          {
+            "type": "text",
+            "value": "với tỉ lệ thành công cao. "
+          },
+          {
+            "type": "link",
+            "value": "Xem đánh giá",
+            "to": "/#testimonials"
+          }
+        ]
+      },
+      {
+        "title": "Chi Phí Hợp Lý",
+        "description": [
+          {
+            "type": "text",
+            "value": "phù hợp với nhu cầu của bạn. "
+          },
+          {
+            "type": "link",
+            "value": "Liên hệ với chúng tôi",
+            "to": "/contact"
+          }
+        ]
+      }
+    ],
+    "testimonials_section": {
+      "title": "Đánh giá của khách hàng",
+      "subtitle": "Những gì khách hàng nói về dịch vụ của TK & Associates",
+      "items": [
+        {
+          "id": 1,
+          "quote": "Đội ngũ pháp lý đã cung cấp sự hỗ trợ tuyệt vời trong thời gian khó khăn của tôi. Sự hướng dẫn của họ đã tạo ra sự khác biệt.",
+          "name": "Nguyễn Văn An",
+          "caseDetail": "Tranh chấp hợp đồng doanh nghiệp",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 2,
+          "quote": "Tôi ấn tượng với sự chuyên nghiệp và tận tâm của họ. Họ thực sự quan tâm đến vụ việc của tôi và điều đó được thể hiện rõ.",
+          "name": "Trần Thị Mai",
+          "caseDetail": "Sắp xếp quyền nuôi con",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 3,
+          "quote": "Nhờ có chuyên môn của họ, tôi đã có thể thành công vượt qua những phức tạp của luật lao động.",
+          "name": "Lê Minh Tuấn",
+          "caseDetail": "Vụ sa thải sai luật",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 4,
+          "quote": "Kiến thức và kinh nghiệm của họ đã vô cùng quý giá trong việc đạt được kết quả có lợi cho giao dịch bất động sản của tôi.",
+          "name": "Phạm Thị Lan",
+          "caseDetail": "Mua bán bất động sản",
+          "photo": null,
+          "rating": 5
+        }
+      ]
+    },
+    "our_team_section": {
+      "title": "Đội ngũ luật sư",
+      "subtitle": "Tìm hiểu thêm về đội ngũ luật sư của TK & Associates",
+      "link_text": "Xem hồ sơ"
+    },
+    "cta_section": {
+      "title": "Liên hệ với chúng tôi để được",
+      "highlight_title": "tư vấn miễn phí",
+      "subtitle": "Các luật sư giàu kinh nghiệm của chúng tôi luôn sẵn sàng giúp bạn giải quyết các thách thức pháp lý. Hãy liên hệ với chúng tôi ngay hôm nay!",
+      "button_text": "Liên hệ"
+    },
+    "blog_section": {
+      "title": "Bài viết mới nhất"
+    }
+  },
+
   "about_us_section": {
     "hero": {
       "heading": "Tận tâm phục vụ",
@@ -456,7 +606,7 @@
     "practices": [
       {
         "name": "Tư vấn pháp lý",
-        "description": "Chúng tôi cung cấp dịch vụ tư vấn và hỗ trợ pháp lý cho cá nhân, doanh nghiệp và tổ chức, giúp họ hiểu và tuân thủ các quy định pháp lý.",
+        "description": "Cung cấp dịch vụ tư vấn và hỗ trợ pháp lý.",
         "image": "practice01",
         "services": ["Tư vấn doanh nghiệp", "Tư vấn đầu tư", "Tư vấn hợp đồng"]
       },
@@ -484,9 +634,9 @@
   },
   "hero": {
     "title": "TK & ASSOCIATES\nLAW OFFICE",
-    "subtitle": "20 năm bảo vệ quyền lợi hợp pháp cho cá nhân và tổ chức",
-    "description": "Chúng tôi cung cấp dịch vụ tư vấn và hỗ trợ pháp lý cho cá nhân, doanh nghiệp và tổ chức, giúp họ hiểu và tuân thủ các quy định pháp lý.",
-    "buttonText": "Liên hệ tư vấn",
+    "subtitle": "20 năm kinh nghiệm",
+    "description": "Cung cấp dịch vụ tư vấn và hỗ trợ pháp lý cho mọi đối tượng khách hàng.",
+    "buttonText": "Liên hệ",
     "buttonLink": "https://google.com",
     "scrollDownText": "Xem thêm"
   },

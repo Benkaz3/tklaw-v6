@@ -1,0 +1,287 @@
+{
+  "homepage": {
+    "hero": {
+      "title": "Expert Legal Solutions, Tailored for You.",
+      "subtitle": "Specializing in Business Law, Real Estate, and Personal Legal Services with a Commitment to Personalized Attention and Results.",
+      "button_text": "Talk to us",
+      "meet_the_team": "Meet the team"
+    },
+    "practices_and_sectors_title": "Practices & Client Sectors",
+    "practices": "Practices",
+    "client_sectors": "Client sectors",
+    "link_text": "Read more...",
+
+    "why_choose_us_section_title": "Why Choose TK & Associates?",
+    "why_choose_us": [
+      {
+        "title": "Personalized attention",
+        "description": [
+          {
+            "type": "text",
+            "value": "from senior "
+          },
+          {
+            "type": "link",
+            "value": "attorneys",
+            "to": "attorneys"
+          },
+          {
+            "type": "text",
+            "value": "."
+          }
+        ]
+      },
+      {
+        "title": "Specialized legal expertise",
+        "description": [
+          {
+            "type": "text",
+            "value": "across multiple "
+          },
+          {
+            "type": "link",
+            "value": "industries",
+            "to": "practices-and-sectors?tab=sectors"
+          },
+          {
+            "type": "text",
+            "value": "."
+          }
+        ]
+      },
+      {
+        "title": "Proven track record",
+        "description": [
+          {
+            "type": "text",
+            "value": "with high success rates. "
+          },
+          {
+            "type": "link",
+            "value": "See testimonials",
+            "to": "#testimonials"
+          }
+        ]
+      },
+      {
+        "title": "Flexible pricing models",
+        "description": [
+          {
+            "type": "text",
+            "value": "to fit your needs. "
+          },
+          {
+            "type": "link",
+            "value": "Contact us",
+            "to": "contact"
+          }
+        ]
+      }
+    ],
+    "testimonials_section": {
+      "title": "Client Testimonials",
+      "subtitle": "What our clients are saying about our services",
+      "items": [
+        {
+          "id": 1,
+          "quote": "The legal team provided exceptional support during my difficult time. Their guidance made all the difference.",
+          "name": "Nguyễn Văn An",
+          "caseDetail": "Corporate contract dispute",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 2,
+          "quote": "I was impressed with their professionalism and dedication. They truly cared about my case and it showed.",
+          "name": "Trần Thị Mai",
+          "caseDetail": "Family custody arrangement",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 3,
+          "quote": "Thanks to their expertise, I was able to navigate the complexities of employment law successfully.",
+          "name": "Lê Minh Tuấn",
+          "caseDetail": "Wrongful termination case",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 4,
+          "quote": "Their knowledge and experience were invaluable in securing a favorable outcome for my real estate transaction.",
+          "name": "Phạm Thị Lan",
+          "caseDetail": "Real estate purchase",
+          "photo": null,
+          "rating": 5
+        }
+      ]
+    },
+    "our_team_section": {
+      "title": "Meet our Attorneys",
+      "subtitle": "Learn more about our dedicated team of attorneys",
+      "link_text": "View profile"
+    },
+    "cta_section": {
+      "title": "Contact us for a",
+      "highlight_title": "free consultation",
+      "subtitle": "Our experienced attorneys are here to help you navigate your legal challenges. Reach out to use today!",
+      "button_text": "Call us"
+    },
+    "blog_section": {
+      "title": "Latest articles"
+    }
+  },
+  "businessInfo": {
+    "name": "TK & Associates",
+    "hotline": "+84 28 2221 6597",
+    "longHotlineText": "Call to schedule your consultation today: ",
+    "shortHotlineText": "Call: ",
+    "buttonText": "Call now for a free consultation!",
+    "ctaText": "Don't wait - take the first step towards resolving your legal issues today!",
+    "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH",
+    "email": "contact@tklawfirm.vn",
+    "alternatePhone": "+84 3 333 1698",
+    "officeHours": "Monday to Friday, 9 AM - 6 PM",
+    "mapLink": "https://www.google.com/maps/dir/?api=1&destination=TK%20Associates%20Location",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.291526518625!2d106.6969846388218!3d10.788969489404884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0272f66439%3A0x7a79dd0713b75f29!2sG%20Office%20Chi%20nh%C3%A1nh%20Rosana%20Building!5e0!3m2!1sen!2s!4v1727671807556!5m2!1sen!2s"
+  },
+  "menu": {
+    "attorneys": "Attorneys",
+    "practices": "Practices & Sectors",
+    "blog": "Blog",
+    "location": "Location",
+    "contact": "Contact us",
+    "policies": "Policies",
+
+    "path": {
+      "attorneys": "attorneys",
+      "blog": "blog",
+      "practices_and_sectors": "practices-and-sectors",
+      "contact": "contact",
+      "policies": "policies"
+    }
+  },
+  "global": {
+    "office_address": "1st Floor, Rosana Building, 60 Nguyen Dinh Chieu, Da Kao Ward, District 1, Ho Chi Minh city, Vietnam",
+    "phone": "+84 28 2221 6597",
+    "email": "khuongdinhtien@gmail.com",
+    "footer_copy_statement": "TK & Associates - HCMC, Vietnam. All rights reserved.",
+    "labels": {
+      "office_address_label": "Ho Chi Minh city Office: ",
+      "phone_label": "Tel: ",
+      "email_label": "Email: ",
+      "awards_label": "Awards",
+      "contact_us_label": "Contact us",
+      "our_team_label": "Our team",
+      "policies_label": "Policies",
+      "blog_label": "Blog",
+      "news_label": "News & insights",
+      "expertise_label": "Expertise",
+      "about_label": "About",
+      "contact_label": "Contact",
+      "read_more_label": "Continue Reading...",
+      "view_on_map_label": "View on map",
+      "breadcrumb_labels": {
+        "home": "Home",
+        "about": "About",
+        "expertise": "Expertise",
+        "contact": "Contact",
+        "policies": "Policies",
+        "blog": "Blog",
+        "attorneys": "Attorneys",
+        "luat-su": "Attorneys",
+        "linh-vuc-va-nganh-nghe": "Practices & sectors"
+      }
+    },
+    "attorney_profile": {
+      "areas_of_practice": "Areas of Practice",
+      "education": "Education",
+      "work_experience": "Work Experience",
+      "introduction": "Introduction",
+      "professional_associations": "Professional Associations"
+    },
+    "blog": {
+      "about_the_author": "About the author",
+      "for_media_inquiries": "For media inquiries: "
+    }
+  },
+  "faqs_section": {
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "question": "What are the main areas of legal expertise TK & Associates offers?",
+        "answer": "TK & Associates specializes in corporate law, intellectual property, family law, and dispute resolution."
+      },
+      {
+        "question": "How can I schedule a consultation with TK & Associates?",
+        "answer": "You can schedule a consultation by contacting us via phone, email, or filling out the consultation form on our website."
+      },
+      {
+        "question": "What are the consultation fees?",
+        "answer": "Consultation fees vary depending on the complexity of your case. Please contact us for a detailed fee schedule."
+      },
+      {
+        "question": "Can TK & Associates help with international legal issues?",
+        "answer": "Yes, TK & Associates has experience in handling international cases, including cross-border mergers and intellectual property disputes."
+      },
+      {
+        "question": "What documents should I bring to my first consultation?",
+        "answer": "Please bring any relevant documents such as contracts, agreements, or correspondence related to your case."
+      }
+    ]
+  },
+  "policies": {
+    "title": "Policies",
+
+    "privacy_policy": {
+      "title": "Privacy Policy",
+      "content": [
+        "We collect personal information such as names, emails, and browsing behavior to provide legal services and respond to client inquiries.",
+        "We secure your personal information with reasonable security measures and do not share your information with third parties without your consent.",
+        "We use cookies to enhance your browsing experience."
+      ]
+    },
+    "terms_of_use": {
+      "title": "Terms of Use",
+      "content": [
+        "Users may not use the content on this website without permission from TK & Associates.",
+        "We are not responsible for any errors or omissions on this website."
+      ]
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": [
+        "The information on this website is for informational purposes only and does not constitute legal advice.",
+        "Contacting TK & Associates does not establish an attorney-client relationship."
+      ]
+    },
+    "cookie_policy": {
+      "title": "Cookie Policy",
+      "content": [
+        "We use cookies to track your browsing behavior and improve your experience on our website.",
+        "You can control cookies through your browser settings."
+      ]
+    },
+    "accessibility_statement": {
+      "title": "Accessibility Statement",
+      "content": [
+        "We are committed to ensuring that our website is accessible to all users, including those with disabilities."
+      ]
+    },
+    "client_rights": {
+      "title": "Client Rights",
+      "content": [
+        "Clients have the right to expect absolute confidentiality regarding communications with their attorney.",
+        "We are committed to providing timely and professional legal services."
+      ]
+    }
+  },
+  "not_found_page": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "link_text": "Go back to Home"
+  },
+  "practice_details_page": {
+    "view_profile": "View profile"
+  }
+}

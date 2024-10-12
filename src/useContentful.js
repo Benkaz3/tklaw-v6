@@ -7,7 +7,7 @@ const useContentful = (queries) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Use a ref to store the previous queries
   const previousQueriesRef = useRef();
 
@@ -21,14 +21,13 @@ const useContentful = (queries) => {
         setLoading(true);
         try {
           const results = await Promise.all(
-            queries.map(query => client.getEntries(query))
+            queries.map((query) => client.getEntries(query))
           );
           // Extract data from each result and store it in an object
           const dataObject = results.reduce((acc, result, index) => {
             acc[queries[index].content_type] = result.items;
             return acc;
           }, {});
-          console.log('Fetched Data:', dataObject); // Debugging output
           setData(dataObject);
         } catch (err) {
           console.error('Fetch Error:', err); // Error output

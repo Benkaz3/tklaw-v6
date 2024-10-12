@@ -1,15 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: "#1a1a1a", // Darker black
-        secondary: "#e0e0e0", // Light gray for background areas
-        accent: "#737373", // Slightly lighter black for accents
-        background: "#f0f0f0", // Softer white/gray for page backgrounds
-        text: "#1c1c1c", // Dark gray for text for better readability
+        text: "#080909", // shade of black
+        background: "#f6f7f9", // tinted white/grey
+        primary: "#3E4F7A", // muted blue - logo
+        secondary: "#94a9df", // tinted blue
+        accent: "#668ae5", // shaded blue
+        shaded_accent: "#95AADF",
+        card_background: "#EEEFF2", // shaded pink/purple
+        section_background: "#E4E9F3", // shaded light grey/blue
+        highlight_card_background: "#D5D9E1", // darker light grey/blue
+
         muted: "#7f7f7f", // Muted gray for less important text
         buttonBg: "#3E4F7A", // Muted dark red for button background
         navLinkAccent: "#be000c", // brighter red accent for navbar links
@@ -43,6 +48,14 @@ export default {
         "section-margin": "2.5rem", // 40px
         "card-padding": "1.25rem", // 20px
         "button-padding": "0.625rem", // 10px
+      },
+      backgroundImage: {
+        "linear-primary-secondary": "linear-gradient(#3e4f7a, #95aadf)",
+        "linear-primary-accent": "linear-gradient(#3e4f7a, #668ae5)",
+        "linear-secondary-accent": "linear-gradient(#95aadf, #668ae5)",
+        "radial-primary-secondary": "radial-gradient(#3e4f7a, #95aadf)",
+        "radial-primary-accent": "radial-gradient(#3e4f7a, #668ae5)",
+        "radial-secondary-accent": "radial-gradient(#95aadf, #668ae5)",
       },
     },
     animation: {
