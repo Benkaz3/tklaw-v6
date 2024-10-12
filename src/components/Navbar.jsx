@@ -39,6 +39,7 @@ function Navbar() {
             </Link>
           </div>
 
+          {/* Desktop Menu */}
           <div className='hidden lg:flex space-x-6'>
             {/* Main Navigation Links */}
             <Link
@@ -73,6 +74,7 @@ function Navbar() {
             <button
               onClick={toggleMenu}
               className='block lg:hidden focus:outline-none transition-transform duration-1000 transform hover:scale-110 text-black menu-button'
+              aria-label='Toggle Menu'
             >
               {isOpen ? (
                 <FaTimes size={32} className='text-buttonBg' />
@@ -85,7 +87,7 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className='bg-white text-black overflow-hidden transition-transform duration-1000 ease-in-out'>
+          <div className='bg-white text-black overflow-hidden transition-transform duration-300 ease-in-out'>
             <div className='flex flex-col items-center space-y-4 py-4'>
               <Link
                 to={getDynamicPath('attorneys')}
