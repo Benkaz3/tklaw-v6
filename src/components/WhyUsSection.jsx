@@ -1,52 +1,72 @@
-import { FiArrowRight } from 'react-icons/fi';
-import { FaUser, FaBullseye, FaTrophy } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useLanguage } from './LanguageProvider';
+import { useTranslation } from 'react-i18next';
 
-function WhyUsSection() {
-  const { content } = useLanguage();
+const WhyUsSection = () => {
+  const { t, i18n } = useTranslation(); // Use i18n's useTranslation hook
+  const currentLanguage = i18n.language; // Get current language
+
+  // Array of background colors for the cards
+  const bgColors = ['bg-primary', 'bg-secondary', 'bg-text', 'bg-accent'];
 
   return (
-    <section className="relative w-full bg-gray-100 py-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 sm:px-8 md:px-16">
-        {/* Left side: Title, Subtitle, and Button */}
-        <div className="bg-white p-6 sm:p-8 md:p-10 rounded-md text-center lg:text-left flex flex-col justify-center">
-          <h1 className="font-primary text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
-            {content.whyUs.title}
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-6">
-            {content.whyUs.subtitle}
-          </p>
-          <Link
-            to="/contact"
-            className="uppercase inline-flex items-center justify-center rounded-sm bg-buttonBg text-white py-3 px-5 hover:bg-white hover:text-buttonBg transition duration-300"
-          >
-            {content.whyUs.buttonText}
-            <FiArrowRight className="ml-2" />
-          </Link>
-        </div>
-
-        {/* Right side: Points with icons */}
-        <div className="flex flex-col justify-center space-y-6 text-black">
-          {content.whyUs.points.map((point, index) => (
-            <div key={index} className="flex items-start space-x-4">
-              {/* Icon for each point */}
-              <div className="text-buttonBg text-3xl sm:text-4xl lg:text-5xl">
-                {index === 0 && <FaUser />}
-                {index === 1 && <FaBullseye />}
-                {index === 2 && <FaTrophy />}
+    <section className='w-full py-12 bg-background'>
+      <div className='container mx-auto px-4'>
+        <h1 className='font-primary text-start sm:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
+          {t('homepage.why_choose_us_section_title')}{' '}
+        </h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6'>
+          {t('homepage.why_choose_us', { returnObjects: true }).map(
+            (point, index) => (
+              <div
+                key={index}
+                className={`card ${
+                  bgColors[index % bgColors.length]
+                } py-16 px-8 lg:px-28 rounded-lg shadow-sm hover:shadow-lg transition-shadow`}
+              >
+                <h3
+                  className={`text-4xl font-medium ${
+                    bgColors[index % bgColors.length] === 'bg-primary' ||
+                    bgColors[index % bgColors.length] === 'bg-text'
+                      ? 'text-white'
+                      : 'text-text'
+                  } mb-4`}
+                >
+                  {point.title}
+                </h3>
+                <div className='border-t border-background pt-4'>
+                  <p
+                    className={`${
+                      bgColors[index % bgColors.length] === 'bg-primary' ||
+                      bgColors[index % bgColors.length] === 'bg-text'
+                        ? 'text-white'
+                        : 'text-text'
+                    } mb-6`}
+                  >
+                    {point.description.map((part, i) => {
+                      if (part.type === 'text') {
+                        return <span key={i}>{part.value}</span>;
+                      } else if (part.type === 'link') {
+                        const linkTo = `/${currentLanguage}/${part.to}`;
+                        return (
+                          <span
+                            key={i}
+                            className='font-bold underline-animation'
+                          >
+                            <Link to={linkTo}>{part.value}</Link>
+                          </span>
+                        );
+                      }
+                      return null;
+                    })}
+                  </p>
+                </div>
               </div>
-              {/* Title and Description */}
-              <div>
-                <h3 className="text-black text-base sm:text-lg lg:text-xl font-bold">{point.title}</h3>
-                <p className="text-xs sm:text-sm lg:text-base text-gray-600">{point.description}</p>
-              </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default WhyUsSection;

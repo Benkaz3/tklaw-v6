@@ -1,0 +1,284 @@
+{
+  "homepage": {
+    "hero": {
+      "title": "Giải pháp pháp lý tối ưu cho mỗi khách hàng.",
+      "subtitle": "TK & Associates hoạt động trong các lĩnh vực luật kinh doanh, bất động sản, và dịch vụ pháp lý cá nhân với cam kết tận tình và hiệu quả.",
+      "button_text": "Liên hệ với chúng tôi",
+      "meet_the_team": "Đội ngũ luật sư"
+    },
+    "practices_and_sectors_title": "Lĩnh vực hoạt động và ngành nghề",
+    "practices": "Lĩnh vực",
+    "client_sectors": "Ngành nghề",
+    "link_text": "Đọc thêm...",
+
+    "why_choose_us_section_title": "Tại Sao Chọn TK & Associates?",
+    "why_choose_us": [
+      {
+        "title": "Giải pháp hiệu quả",
+        "description": [
+          {
+            "type": "text",
+            "value": "từ đội ngũ "
+          },
+          {
+            "type": "link",
+            "value": "luật sư",
+            "to": "luat-su"
+          },
+          {
+            "type": "text",
+            "value": " giàu kinh nghiệm."
+          }
+        ]
+      },
+      {
+        "title": "Chuyên Môn Pháp Lý",
+        "description": [
+          {
+            "type": "text",
+            "value": "trong nhiều "
+          },
+          {
+            "type": "link",
+            "value": "ngành nghề",
+            "to": "linh-vuc-va-nganh-nghe?tab=nganh-nghe"
+          },
+          {
+            "type": "text",
+            "value": "."
+          }
+        ]
+      },
+      {
+        "title": "Kinh Nghiệm Dày Dặn",
+        "description": [
+          {
+            "type": "text",
+            "value": "với tỉ lệ thành công cao. "
+          },
+          {
+            "type": "link",
+            "value": "Xem đánh giá",
+            "to": "#testimonials"
+          }
+        ]
+      },
+      {
+        "title": "Chi Phí Hợp Lý",
+        "description": [
+          {
+            "type": "text",
+            "value": "phù hợp với nhu cầu của bạn. "
+          },
+          {
+            "type": "link",
+            "value": "Liên hệ với chúng tôi",
+            "to": "lien-he"
+          }
+        ]
+      }
+    ],
+    "testimonials_section": {
+      "title": "Đánh giá của khách hàng",
+      "subtitle": "Những gì khách hàng nói về dịch vụ của TK & Associates",
+      "items": [
+        {
+          "id": 1,
+          "quote": "Đội ngũ pháp lý đã cung cấp sự hỗ trợ tuyệt vời trong thời gian khó khăn của tôi. Sự hướng dẫn của họ đã tạo ra sự khác biệt.",
+          "name": "Nguyễn Văn An",
+          "caseDetail": "Tranh chấp hợp đồng doanh nghiệp",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 2,
+          "quote": "Tôi ấn tượng với sự chuyên nghiệp và tận tâm của họ. Họ thực sự quan tâm đến vụ việc của tôi và điều đó được thể hiện rõ.",
+          "name": "Trần Thị Mai",
+          "caseDetail": "Sắp xếp quyền nuôi con",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 3,
+          "quote": "Nhờ có chuyên môn của họ, tôi đã có thể thành công vượt qua những phức tạp của luật lao động.",
+          "name": "Lê Minh Tuấn",
+          "caseDetail": "Vụ sa thải sai luật",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 4,
+          "quote": "Kiến thức và kinh nghiệm của họ đã vô cùng quý giá trong việc đạt được kết quả có lợi cho giao dịch bất động sản của tôi.",
+          "name": "Phạm Thị Lan",
+          "caseDetail": "Mua bán bất động sản",
+          "photo": null,
+          "rating": 5
+        }
+      ]
+    },
+    "our_team_section": {
+      "title": "Đội ngũ luật sư",
+      "subtitle": "Tìm hiểu thêm về đội ngũ luật sư của TK & Associates",
+      "link_text": "Xem hồ sơ"
+    },
+    "cta_section": {
+      "title": "Liên hệ với chúng tôi để được",
+      "highlight_title": "tư vấn miễn phí",
+      "subtitle": "Các luật sư giàu kinh nghiệm của chúng tôi luôn sẵn sàng giúp bạn giải quyết các thách thức pháp lý. Hãy liên hệ với chúng tôi ngay hôm nay!",
+      "button_text": "Liên hệ"
+    },
+    "blog_section": {
+      "title": "Bài viết mới nhất"
+    }
+  },
+  "businessInfo": {
+    "name": "TK & Associates",
+    "hotline": "+84 28 2221 6597",
+    "longHotlineText": "Gọi ngay để đặt lịch tư vấn: ",
+    "shortHotlineText": "Gọi: ",
+    "buttonText": "Gọi ngay để được tư vấn miễn phí!",
+    "ctaText": "Đừng chần chừ - Hãy thực hiện bước đầu tiên để giải quyết các vấn đề pháp lý của bạn!",
+    "registeredName": "VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH",
+    "email": "contact@tklawfirm.vn",
+    "alternatePhone": "+84 3 333 1698",
+    "officeHours": "Thứ Hai đến Thứ Sáu, 9:00 - 18:00",
+    "mapLink": "https://www.google.com/maps/dir/?api=1&destination=TK%20Associates%20Location",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.291526518625!2d106.6969846388218!3d10.788969489404884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0272f66439%3A0x7a79dd0713b75f29!2sG%20Office%20Chi%20nh%C3%A1nh%20Rosana%20Building!5e0!3m2!1sen!2s!4v1727671807556!5m2!1sen!2s"
+  },
+  "menu": {
+    "attorneys": "Đội ngũ luật sư",
+    "practices": "Lĩnh vực và ngành nghề",
+    "blog": "Blog",
+    "location": "Location",
+    "contact": "Liên hệ",
+    "policies": "Chính sách",
+    "path": {
+      "attorneys": "luat-su",
+      "blog": "blog",
+      "practices_and_sectors": "linh-vuc-va-nganh-nghe",
+      "contact": "lien-he",
+      "policies": "chinh-sach"
+    }
+  },
+  "global": {
+    "office_address": "Tầng 1, tòa nhà Rosana, 60 Nguyễn Đình Chiểu, Phường Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
+    "phone": "+84 28 2221 6597",
+    "email": "khuongdinhtien@gmail.com",
+    "firm_name": "TK & Associates",
+    "footer_copy_statement": "TK & Associates - HCMC, Vietnam. All rights reserved.",
+    "labels": {
+      "office_address_label": "Văn phòng TP. Hồ Chí Minh: ",
+      "phone_label": "Điện thoại: ",
+      "email_label": "Email: ",
+      "awards_label": "Giải thưởng",
+      "contact_us_label": "Liên hệ",
+      "our_team_label": "Luật sư",
+      "policies_label": "Chính sách",
+      "blog_label": "Bài viết",
+      "news_label": "Tin tức & Nhận định",
+      "expertise_label": "Lĩnh vực",
+      "about_label": "Về chúng tôi",
+      "contact_label": "Liên hệ",
+      "read_more_label": "Đọc tiếp...",
+      "view_on_map_label": "Xem bản đồ",
+      "breadcrumb_labels": {
+        "home": "Trang chủ",
+        "chinh-sach": "Chính sách",
+        "blog": "Bài viết",
+        "attorneys": "Luật sư",
+        "luat-su": "Luật sư",
+        "linh-vuc-va-nganh-nghe": "Lĩnh vực & ngành nghề",
+        "lien-he": "Liên hệ"
+      }
+    },
+    "attorney_profile": {
+      "areas_of_practice": "Lĩnh vực hành nghề",
+      "education": "Học vấn",
+      "work_experience": "Kinh nghiệm làm việc",
+      "introduction": "Giới thiệu",
+      "professional_associations": "Hiệp hội chuyên môn"
+    },
+    "blog": {
+      "about_the_author": "Về tác giả",
+      "for_media_inquiries": "Liên hệ báo chí tại: "
+    }
+  },
+  "faqs_section": {
+    "title": "Các Câu Hỏi Thường Gặp",
+    "faqs": [
+      {
+        "question": "Những lĩnh vực pháp lý chính mà TK & Associates cung cấp là gì?",
+        "answer": "TK & Associates chuyên về luật doanh nghiệp, sở hữu trí tuệ, luật gia đình và giải quyết tranh chấp."
+      },
+      {
+        "question": "Làm thế nào để tôi đặt lịch tư vấn với TK & Associates?",
+        "answer": "Bạn có thể đặt lịch tư vấn bằng cách liên hệ với chúng tôi qua điện thoại, email hoặc điền vào mẫu tư vấn trên trang web."
+      },
+      {
+        "question": "Phí tư vấn là bao nhiêu?",
+        "answer": "Phí tư vấn khác nhau tùy theo độ phức tạp của vụ việc. Vui lòng liên hệ với chúng tôi để biết chi tiết."
+      },
+      {
+        "question": "TK & Associates có thể giúp đỡ với các vấn đề pháp lý quốc tế không?",
+        "answer": "Có, TK & Associates có kinh nghiệm xử lý các vụ việc quốc tế, bao gồm sáp nhập xuyên biên giới và tranh chấp sở hữu trí tuệ."
+      },
+      {
+        "question": "Tôi nên mang theo những tài liệu nào khi đến buổi tư vấn đầu tiên?",
+        "answer": "Vui lòng mang theo các tài liệu liên quan như hợp đồng, thỏa thuận hoặc các thư từ liên quan đến vụ việc của bạn."
+      }
+    ]
+  },
+  "policies": {
+    "title": "Chính sách và điều khoản sử dụng",
+    "privacy_policy": {
+      "title": "Chính Sách Bảo Mật",
+      "content": [
+        "Chúng tôi thu thập các thông tin cá nhân như tên, địa chỉ email và hành vi duyệt web để cung cấp dịch vụ pháp lý và đáp ứng yêu cầu của khách hàng.",
+        "Chúng tôi bảo mật thông tin cá nhân bằng các biện pháp bảo mật hợp lý và không chia sẻ thông tin của bạn với bên thứ ba mà không có sự đồng ý của bạn.",
+        "Chúng tôi sử dụng cookie để cải thiện trải nghiệm duyệt web của bạn."
+      ]
+    },
+    "terms_of_use": {
+      "title": "Điều Khoản Sử Dụng",
+      "content": [
+        "Người dùng không được phép sử dụng nội dung trên trang web này mà không có sự cho phép của TK & Associates.",
+        "Chúng tôi không chịu trách nhiệm cho các lỗi hoặc thiếu sót trên trang web này."
+      ]
+    },
+    "disclaimer": {
+      "title": "Miễn Trừ Trách Nhiệm",
+      "content": [
+        "Thông tin trên trang web này chỉ mang tính chất tham khảo và không phải là lời khuyên pháp lý.",
+        "Liên hệ với TK & Associates không tạo ra mối quan hệ luật sư-khách hàng."
+      ]
+    },
+    "cookie_policy": {
+      "title": "Chính Sách Cookie",
+      "content": [
+        "Chúng tôi sử dụng cookie để theo dõi hành vi duyệt web của bạn và cải thiện trải nghiệm của bạn trên trang web.",
+        "Bạn có thể kiểm soát cookie trong cài đặt trình duyệt của mình."
+      ]
+    },
+    "accessibility_statement": {
+      "title": "Tuyên Bố Về Khả Năng Truy Cập",
+      "content": [
+        "Chúng tôi cam kết đảm bảo trang web của chúng tôi có thể truy cập được cho tất cả người dùng, bao gồm cả những người có khuyết tật."
+      ]
+    },
+    "client_rights": {
+      "title": "Quyền Lợi Của Khách Hàng",
+      "content": [
+        "Khách hàng có quyền yêu cầu sự bảo mật tuyệt đối đối với thông tin trao đổi với luật sư.",
+        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chuyên nghiệp và kịp thời."
+      ]
+    }
+  },
+  "not_found_page": {
+    "title": "Không tìm thấy",
+    "description": "Nội dung bạn đang tìm không tồn tại.",
+    "link_text": "Trở về trang chủ"
+  },
+  "practice_details_page": {
+    "view_profile": "Xem hồ sơ"
+  }
+}

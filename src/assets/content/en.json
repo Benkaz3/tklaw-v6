@@ -40,6 +40,137 @@
       "for_media_inquiries": "For media inquiries: "
     }
   },
+  "homepage": {
+    "hero": {
+      "title": "Expert Legal Solutions, Tailored for You.",
+      "subtitle": "Specializing in Business Law, Real Estate, and Personal Legal Services with a Commitment to Personalized Attention and Results.",
+      "button_text": "Talk to us",
+      "meet_the_team": "Meet the team"
+    },
+    "practices_section_title": "Our Practice Areas",
+    "practices": "Practices",
+    "client_sectors": "Client sectors",
+
+    "why_choose_us_section_title": "Why Choose TK & Associates?",
+    "why_choose_us": [
+      {
+        "title": "Personalized attention",
+        "description": [
+          {
+            "type": "text",
+            "value": "from senior "
+          },
+          {
+            "type": "link",
+            "value": "attorneys",
+            "to": "/attorneys"
+          },
+          {
+            "type": "text",
+            "value": "."
+          }
+        ]
+      },
+      {
+        "title": "Specialized legal expertise",
+        "description": [
+          {
+            "type": "text",
+            "value": "across multiple "
+          },
+          {
+            "type": "link",
+            "value": "industries",
+            "to": "/practices"
+          },
+          {
+            "type": "text",
+            "value": "."
+          }
+        ]
+      },
+      {
+        "title": "Proven track record",
+        "description": [
+          {
+            "type": "text",
+            "value": "with high success rates. "
+          },
+          {
+            "type": "link",
+            "value": "See testimonials",
+            "to": "/#testimonials"
+          }
+        ]
+      },
+      {
+        "title": "Flexible pricing models",
+        "description": [
+          {
+            "type": "text",
+            "value": "to fit your needs. "
+          },
+          {
+            "type": "link",
+            "value": "Contact us",
+            "to": "/contact"
+          }
+        ]
+      }
+    ],
+    "testimonials_section": {
+      "title": "Client Testimonials",
+      "subtitle": "What our clients are saying about our services",
+      "items": [
+        {
+          "id": 1,
+          "quote": "The legal team provided exceptional support during my difficult time. Their guidance made all the difference.",
+          "name": "Nguyễn Văn An",
+          "caseDetail": "Corporate contract dispute",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 2,
+          "quote": "I was impressed with their professionalism and dedication. They truly cared about my case and it showed.",
+          "name": "Trần Thị Mai",
+          "caseDetail": "Family custody arrangement",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 3,
+          "quote": "Thanks to their expertise, I was able to navigate the complexities of employment law successfully.",
+          "name": "Lê Minh Tuấn",
+          "caseDetail": "Wrongful termination case",
+          "photo": null,
+          "rating": 5
+        },
+        {
+          "id": 4,
+          "quote": "Their knowledge and experience were invaluable in securing a favorable outcome for my real estate transaction.",
+          "name": "Phạm Thị Lan",
+          "caseDetail": "Real estate purchase",
+          "photo": null,
+          "rating": 5
+        }
+      ]
+    },
+    "our_team_section": {
+      "title": "Meet our Attorneys",
+      "subtitle": "Learn more about our dedicated team of attorneys",
+      "link_text": "View profile"
+    },
+    "cta_section": {
+      "title": "Contact us for a",
+      "highlight_title": "free consultation",
+      "subtitle": "Our experienced attorneys are here to help you navigate your legal challenges. Reach out to use today!",
+      "button_text": "Call us"
+    },
+    "blog_section": {
+      "title": "Latest articles"
+    }
+  },
   "about_us_section": {
     "hero": {
       "heading": "Dedicated Service",
@@ -323,6 +454,7 @@
     ]
   },
   "policies": {
+    "title": "Policies",
     "privacy_policy": {
       "title": "Privacy Policy",
       "content": [

@@ -10,13 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-primitive": "^2.0.0",
+    "aos": "^2.3.4",
     "contentful": "^10.3.7",
+    "i18next": "^23.15.2",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.451.0",
     "node": "^22.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.2",
     "react-icons": "^5.2.1",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
