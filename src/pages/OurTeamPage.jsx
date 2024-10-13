@@ -4,7 +4,7 @@ import Breadcrumb from '../components/Breadcrumb';
 
 const OurTeamPage = () => {
   return (
-    <div className='container mx-auto w-full'>
+    <div className=''>
       {/* Hero Section */}
       <section
         className='relative h-[25vh] bg-cover bg-center flex items-center justify-center'
