@@ -181,7 +181,8 @@
       "contact_label": "Contact",
       "read_more_label": "Continue Reading...",
       "view_on_map_label": "View on map",
-      "post_not_found": "Post not found",
+      "latest_posts": "Latest posts",
+      "featured_posts": "Featured posts",
       "breadcrumb_labels": {
         "home": "Home",
         "about": "About",
