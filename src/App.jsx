@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           {/* Redirect `/` to `/vi` */}
-          <Route path='/' element={<Navigate to='/vi' />} />
+          <Route path='/' element={<Navigate replace to='/vi' />} />
           <Route path='/en' element={<HomePage />} />
           <Route path='/vi' element={<HomePage />} />
           <Route
