@@ -59,7 +59,7 @@ const BlogSection = () => {
   return (
     <section className='py-16'>
       <div className='container mx-auto px-4'>
-        <h2 className='font-primary text-start sm:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
+        <h2 className='font-primary text-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
           {t('homepage.blog_section.title')}
         </h2>
         <div className='space-y-8'>

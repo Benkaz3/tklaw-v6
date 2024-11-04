@@ -8,7 +8,7 @@ const ContactSection = () => {
   return (
     <section className='py-12 md:py-16 bg-background'>
       <div className='container mx-auto max-w-container-desktop px-4'>
-        <h2 className='font-primary text-start sm:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
+        <h2 className='font-primary text-start md:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
           {t('global.labels.contact_us_label')} {/* Translated text */}
         </h2>
 
@@ -42,7 +42,7 @@ const ContactSection = () => {
             </div>
 
             {/* Map Link */}
-            <div className='mt-6 md:mt-8 text-center'>
+            <div className='mt-6 md:mt-8 text-start'>
               <Link
                 to={language === 'vi' ? `/vi/lien-he` : `/en/contact`}
                 className='relative inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 text-lg transition duration-300 bg-transparent border border-primary rounded shadow-md hover:bg-primary hover:text-white hover:shadow-lg transform hover:translate-y-[-2px]'
