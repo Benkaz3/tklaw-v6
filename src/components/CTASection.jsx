@@ -18,7 +18,7 @@ const CTASection = () => {
 
         <Link
           to={language === 'vi' ? '/vi/lien-he' : '/en/contact'}
-          className='relative inline-flex items-center justify-center uppercase text-white font-medium py-3 px-6 text-lg w-full transition duration-300 bg-primary rounded shadow-md hover:shadow-lg transform hover:translate-y-[-2px]'
+          className='relative inline-flex items-center justify-center uppercase text-white font-medium py-3 px-6 text-lg w-full sm:w-fit transition duration-300 bg-primary rounded shadow-md hover:shadow-lg transform hover:translate-y-[-2px]'
           aria-label={t('homepage.cta_section.button_text')}
         >
           <span className='capitalize'>
