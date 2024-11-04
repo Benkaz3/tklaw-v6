@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const ContactSection = () => {
   const { t, i18n } = useTranslation(); // Use i18n's useTranslation hook
   const language = i18n.language;
+
   return (
     <section className='py-12 md:py-16 bg-background'>
       <div className='container mx-auto max-w-container-desktop px-4'>
@@ -20,31 +21,32 @@ const ContactSection = () => {
               {t('global.office_address')}
             </p>
 
-            <p className='text-base md:text-lg font-bold text-text mb-2'>
-              {t('global.labels.phone_label')}:
+            <div className='text-base md:text-lg text-text mb-2'>
+              <span className='font-bold'>{t('global.labels.phone_label')}:</span>
               <a
                 href={`tel:${t('global.phone')}`}
                 className='text-primary font-bold hover:underline ml-1'
               >
                 {t('global.phone')}
               </a>
-            </p>
+            </div>
 
-            <p className='text-base md:text-lg text-text'>
-              {t('global.labels.email_label')}:
+            <div className='text-base md:text-lg text-text'>
+              <span className='font-bold'>{t('global.labels.email_label')}:</span>
               <a
                 href={`mailto:${t('global.email')}`}
                 className='text-primary hover:underline ml-1'
               >
                 {t('global.email')}
               </a>
-            </p>
+            </div>
 
             {/* Map Link */}
             <div className='mt-6 md:mt-8 text-center'>
               <Link
                 to={language === 'vi' ? `/vi/lien-he` : `/en/contact`}
-                className='bg-primary text-white py-2 px-4 rounded-full font-bold hover:bg-primary-dark transition-colors'
+                className='relative inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 text-lg transition duration-300 bg-transparent border border-primary rounded shadow-md hover:bg-primary hover:text-white hover:shadow-lg transform hover:translate-y-[-2px]'
+                aria-label={t('global.labels.view_on_map_label')}
               >
                 {t('global.labels.view_on_map_label')}
               </Link>
