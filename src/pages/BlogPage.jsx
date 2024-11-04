@@ -59,6 +59,7 @@ const BlogPage = () => {
   }
 
   const blogPosts = data.blogPage || [];
+  console.log('Blog Posts:', blogPosts);
 
   // Split featured and other posts
   const featuredPosts = blogPosts.slice(0, 2); // Assuming the first 2 are featured
@@ -126,10 +127,69 @@ const BlogPage = () => {
                 ? bodyText.substring(0, 150) + '...'
                 : bodyText;
 
+<<<<<<< HEAD
             return (
               <div
                 key={post.sys.id}
                 className='p-6 border border-gray-300 rounded-lg'
+=======
+          console.log('Current Post:', post); // Log current post for debugging
+
+          return (
+            <div key={post.sys.id} className='p-6'>
+              <h2 className='text-2xl font-semibold mb-2'>
+                {post.fields.title}
+              </h2>
+              {/* Date and Author Section */}
+              <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
+                {/* Check if post.fields.author exists and is an array */}
+                {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
+                  <span className='flex items-center space-x-2'>
+                    {post.fields.author.map((author, index) => {
+                      console.log('Current Author:', author); // Log current author for debugging
+
+                      // Ensure author and author.fields exist
+                      const authorFields = author.fields || {};
+                      const profilePhoto = authorFields.profilePhoto || {};
+                      const authorProfilePhotoUrl = profilePhoto.fields?.file?.url;
+
+                      return (
+                        <span key={author.sys.id} className='flex items-center space-x-2'>
+                          {authorProfilePhotoUrl ? (
+                            <img
+                              src={authorProfilePhotoUrl}
+                              alt={authorFields.name}
+                              className='w-6 h-6 rounded-full object-cover bg-buttonBg'
+                            />
+                          ) : (
+                            <span>No Profile Photo</span> // Add a fallback if photo is missing
+                          )}
+                          <Link
+                            to={`/${
+                              language === 'vi' ? 'vi/luat-su/' : 'en/attorneys/'
+                            }${authorFields.slug}`}
+                            className='text-buttonBg font-bold uppercase hover:underline'
+                          >
+                            {authorFields.name}
+                          </Link>
+                          {index < post.fields.author.length - 1 && ', '}
+                        </span>
+                      );
+                    })}
+                  </span>
+                )}
+                {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
+                  <span className='mx-2'>|</span>
+                )}
+                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>{' '}
+                {/* Date Published */}
+              </div>
+              <p className='mb-4'>{previewText}</p>
+              {/* Display the preview text */}
+              <Link
+                to={`/${language}/blog/${post.fields.slug}`}
+                className='flex items-center text-buttonBg hover:underline'
+>>>>>>> 430b9a9 (fix undefined author's fields: slug and profile photo in BlogSection and BlogPage)
               >
                 <h2 className='text-2xl font-semibold mb-2'>
                   {post.fields.title}
