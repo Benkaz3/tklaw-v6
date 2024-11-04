@@ -246,55 +246,58 @@ const BlogPost = () => {
 
         {/* Author Introduction Section */}
         {Array.isArray(post.fields.author) && (
-          <div className='mt-8'>
-            <h3 className='text-xl font-bold text-gray-800 mb-4'>
-              {t('global.blog.about_the_author')}
-            </h3>
-            <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-              {post.fields.author.map((author) => (
-                <div
-                  key={author.sys.id}
-                  className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-lg'
-                >
-                  {/* Photo */}
-                  <div className='flex items-start mb-4'>
-                    <div className='w-16 h-16 rounded-full border border-text flex items-center justify-center bg-primary'>
-                      <img
-                        src={author.fields.profilePhoto?.fields?.file?.url || imgPlaceholder}
-                        alt={author.fields.name}
-                        className='w-full h-full rounded-full object-cover'
-                      />
-                    </div>
-                    <div className='flex flex-col ml-4'>
-                      <p className='font-semibold text-text text-lg'>
-                        {author.fields.name}
-                      </p>
-                      <p className='text-text text-base'>
-                        {author.fields.title}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Introduction */}
-                  <p className='text-gray-600 mb-4 text-base leading-relaxed'>
-                    {author.fields.introduction}
-                  </p>
-
-                  {/* View Profile */}
-                  <div className='mt-2'>
-                    <Link
-                      to={`/attorneys/${author.fields.slug}`} // Use dynamic link for author profile
-                      className='underline-animation text-primary font-medium'
-                    >
-                      {t('practice_details_page.view_profile')}
-                    </Link>
-                  </div>
-                </div>
-              ))}
+  <div className='mt-8'>
+    <h3 className='text-xl font-bold text-gray-800 mb-4'>
+      {t('global.blog.about_the_author')}
+    </h3>
+    <div className='flex flex-col lg:flex-row gap-8'>
+      {post.fields.author.map((author) => (
+        <div
+          key={author.sys.id}
+          className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-lg lg:flex-row lg:items-center'
+        >
+          {/* Photo */}
+          <div className='flex-shrink-0 mb-4 lg:mb-0 lg:mr-4'>
+            <div className='w-16 h-16 rounded-full border border-text flex items-center justify-center bg-primary'>
+              <img
+                src={author.fields.profilePhoto?.fields?.file?.url || imgPlaceholder}
+                alt={author.fields.name}
+                className='w-full h-full rounded-full object-cover'
+              />
             </div>
-            <div className='w-full border-t border-gray-300 my-6'></div>
           </div>
-        )}
+
+          {/* Text Content */}
+          <div className='flex flex-col'>
+            <p className='font-semibold text-text text-lg mb-1'>
+              {author.fields.name}
+            </p>
+            <p className='text-text text-base mb-2'>
+              {author.fields.title}
+            </p>
+
+            {/* Introduction */}
+            <p className='text-gray-600 mb-4 text-base leading-relaxed'>
+              {author.fields.introduction}
+            </p>
+
+            {/* View Profile */}
+            <div className='mt-2'>
+              <Link
+                to={`/attorneys/${author.fields.slug}`} // Dynamic link for author profile
+                className='underline-animation text-primary font-medium'
+              >
+                {t('practice_details_page.view_profile')}
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div className='w-full border-t border-gray-300 my-6'></div>
+  </div>
+)}
+
 
         <p className='text-lg mt-4'>
           {t('global.blog.for_media_inquiries')}{' '}
