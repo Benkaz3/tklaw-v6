@@ -90,7 +90,13 @@ const BlogPage = () => {
               key={post.sys.id}
               className='p-6 bg-section_background border rounded-md'
               >
-              <h2 className='text-xl font-semibold mb-2'>{post.fields.title}</h2>
+                 <Link
+                to={`/${language}/blog/${post.fields.slug}`}
+                className='flex items-center text-buttonBg hover:underline mt-4'
+              >
+                              <h2 className='text-xl font-semibold mb-2'>{post.fields.title}</h2>
+
+              </Link>
               {/* Date and Author Section */}
               <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
                 {/* Check if post.fields.author exists and is an array */}

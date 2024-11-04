@@ -141,16 +141,9 @@ const BlogSection = () => {
                   </span>
                   {/* Date Published */}
                 </div>
-                <Link
-                  to={
-                    language === 'vi'
-                      ? `/vi/blog/${post.fields.slug}`
-                      : `/en/blog/${post.fields.slug}`
-                  }
-                  className='flex items-center hover:underline'
-                >
+                
                 <p className='mb-4'>{previewText}</p>
-                  </Link>
+              
                 <Link
                   to={
                     language === 'vi'
