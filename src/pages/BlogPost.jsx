@@ -7,6 +7,8 @@ import LoadingDots from '../components/LoadingDots';
 import { Link } from 'react-router-dom';
 import { MdWarning } from 'react-icons/md';
 import imgPlaceholder from '../assets/img_placeholder.svg'; // Add a placeholder image import
+import { MdWarning } from 'react-icons/md';
+import imgPlaceholder from '../assets/img_placeholder.svg'; // Add a placeholder image import
 
 // Utility function to convert Rich Text to JSX recursively
 const renderRichText = (richTextNode) => {
@@ -39,11 +41,15 @@ const renderRichText = (richTextNode) => {
           </h3>
         );
       case 'text':
-        const hasCodeMark = node.marks && node.marks.some(mark => mark.type === 'code');
+        const hasCodeMark =
+          node.marks && node.marks.some((mark) => mark.type === 'code');
         if (hasCodeMark) {
           return (
             <div className='p-4 border-0 border-gray-300 bg-gray-100 rounded'>
-              <code key={index} className='text-gray-800 px-2 rounded text-sm font-mono'>
+              <code
+                key={index}
+                className='text-gray-800 px-2 rounded text-sm font-mono'
+              >
                 {node.value}
               </code>
             </div>
@@ -60,43 +66,25 @@ const renderRichText = (richTextNode) => {
             {node.content.map((linkNode) => linkNode.value).join('')}
           </a>
         );
-        case 'ordered-list':
-  return (
-    <ol key={index} className='list-decimal list-inside mb-4'>
-      {node.content.map((listItem, itemIndex) => (
-        <li key={itemIndex} className='mb-2 flex items-start'>
-          {renderRichText(listItem)}
-        </li>
-      ))}
-    </ol>
-  );
-
-
-
-
-        
-      case 'unordered-list':
+      case 'ol': // Ordered list
+        return (
+          <ol key={index} className='list-decimal list-inside mb-4'>
+            {node.content.map((listItem, itemIndex) => (
+              <li key={itemIndex}>{renderRichText(listItem)}</li>
+            ))}
+          </ol>
+        );
+      case 'ul': // Unordered list
         return (
           <ul key={index} className='list-disc list-inside mb-4'>
             {node.content.map((listItem, itemIndex) => (
-              <li key={itemIndex} className='mb-2 inline'> {/* Use 'inline' to keep items on the same line */}
-                {renderRichText(listItem)}
-              </li>
+              <li key={itemIndex}>{renderRichText(listItem)}</li>
             ))}
           </ul>
         );
-      case 'blockquote':
-        return (
-          <blockquote
-            key={index}
-            className='border-l-4 border-gray-300 pl-4 italic text-gray-700 mb-4'
-          >
-            {renderRichText(node)}
-          </blockquote>
-        );
-      case 'hr':
+      case 'hr': // Horizontal rule
         return <hr key={index} className='my-4 border-t border-gray-300' />;
-      case 'embedded-asset-block':
+      case 'embedded-asset': // Embedded asset (like images)
         const { title, file } = node.data.target.fields;
         return (
           <div key={index} className='my-4'>
@@ -105,67 +93,26 @@ const renderRichText = (richTextNode) => {
               alt={title}
               className='w-full h-auto rounded-lg'
             />
-            {title && <p className='text-center text-sm text-gray-600'>{title}</p>}
+            {title && (
+              <p className='text-center text-sm text-gray-600'>{title}</p>
+            )}
           </div>
         );
-
-        case 'embedded-entry-block':
-          const entryBlock = node.data.target.fields;
-          return (
-            <div key={index} className='my-4'>
-              <a 
-                  href={`/vi/blog/${entryBlock.slug}`}
-
-              >
-                <div className='flex items-center p-4 bg-gray-200 border rounded-sm hover:bg-section_background transition'>
-                  <h3 className='text-lg font-bold mb-2'>
-                    {entryBlock.title}
-                  </h3>
-                  {entryBlock.image && entryBlock.image.fields.file && (
-                  <img
-                    src={entryBlock.image.fields.file.url}
-                    alt={entryBlock.title}
-                    className='w-16 h-16 object-cover rounded ml-4'
-                  />
-                )}
-                  {entryBlock.introduction && (
-                    <p className='text-gray-700'>{entryBlock.introduction.slice(0, 100)}...</p>
-                  )}
-                </div>
-              </a>
-            </div>
-          );
-        
-      case 'embedded-entry-inline':
-        const inlineEntry = node.data.target.fields;
+      case 'embedded-entry-block': // Embedded entry
+        const entry = node.data.target.fields;
         return (
-          <a
-            key={index}
-            href={`/vi/luat-su/${inlineEntry.slug}`}
-            className='text-blue-600 hover:underline inline-block'
-          >
-            {inlineEntry.name || inlineEntry.title}
-          </a>
+          <div key={index} className='my-4'>
+            <h3 className='text-xl font-bold'>{entry.title}</h3>
+            <p>{renderRichText(entry.body)}</p>
+          </div>
         );
-      case 'code':
-        return (
-          <pre key={index} className='bg-gray-800 text-sm text-white p-4 rounded-lg overflow-x-auto'>
-            <code>{node.content[0].value}</code>
-          </pre>
-        );
+      // Add more cases as necessary for other types of nodes
       default:
         console.warn(`Unsupported node type: ${node.nodeType}`);
         return null;
     }
   });
 };
-
-
-
-
-
-
-
 
 const BlogPost = () => {
   const { t } = useTranslation(); // Get the t function for translation
@@ -220,7 +167,7 @@ const BlogPost = () => {
       <Breadcrumb postTitle={post.fields.title} />
 
       <div className='flex justify-center items-center mt-4 space-x-2'>
-        <MdWarning color="orange" size={18} />
+        <MdWarning color='orange' size={18} />
         <span className='text-xs'>Available in Vietnamese only</span>
       </div>
 
@@ -246,58 +193,58 @@ const BlogPost = () => {
 
         {/* Author Introduction Section */}
         {Array.isArray(post.fields.author) && (
-  <div className='mt-8'>
-    <h3 className='text-xl font-bold text-gray-800 mb-4'>
-      {t('global.blog.about_the_author')}
-    </h3>
-    <div className='flex flex-col lg:flex-row gap-8'>
-      {post.fields.author.map((author) => (
-        <div
-          key={author.sys.id}
-          className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-lg lg:flex-row lg:items-center'
-        >
-          {/* Photo */}
-          <div className='flex-shrink-0 mb-4 lg:mb-0 lg:mr-4'>
-            <div className='w-16 h-16 rounded-full border border-text flex items-center justify-center bg-primary'>
-              <img
-                src={author.fields.profilePhoto?.fields?.file?.url || imgPlaceholder}
-                alt={author.fields.name}
-                className='w-full h-full rounded-full object-cover'
-              />
+          <div className='mt-8'>
+            <h3 className='text-xl font-bold text-gray-800 mb-4'>
+              {t('global.blog.about_the_author')}
+            </h3>
+            <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
+              {post.fields.author.map((author) => (
+                <div
+                  key={author.sys.id}
+                  className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-lg'
+                >
+                  {/* Photo */}
+                  <div className='flex items-start mb-4'>
+                    <div className='w-16 h-16 rounded-full border border-text flex items-center justify-center bg-primary'>
+                      <img
+                        src={
+                          author.fields.profilePhoto?.fields?.file?.url ||
+                          imgPlaceholder
+                        }
+                        alt={author.fields.name}
+                        className='w-full h-full rounded-full object-cover'
+                      />
+                    </div>
+                    <div className='flex flex-col ml-4'>
+                      <p className='font-semibold text-text text-lg'>
+                        {author.fields.name}
+                      </p>
+                      <p className='text-text text-base'>
+                        {author.fields.title}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Introduction */}
+                  <p className='text-gray-600 mb-4 text-base leading-relaxed'>
+                    {author.fields.introduction}
+                  </p>
+
+                  {/* View Profile */}
+                  <div className='mt-2'>
+                    <Link
+                      to={`/attorneys/${author.fields.slug}`} // Use dynamic link for author profile
+                      className='underline-animation text-primary font-medium'
+                    >
+                      {t('practice_details_page.view_profile')}
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
+            <div className='w-full border-t border-gray-300 my-6'></div>
           </div>
-
-          {/* Text Content */}
-          <div className='flex flex-col'>
-            <p className='font-semibold text-text text-lg mb-1'>
-              {author.fields.name}
-            </p>
-            <p className='text-text text-base mb-2'>
-              {author.fields.title}
-            </p>
-
-            {/* Introduction */}
-            <p className='text-gray-600 mb-4 text-base leading-relaxed'>
-              {author.fields.introduction}
-            </p>
-
-            {/* View Profile */}
-            <div className='mt-2'>
-              <Link
-                to={`/attorneys/${author.fields.slug}`} // Dynamic link for author profile
-                className='underline-animation text-primary font-medium'
-              >
-                {t('practice_details_page.view_profile')}
-              </Link>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-    <div className='w-full border-t border-gray-300 my-6'></div>
-  </div>
-)}
-
+        )}
 
         <p className='text-lg mt-4'>
           {t('global.blog.for_media_inquiries')}{' '}

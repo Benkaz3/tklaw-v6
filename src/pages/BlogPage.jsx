@@ -77,7 +77,10 @@ const BlogPage = () => {
 
       {/* Breadcrumb */}
       <Breadcrumb />
-
+      <div className='flex justify-center items-center mt-4 space-x-2'>
+      <MdWarning color="orange" size={18} />
+      <span className='text-xs'>Available in Vietnamese only</span>
+    </div>
       {/* Blog Posts Section */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
         {blogPosts.map((post) => {
@@ -86,8 +89,6 @@ const BlogPage = () => {
             bodyText.length > 300
               ? bodyText.substring(0, 300) + '...'
               : bodyText;
-
-          console.log('Current Post:', post); // Log current post for debugging
 
           return (
             <div

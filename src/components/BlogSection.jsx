@@ -83,17 +83,27 @@ const BlogSection = () => {
                   }
                   className='flex items-center hover:underline'
                 >
-               
-                <h3 className='text-2xl font-semibold mb-2'>
-                  {post.fields.title}
-                </h3>
+                  <Link
+                    to={
+                      language === 'vi'
+                        ? `/vi/blog/${post.fields.slug}`
+                        : `/en/blog/${post.fields.slug}`
+                    }
+                    className='flex items-center hover:underline'
+                  >
+                    <h3 className='text-2xl font-semibold mb-2'>
+                      {post.fields.title}
+                    </h3>
+                  </Link>
                 </Link>
                 <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
                   {/* Author Section */}
-                  {Array.isArray(post.fields.author) && post.fields.author.length > 0 ? (
+                  {Array.isArray(post.fields.author) &&
+                  post.fields.author.length > 0 ? (
                     <span className='flex items-center space-x-2'>
                       {post.fields.author.map((author, index) => {
-                        const authorProfilePhoto = author.fields?.profilePhoto?.fields?.file?.url;
+                        const authorProfilePhoto =
+                          author.fields?.profilePhoto?.fields?.file?.url;
                         const authorSlug = author.fields?.slug; // Get slug safely
                         const authorName = author.fields?.name; // Get name safely
 
@@ -133,17 +143,25 @@ const BlogSection = () => {
                   ) : (
                     <span>N/A</span> // Fallback message if no authors
                   )}
-                  {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
-                    <span className='mx-2'>|</span>
-                  )}
+                  {Array.isArray(post.fields.author) &&
+                    post.fields.author.length > 0 && (
+                      <span className='mx-2'>|</span>
+                    )}
                   <span>
                     {new Date(post.sys.createdAt).toLocaleDateString()}
                   </span>
                   {/* Date Published */}
                 </div>
-                
-                <p className='mb-4'>{previewText}</p>
-              
+                <Link
+                  to={
+                    language === 'vi'
+                      ? `/vi/blog/${post.fields.slug}`
+                      : `/en/blog/${post.fields.slug}`
+                  }
+                  className='flex items-center hover:underline'
+                >
+                  <p className='mb-4'>{previewText}</p>
+                </Link>
                 <Link
                   to={
                     language === 'vi'
