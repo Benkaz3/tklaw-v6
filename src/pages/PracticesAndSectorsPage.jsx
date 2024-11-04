@@ -131,8 +131,8 @@ const PracticesAndSectorsSection = () => {
           {t('homepage.practices_and_sectors_title')}
         </h1>
 
-        {/* Tab Navigation */}
-        <div className='flex justify-center mb-8'>
+        {/* Tab Navigation (moved to the top and styled to look like part of the table) */}
+        <div className='flex justify-start mb-2'>
           <button
             className={`px-6 py-2 rounded-t-md font-semibold ${
               selectedTab === 'practices'
@@ -156,7 +156,7 @@ const PracticesAndSectorsSection = () => {
         </div>
 
         {/* Tab Content (dashboard-style table) */}
-        <div className='space-y-1 overflow-hidden'>
+        <div className='space-y-1 overflow-hidden border border-gray-300'>
           {selectedTab === 'practices'
             ? renderList(practices)
             : renderList(sectors)}

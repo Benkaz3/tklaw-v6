@@ -67,14 +67,13 @@ const BlogPage = () => {
         }}
       >
         <div className='absolute inset-0 bg-black opacity-50'></div>
-        <div className='relative z-10 max-w-4xl text-center text-white'></div>
       </section>
 
       {/* Breadcrumb */}
       <Breadcrumb />
 
       {/* Blog Posts Section */}
-      <div className='space-y-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
         {blogPosts.map((post) => {
           const bodyText = convertRichTextToString(post.fields.body);
           const previewText =
@@ -85,10 +84,11 @@ const BlogPage = () => {
           console.log('Current Post:', post); // Log current post for debugging
 
           return (
-            <div key={post.sys.id} className='p-6'>
-              <h2 className='text-2xl font-semibold mb-2'>
-                {post.fields.title}
-              </h2>
+            <div
+              key={post.sys.id}
+              className='p-6 border border-gray-200 rounded-sm shadow-sm transition-all duration-300 hover:shadow-md'
+            >
+              <h2 className='text-xl font-semibold mb-2'>{post.fields.title}</h2>
               {/* Date and Author Section */}
               <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
                 {/* Check if post.fields.author exists and is an array */}
@@ -108,7 +108,7 @@ const BlogPage = () => {
                             <img
                               src={authorProfilePhotoUrl}
                               alt={authorFields.name}
-                              className='w-6 h-6 rounded-full object-cover bg-buttonBg'
+                              className='w-8 h-8 rounded-full object-cover bg-buttonBg'
                             />
                           ) : (
                             <span>No Profile Photo</span> // Add a fallback if photo is missing
@@ -130,14 +130,14 @@ const BlogPage = () => {
                 {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
                   <span className='mx-2'>|</span>
                 )}
-                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>{' '}
+                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>
                 {/* Date Published */}
               </div>
               <p className='mb-4'>{previewText}</p>
               {/* Display the preview text */}
               <Link
                 to={`/${language}/blog/${post.fields.slug}`}
-                className='flex items-center text-buttonBg hover:underline'
+                className='flex items-center text-buttonBg hover:underline mt-4'
               >
                 <span className='mr-1 text-sm font-bold'>
                   {t('global.labels.read_more_label')}
