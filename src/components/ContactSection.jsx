@@ -42,10 +42,10 @@ const ContactSection = () => {
             </div>
 
             {/* Map Link */}
-            <div className='mt-6 md:mt-8 text-start'>
+            <div className='mt-6 mb-2 md:mt-8 text-start'>
               <Link
                 to={language === 'vi' ? `/vi/lien-he` : `/en/contact`}
-                className='relative inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 text-lg transition duration-300 bg-transparent border border-primary rounded shadow-md hover:bg-primary hover:text-white hover:shadow-lg transform hover:translate-y-[-2px]'
+                className='relative inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 text-lg transition duration-300 bg-transparent border border-primary rounded hover:bg-primary hover:text-white hover:shadow-lg transform hover:translate-y-[-2px]'
                 aria-label={t('global.labels.view_on_map_label')}
               >
                 {t('global.labels.view_on_map_label')}

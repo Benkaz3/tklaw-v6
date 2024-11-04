@@ -4,6 +4,7 @@ import heroBg from '../assets/practices_hero_bg.webp';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import LoadingDots from '../components/LoadingDots';
+import { MdWarning } from 'react-icons/md';
 
 // Utility function to convert Rich Text to string recursively
 const convertRichTextToString = (richTextNode) => {
@@ -75,41 +76,10 @@ const BlogPage = () => {
 
       {/* Breadcrumb */}
       <Breadcrumb />
-
-      {/* Featured Posts Section */}
-      {featuredPosts.length > 0 && (
-        <div className='max-w-container-desktop mx-auto px-4 mt-8 my-8'>
-          <h2 className='text-3xl font-bold mb-8 text-center'>
-            {t('global.labels.featured_posts')}
-          </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-            {featuredPosts.map((post) => (
-              <div
-                key={post.sys.id}
-                className='relative h-[400px] bg-cover bg-center rounded-lg shadow-lg'
-                style={{
-                  backgroundImage: `url(${post.fields.image?.fields.file.url})`,
-                }}
-              >
-                <div className='absolute inset-0 bg-black opacity-40 rounded-lg'></div>
-                <div className='absolute bottom-0 p-6 z-10 text-white'>
-                  <h3 className='text-2xl font-bold mb-2 text-white'>
-                    {post.fields.title}
-                  </h3>
-                  <p>{new Date(post.sys.createdAt).toLocaleDateString()}</p>
-                  <Link
-                    to={`/${language}/blog/${post.fields.slug}`}
-                    className='mt-4 inline-block bg-buttonBg text-white py-2 px-4 rounded hover:bg-buttonHover'
-                  >
-                    {t('global.labels.read_more_label')}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
+      <div className='flex justify-center items-center mt-4 space-x-2'>
+      <MdWarning color="orange" size={18} />
+      <span className='text-xs'>Available in Vietnamese only</span>
+    </div>
       {/* Blog Posts Section */}
       <div className='space-y-8'>
         <h2 className='text-3xl font-bold mb-8 text-center'>
@@ -129,14 +99,6 @@ const BlogPage = () => {
             bodyText.length > 300
               ? bodyText.substring(0, 300) + '...'
               : bodyText;
-
-<<<<<<< HEAD
-            return (
-              <div
-                key={post.sys.id}
-                className='p-6 border border-gray-300 rounded-lg'
-=======
-          console.log('Current Post:', post); // Log current post for debugging
 
           return (
             <div
