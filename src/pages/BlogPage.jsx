@@ -79,7 +79,7 @@ const BlogPage = () => {
       <Breadcrumb />
 
       {/* Blog Posts Section */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
         {blogPosts.map((post) => {
           const bodyText = convertRichTextToString(post.fields.body);
           const previewText =
@@ -92,8 +92,8 @@ const BlogPage = () => {
           return (
             <div
               key={post.sys.id}
-              className='p-6 border border-gray-200 rounded-sm shadow-sm transition-all duration-300 hover:shadow-md'
-            >
+              className='p-6 bg-section_background border rounded-md'
+              >
               <h2 className='text-xl font-semibold mb-2'>{post.fields.title}</h2>
               {/* Date and Author Section */}
               <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
