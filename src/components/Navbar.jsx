@@ -24,16 +24,16 @@ function Navbar() {
       <div className='container mx-auto py-2 px-4 sm:px-6'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
-            <Link to='/' className='flex items-center'>
+            {/* <Link to='/' className='flex items-center'>
               <img
                 src={logoColor}
                 alt='TK & Associates Logo'
-                className='h-9 w-auto max-w-full rounded border border-buttonBg'
+                className='h-11 w-auto max-w-full '
               />
-            </Link>
+            </Link> */}
             <Link
               to='/'
-              className='hidden md:block font-secondary font-bold text-buttonBg hover:text-buttonBg transition duration-300'
+              className=' text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-secondary font-bold text-buttonBg hover:text-buttonBg transition duration-300'
             >
               {t('businessInfo.name')}
             </Link>
