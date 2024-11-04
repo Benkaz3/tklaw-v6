@@ -80,36 +80,50 @@ const BlogSection = () => {
                 </h3>
                 <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
                   {/* Author Section */}
-                  {Array.isArray(post.fields.author) && (
+                  {Array.isArray(post.fields.author) && post.fields.author.length > 0 ? (
                     <span className='flex items-center space-x-2'>
-                      {post.fields.author.map((author, index) => (
-                        <span
-                          key={author.sys.id}
-                          className='flex items-center space-x-2'
-                        >
-                          {author.fields.profilePhoto?.fields?.file?.url && (
-                            <img
-                              src={author.fields.profilePhoto.fields.file.url}
-                              alt={author.fields.name}
-                              className='w-6 h-6 rounded-full object-cover'
-                            />
-                          )}
-                          <Link
-                            to={
-                              language === 'vi'
-                                ? `/vi/luat-su/${author.fields.slug}`
-                                : `/en/attorneys/${author.fields.slug}`
-                            }
-                            className='text-primary font-bold uppercase hover:underline'
+                      {post.fields.author.map((author, index) => {
+                        const authorProfilePhoto = author.fields?.profilePhoto?.fields?.file?.url;
+                        const authorSlug = author.fields?.slug; // Get slug safely
+                        const authorName = author.fields?.name; // Get name safely
+
+                        return (
+                          <span
+                            key={author.sys.id}
+                            className='flex items-center space-x-2'
                           >
-                            {author.fields.name}
-                          </Link>
-                          {index < post.fields.author.length - 1 && ', '}
-                        </span>
-                      ))}
+                            {authorProfilePhoto ? (
+                              <img
+                                src={authorProfilePhoto}
+                                alt={authorName}
+                                className='w-6 h-6 rounded-full object-cover'
+                              />
+                            ) : (
+                              <span className='w-6 h-6 rounded-full bg-gray-300'></span> // Placeholder for missing profile photo
+                            )}
+                            {authorSlug ? ( // Check if slug exists before rendering Link
+                              <Link
+                                to={
+                                  language === 'vi'
+                                    ? `/vi/luat-su/${authorSlug}`
+                                    : `/en/attorneys/${authorSlug}`
+                                }
+                                className='text-primary font-bold uppercase hover:underline'
+                              >
+                                {authorName}
+                              </Link>
+                            ) : (
+                              <span className='text-gray-500'></span> // Fallback for missing slug
+                            )}
+                            {index < post.fields.author.length - 1 && ', '}
+                          </span>
+                        );
+                      })}
                     </span>
+                  ) : (
+                    <span>N/A</span> // Fallback message if no authors
                   )}
-                  {Array.isArray(post.fields.author) && (
+                  {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
                     <span className='mx-2'>|</span>
                   )}
                   <span>
