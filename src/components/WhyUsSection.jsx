@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const WhyUsSection = () => {
-  const { t, i18n } = useTranslation(); // Use i18n's useTranslation hook
-  const currentLanguage = i18n.language; // Get current language
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
 
-  // Array of background colors for the cards
   const bgColors = ['bg-primary', 'bg-secondary', 'bg-text', 'bg-accent'];
 
   return (
@@ -46,13 +45,17 @@ const WhyUsSection = () => {
                       if (part.type === 'text') {
                         return <span key={i}>{part.value}</span>;
                       } else if (part.type === 'link') {
-                        const linkTo = `/${currentLanguage}/${part.to}`;
+                        const linkTo = part.to.startsWith('#')
+                          ? part.to  // Use anchor link directly
+                          : `/${currentLanguage}/${part.to}`; // Use route link
+
                         return (
-                          <span
-                            key={i}
-                            className='font-bold underline-animation'
-                          >
-                            <Link to={linkTo}>{part.value}</Link>
+                          <span key={i} className='font-bold underline-animation'>
+                            {part.to.startsWith('#') ? (
+                              <a href={linkTo}>{part.value}</a> // Use <a> for anchor links
+                            ) : (
+                              <Link to={linkTo}>{part.value}</Link> // Use Link for route links
+                            )}
                           </span>
                         );
                       }

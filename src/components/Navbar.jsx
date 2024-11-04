@@ -33,7 +33,7 @@ function Navbar() {
             </Link> */}
             <Link
               to='/'
-              className=' text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-secondary font-bold text-buttonBg hover:text-buttonBg transition duration-300'
+              className=' text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-secondary font-bold text-buttonBg hover:text-buttonBg transition duration-300'
             >
               {t('businessInfo.name')}
             </Link>
@@ -77,9 +77,9 @@ function Navbar() {
               aria-label='Toggle Menu'
             >
               {isOpen ? (
-                <FaTimes size={32} className='text-buttonBg' />
+                <FaTimes size={28} className='text-text' />
               ) : (
-                <FaBars size={32} className='text-buttonBg' />
+                <FaBars size={28} className='text-text' />
               )}
             </button>
           </div>
@@ -91,21 +91,21 @@ function Navbar() {
             <div className='flex flex-col items-center space-y-4 py-4'>
               <Link
                 to={getDynamicPath('attorneys')}
-                className='hover:text-accent transition duration-300 font-bold'
+                className='hover:text-accent transition duration-300 uppercase'
                 onClick={toggleMenu}
               >
                 {t('menu.attorneys')}
               </Link>
               <Link
                 to={getDynamicPath('practices_and_sectors')}
-                className='hover:text-accent transition duration-300 font-bold'
+                className='hover:text-accent transition duration-300 uppercase'
                 onClick={toggleMenu}
               >
                 {t('menu.practices')}
               </Link>
               <Link
                 to={getDynamicPath('blog')}
-                className='hover:text-accent transition duration-300 font-bold'
+                className='hover:text-accent transition duration-300 uppercase'
                 onClick={toggleMenu}
               >
                 {t('menu.blog')}
@@ -113,10 +113,9 @@ function Navbar() {
               <hr className='w-4/5 border-accent opacity-50' />
               <Link
                 to={getDynamicPath('contact')}
-                className='flex items-center hover:text-accent transition duration-300 font-bold'
+                className='flex items-center hover:text-accent transition duration-300 uppercase'
                 onClick={toggleMenu}
               >
-                <FaInfoCircle className='mr-2' />
                 {t('menu.contact')}
               </Link>
             </div>

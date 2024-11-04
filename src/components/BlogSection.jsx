@@ -75,9 +75,19 @@ const BlogSection = () => {
                 key={post.sys.id}
                 className='p-6 bg-section_background border rounded-md'
               >
+                <Link
+                  to={
+                    language === 'vi'
+                      ? `/vi/blog/${post.fields.slug}`
+                      : `/en/blog/${post.fields.slug}`
+                  }
+                  className='flex items-center hover:underline'
+                >
+               
                 <h3 className='text-2xl font-semibold mb-2'>
                   {post.fields.title}
                 </h3>
+                </Link>
                 <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
                   {/* Author Section */}
                   {Array.isArray(post.fields.author) && post.fields.author.length > 0 ? (
@@ -131,8 +141,16 @@ const BlogSection = () => {
                   </span>
                   {/* Date Published */}
                 </div>
+                <Link
+                  to={
+                    language === 'vi'
+                      ? `/vi/blog/${post.fields.slug}`
+                      : `/en/blog/${post.fields.slug}`
+                  }
+                  className='flex items-center hover:underline'
+                >
                 <p className='mb-4'>{previewText}</p>
-
+                  </Link>
                 <Link
                   to={
                     language === 'vi'
