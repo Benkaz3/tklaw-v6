@@ -40,6 +40,24 @@ const renderRichText = (richTextNode) => {
             {renderRichText(node)}
           </h3>
         );
+      case 'heading-1':
+        return (
+          <h1 key={index} className='text-3xl font-bold mb-4'>
+            {renderRichText(node)}
+          </h1>
+        );
+      case 'heading-2':
+        return (
+          <h2 key={index} className='text-2xl font-semibold mb-3'>
+            {renderRichText(node)}
+          </h2>
+        );
+      case 'heading-3':
+        return (
+          <h3 key={index} className='text-xl font-semibold mb-2'>
+            {renderRichText(node)}
+          </h3>
+        );
       case 'text':
         const hasCodeMark =
           node.marks && node.marks.some((mark) => mark.type === 'code');
@@ -66,25 +84,41 @@ const renderRichText = (richTextNode) => {
             {node.content.map((linkNode) => linkNode.value).join('')}
           </a>
         );
-      case 'ol': // Ordered list
+      case 'ordered-list':
         return (
           <ol key={index} className='list-decimal list-inside mb-4'>
             {node.content.map((listItem, itemIndex) => (
-              <li key={itemIndex}>{renderRichText(listItem)}</li>
+              <li key={itemIndex} className='mb-2 flex items-start'>
+                {renderRichText(listItem)}
+              </li>
             ))}
           </ol>
         );
-      case 'ul': // Unordered list
+
+      case 'unordered-list':
         return (
           <ul key={index} className='list-disc list-inside mb-4'>
             {node.content.map((listItem, itemIndex) => (
-              <li key={itemIndex}>{renderRichText(listItem)}</li>
+              <li key={itemIndex} className='mb-2 inline'>
+                {' '}
+                {/* Use 'inline' to keep items on the same line */}
+                {renderRichText(listItem)}
+              </li>
             ))}
           </ul>
         );
-      case 'hr': // Horizontal rule
+      case 'blockquote':
+        return (
+          <blockquote
+            key={index}
+            className='border-l-4 border-gray-300 pl-4 italic text-gray-700 mb-4'
+          >
+            {renderRichText(node)}
+          </blockquote>
+        );
+      case 'hr':
         return <hr key={index} className='my-4 border-t border-gray-300' />;
-      case 'embedded-asset': // Embedded asset (like images)
+      case 'embedded-asset-block':
         const { title, file } = node.data.target.fields;
         return (
           <div key={index} className='my-4'>
@@ -98,15 +132,51 @@ const renderRichText = (richTextNode) => {
             )}
           </div>
         );
-      case 'embedded-entry-block': // Embedded entry
-        const entry = node.data.target.fields;
+
+      case 'embedded-entry-block':
+        const entryBlock = node.data.target.fields;
         return (
           <div key={index} className='my-4'>
-            <h3 className='text-xl font-bold'>{entry.title}</h3>
-            <p>{renderRichText(entry.body)}</p>
+            <a href={`/vi/blog/${entryBlock.slug}`}>
+              <div className='flex items-center p-4 bg-gray-200 border rounded-sm hover:bg-section_background transition'>
+                <h3 className='text-lg font-bold mb-2'>{entryBlock.title}</h3>
+                {entryBlock.image && entryBlock.image.fields.file && (
+                  <img
+                    src={entryBlock.image.fields.file.url}
+                    alt={entryBlock.title}
+                    className='w-16 h-16 object-cover rounded ml-4'
+                  />
+                )}
+                {entryBlock.introduction && (
+                  <p className='text-gray-700'>
+                    {entryBlock.introduction.slice(0, 100)}...
+                  </p>
+                )}
+              </div>
+            </a>
           </div>
         );
-      // Add more cases as necessary for other types of nodes
+
+      case 'embedded-entry-inline':
+        const inlineEntry = node.data.target.fields;
+        return (
+          <a
+            key={index}
+            href={`/vi/luat-su/${inlineEntry.slug}`}
+            className='text-blue-600 hover:underline inline-block'
+          >
+            {inlineEntry.name || inlineEntry.title}
+          </a>
+        );
+      case 'code':
+        return (
+          <pre
+            key={index}
+            className='bg-gray-800 text-sm text-white p-4 rounded-lg overflow-x-auto'
+          >
+            <code>{node.content[0].value}</code>
+          </pre>
+        );
       default:
         console.warn(`Unsupported node type: ${node.nodeType}`);
         return null;
