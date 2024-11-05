@@ -2,10 +2,8 @@ import useContentful from '../useContentful';
 import Breadcrumb from '../components/Breadcrumb';
 import heroBg from '../assets/practices_hero_bg.webp';
 import { useTranslation } from 'react-i18next';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import LoadingDots from '../components/LoadingDots';
-import { MdWarning } from 'react-icons/md';
 
 // Utility function to convert Rich Text to string recursively
 const convertRichTextToString = (richTextNode) => {
@@ -30,8 +28,7 @@ const convertRichTextToString = (richTextNode) => {
 const BlogPage = () => {
   const { t, i18n } = useTranslation();
   const language = i18n.language;
-  const { t, i18n } = useTranslation();
-  const language = i18n.language;
+
   const { data, loading, error } = useContentful([
     {
       content_type: 'blogPage',
@@ -67,10 +64,8 @@ const BlogPage = () => {
 
   return (
     <div className=''>
-    <div className=''>
       {/* Hero Section */}
       <section
-        className='relative h-[25vh] bg-cover w-full bg-center flex items-center justify-center'
         className='relative h-[25vh] bg-cover w-full bg-center flex items-center justify-center'
         style={{
           backgroundImage: `url(${heroBg})`,
@@ -124,21 +119,17 @@ const BlogPage = () => {
                         >
                           {author.fields.name}
                         </Link>
-                        {/* Add comma between authors */}
                         {index < post.fields.author.length - 1 && ', '}
                       </span>
                     ))}
                   </span>
                 )}
-                {/* Separator between authors and date */}
                 {Array.isArray(post.fields.author) && (
                   <span className='mx-2'>|</span>
                 )}
                 <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>{' '}
-                {/* Date Published */}
               </div>
               <p className='mb-4'>{previewText}</p>{' '}
-              {/* Display the preview text */}
               <Link
                 to={`/${language}/blog/${post.fields.slug}`}
                 className='flex items-center text-buttonBg hover:underline'
