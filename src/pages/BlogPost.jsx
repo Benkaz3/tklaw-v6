@@ -43,16 +43,13 @@ const renderOptions = {
     [BLOCKS.OL_LIST]: (node, children) => (
       <ol className='list-decimal list-inside mb-4 space-y-2'>{children}</ol>
     ),
-    [BLOCKS.LIST_ITEM]: (node, children) => {
-      // Check if the child is a paragraph and render text directly in <li>
-      return (
-        <li className='mb-2'>
-          {children.map((child) =>
-            child.type === 'p' ? child.props.children : child
-          )}
-        </li>
-      );
-    },
+    [BLOCKS.LIST_ITEM]: (node, children) => (
+      <li className='mb-2'>
+        {children.map((child) =>
+          child.type === 'p' ? child.props.children : child
+        )}
+      </li>
+    ),
     [BLOCKS.HR]: () => <hr className='my-4 border-t border-gray-300' />,
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { title, file } = node.data.target.fields;
@@ -69,6 +66,43 @@ const renderOptions = {
         </div>
       );
     },
+    [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+      const { title, slug } = node.data.target.fields;
+      const thumbnail =
+        node.data.target.fields.thumbnail?.fields?.file?.url ||
+        node.data.target.fields.image?.fields?.file?.url ||
+        'path-to-placeholder-image'; // Fallback image
+
+      return (
+        <a
+          href={`/vi/blog/${slug}`}
+          className='my-4 p-4 bg-gray-200 rounded flex items-center hover:border hover:border-gray-300'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <div className='flex-grow text-lg font-bold'>{title}</div>
+          {thumbnail && (
+            <img
+              src={thumbnail}
+              alt={title}
+              className='w-20 h-20 rounded ml-4 object-cover'
+            />
+          )}
+        </a>
+      );
+    },
+
+    [INLINES.EMBEDDED_ENTRY]: (node) => {
+      const { name, slug } = node.data.target.fields;
+      return (
+        <a
+          href={`/vi/luat-su/${slug}`}
+          className='inline-block bg-blue-50 px-2 py-1 rounded text-blue-600 hover:underline'
+        >
+          {name}
+        </a>
+      );
+    },
     [INLINES.HYPERLINK]: (node, children) => (
       <a
         href={node.data.uri}
@@ -80,15 +114,7 @@ const renderOptions = {
       </a>
     ),
   },
-
 };
-
-
-
-
-
-
-
 
 const BlogPost = () => {
   const { t } = useTranslation();
@@ -163,7 +189,6 @@ const BlogPost = () => {
 
         {/* Author Introduction Section */}
         {Array.isArray(post.fields.author) && (
-
           <div className='mt-8'>
             <h3 className='text-xl font-bold text-gray-800 mb-4'>
               {t('global.blog.about_the_author')}
