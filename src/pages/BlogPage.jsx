@@ -29,6 +29,7 @@ const convertRichTextToString = (richTextNode) => {
 const BlogPage = () => {
   const { t, i18n } = useTranslation();
   const language = i18n.language;
+
   const { data, loading, error } = useContentful([
     {
       content_type: 'blogPage',
@@ -58,11 +59,18 @@ const BlogPage = () => {
   const blogPosts = data.blogPage || [];
   console.log('Blog Posts:', blogPosts);
 
+
+  // Split featured and other posts
+  const featuredPosts = blogPosts.slice(0, 2); // Assuming the first 2 are featured
+  const remainingPosts = blogPosts.slice(2);
+
+
+
   return (
-    <div className='container mx-auto'>
+    <div className=''>
       {/* Hero Section */}
       <section
-        className='relative h-[25vh] bg-cover bg-center flex items-center justify-center'
+        className='relative h-[25vh] bg-cover w-full bg-center flex items-center justify-center'
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
@@ -102,47 +110,40 @@ const BlogPage = () => {
                 {/* Check if post.fields.author exists and is an array */}
                 {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
                   <span className='flex items-center space-x-2'>
-                    {post.fields.author.map((author, index) => {
-                      console.log('Current Author:', author); // Log current author for debugging
 
-                      // Ensure author and author.fields exist
-                      const authorFields = author.fields || {};
-                      const profilePhoto = authorFields.profilePhoto || {};
-                      const authorProfilePhotoUrl = profilePhoto.fields?.file?.url;
-
-                      return (
-                        <span key={author.sys.id} className='flex items-center space-x-2'>
-                          {authorProfilePhotoUrl ? (
-                            <img
-                              src={authorProfilePhotoUrl}
-                              alt={authorFields.name}
-                              className='w-8 h-8 rounded-full object-cover bg-buttonBg'
-                            />
-                          ) : (
-                            <span>No Profile Photo</span> // Add a fallback if photo is missing
-                          )}
-                          <Link
-                            to={`/${
-                              language === 'vi' ? 'vi/luat-su/' : 'en/attorneys/'
-                            }${authorFields.slug}`}
-                            className='text-buttonBg font-bold uppercase hover:underline'
-                          >
-                            {authorFields.name}
-                          </Link>
-                          {index < post.fields.author.length - 1 && ', '}
-                        </span>
-                      );
-                    })}
+                    {post.fields.author.map((author, index) => (
+                      <span
+                        key={author.sys.id}
+                        className='flex items-center space-x-2'
+                      >
+                        {/* Author's photo */}
+                        {author.fields.profilePhoto?.fields?.file?.url && (
+                          <img
+                            src={author.fields.profilePhoto.fields.file.url}
+                            alt={author.fields.name}
+                            className='w-6 h-6 rounded-full object-cover bg-buttonBg'
+                          />
+                        )}
+                        {/* Author's name */}
+                        <Link
+                          to={`/${
+                            language === 'vi' ? 'vi/luat-su/' : 'en/attorneys/'
+                          }${author.fields.slug}`}
+                          className='text-buttonBg font-bold uppercase hover:underline'
+                        >
+                          {author.fields.name}
+                        </Link>
+                        {index < post.fields.author.length - 1 && ', '}
+                      </span>
+                    ))}
                   </span>
                 )}
-                {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
+                {Array.isArray(post.fields.author) && (
                   <span className='mx-2'>|</span>
                 )}
-                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>
-                {/* Date Published */}
+                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>{' '}
               </div>
-              <p className='mb-4'>{previewText}</p>
-              {/* Display the preview text */}
+              <p className='mb-4'>{previewText}</p>{' '}
               <Link
                 to={`/${language}/blog/${post.fields.slug}`}
                 className='flex items-center text-buttonBg hover:underline mt-4'

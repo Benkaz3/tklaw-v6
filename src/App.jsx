@@ -63,6 +63,8 @@ function App() {
           <Route path='/en/policies' element={<PoliciesPage />} />
           <Route path='/vi/chinh-sach' element={<PoliciesPage />} />
           <Route path='/vi/blog/chu-de/:slug' element={<BlogCategoryPage />} />
+          {/* <Route path='/category/:slug' element={<BlogCategoryPage />} /> */}
+
           <Route
             path='/en/blog/category/:slug'
             element={<BlogCategoryPage />}

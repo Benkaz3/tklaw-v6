@@ -181,7 +181,12 @@
       "contact_label": "Liên hệ",
       "read_more_label": "Đọc tiếp...",
       "view_on_map_label": "Xem bản đồ",
+
+      "latest_posts": "Bài viết mới nhất",
+      "featured_posts": "Bài viết được quan tâm",
+
       "post_not_found": "Không tìm thấy bài viết",
+
 
       "breadcrumb_labels": {
         "home": "Trang chủ",
