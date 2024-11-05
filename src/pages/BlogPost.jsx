@@ -80,7 +80,15 @@ const renderOptions = {
       </a>
     ),
   },
+
 };
+
+
+
+
+
+
+
 
 const BlogPost = () => {
   const { t } = useTranslation();
@@ -107,6 +115,7 @@ const BlogPost = () => {
   }
 
   const post = data.blogPage ? data.blogPage[0] : null;
+  // console.log(`data: ${JSON.stringify(data.blogPage)}`);
 
   if (!post) {
     return (
@@ -154,6 +163,7 @@ const BlogPost = () => {
 
         {/* Author Introduction Section */}
         {Array.isArray(post.fields.author) && (
+
           <div className='mt-8'>
             <h3 className='text-xl font-bold text-gray-800 mb-4'>
               {t('global.blog.about_the_author')}

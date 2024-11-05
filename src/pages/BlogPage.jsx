@@ -4,6 +4,7 @@ import heroBg from '../assets/practices_hero_bg.webp';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import LoadingDots from '../components/LoadingDots';
+import { MdWarning } from 'react-icons/md';
 
 // Utility function to convert Rich Text to string recursively
 const convertRichTextToString = (richTextNode) => {
@@ -58,9 +59,12 @@ const BlogPage = () => {
   const blogPosts = data.blogPage || [];
   console.log('Blog Posts:', blogPosts);
 
+
   // Split featured and other posts
   const featuredPosts = blogPosts.slice(0, 2); // Assuming the first 2 are featured
   const remainingPosts = blogPosts.slice(2);
+
+
 
   return (
     <div className=''>
@@ -76,9 +80,12 @@ const BlogPage = () => {
 
       {/* Breadcrumb */}
       <Breadcrumb />
-
+      <div className='flex justify-center items-center mt-4 space-x-2'>
+      <MdWarning color="orange" size={18} />
+      <span className='text-xs'>Available in Vietnamese only</span>
+    </div>
       {/* Blog Posts Section */}
-      <div className='space-y-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
         {blogPosts.map((post) => {
           const bodyText = convertRichTextToString(post.fields.body);
           const previewText =
@@ -87,16 +94,23 @@ const BlogPage = () => {
               : bodyText;
 
           return (
-            <div key={post.sys.id} className='p-6'>
-              <h2 className='text-2xl font-semibold mb-2'>
-                {post.fields.title}
-              </h2>
+            <div
+              key={post.sys.id}
+              className='p-6 bg-section_background border rounded-md'
+              >
+                 <Link
+                to={`/${language}/blog/${post.fields.slug}`}
+                className='flex items-center text-buttonBg hover:underline mt-4'
+              >
+                              <h2 className='text-xl font-semibold mb-2'>{post.fields.title}</h2>
+
+              </Link>
               {/* Date and Author Section */}
               <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
-                {/* Blog Category */}
                 {/* Check if post.fields.author exists and is an array */}
-                {Array.isArray(post.fields.author) && (
+                {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
                   <span className='flex items-center space-x-2'>
+
                     {post.fields.author.map((author, index) => (
                       <span
                         key={author.sys.id}
@@ -132,7 +146,7 @@ const BlogPage = () => {
               <p className='mb-4'>{previewText}</p>{' '}
               <Link
                 to={`/${language}/blog/${post.fields.slug}`}
-                className='flex items-center text-buttonBg hover:underline'
+                className='flex items-center text-buttonBg hover:underline mt-4'
               >
                 <span className='mr-1 text-sm font-bold'>
                   {t('global.labels.read_more_label')}
