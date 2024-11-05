@@ -52,14 +52,14 @@ const OurTeamSection = () => {
             >
               {/* Photo */}
               <div className='flex items-start mb-4'>
-                <div className='w-16 h-16 rounded-full border border-text flex items-center justify-center bg-primary'>
+                <div className='w-16 h-16 object-cover aspect-square rounded-full border border-text flex items-center justify-center bg-primary'>
                   <img
                     src={
                       author.fields.profilePhoto?.fields?.file?.url ||
                       'path-to-placeholder-image'
                     }
                     alt={author.fields.name}
-                    className='w-full h-full rounded-full object-cover'
+                    className='w-full h-full rounded-full'
                   />
                 </div>
                 <div className='flex flex-col ml-4'>
