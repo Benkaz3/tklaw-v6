@@ -52,26 +52,26 @@ const renderOptions = {
     ),
     [BLOCKS.HR]: () => <hr className='my-4 border-t border-gray-300' />,
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { title, file } = node.data.target.fields;
-      return (
+      const { title, file } = node.data.target.fields || {};
+      return file?.url ? (
         <div className='my-4'>
           <img
             src={file.url}
-            alt={title}
+            alt={title || 'Embedded Asset'}
             className='w-full h-auto rounded-lg'
           />
           {title && (
             <p className='text-center text-sm text-gray-600'>{title}</p>
           )}
         </div>
-      );
+      ) : null;
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-      const { title, slug } = node.data.target.fields;
+      const { title, slug } = node.data.target.fields || {};
       const thumbnail =
-        node.data.target.fields.thumbnail?.fields?.file?.url ||
-        node.data.target.fields.image?.fields?.file?.url ||
-        'path-to-placeholder-image'; // Fallback image
+        node.data.target.fields?.thumbnail?.fields?.file?.url ||
+        node.data.target.fields?.image?.fields?.file?.url ||
+        imgPlaceholder;
 
       return (
         <a
@@ -80,28 +80,29 @@ const renderOptions = {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <div className='flex-grow text-lg font-bold'>{title}</div>
+          <div className='flex-grow text-lg font-bold'>
+            {title || 'Untitled'}
+          </div>
           {thumbnail && (
             <img
               src={thumbnail}
-              alt={title}
+              alt={title || 'Thumbnail'}
               className='w-20 h-20 rounded ml-4 object-cover'
             />
           )}
         </a>
       );
     },
-
     [INLINES.EMBEDDED_ENTRY]: (node) => {
-      const { name, slug } = node.data.target.fields;
-      return (
+      const { name, slug } = node.data.target.fields || {};
+      return name && slug ? (
         <a
           href={`/vi/luat-su/${slug}`}
           className='inline-block bg-blue-50 px-2 py-1 rounded text-blue-600 hover:underline'
         >
           {name}
         </a>
-      );
+      ) : null;
     },
     [INLINES.HYPERLINK]: (node, children) => (
       <a
@@ -135,21 +136,24 @@ const BlogPost = () => {
     console.error(error);
     return (
       <div className='text-red-500 text-center py-10'>
-        Error: {error.message}
+        Error: {error.message || 'An unknown error occurred.'}
       </div>
     );
   }
 
-  const post = data.blogPage ? data.blogPage[0] : null;
-  // console.log(`data: ${JSON.stringify(data.blogPage)}`);
+  const post = Array.isArray(data?.blogPage) ? data.blogPage[0] : null;
 
-  if (!post) {
+  if (!post || !post.fields) {
     return (
       <div className='text-center py-10'>
         {t('global.labels.post_not_found')}
       </div>
     );
   }
+
+  const authors = Array.isArray(post.fields.author)
+    ? post.fields.author.filter((author) => author?.fields)
+    : [];
 
   return (
     <div className='container mx-auto lg:px-8'>
@@ -162,7 +166,7 @@ const BlogPost = () => {
       </section>
 
       {/* Breadcrumb */}
-      <Breadcrumb postTitle={post.fields.title} />
+      <Breadcrumb postTitle={post.fields.title || 'Untitled Post'} />
 
       <div className='flex justify-center items-center mt-4 space-x-2'>
         <MdWarning color='orange' size={18} />
@@ -171,59 +175,61 @@ const BlogPost = () => {
 
       {/* Post Content */}
       <div className='py-10 max-w-3xl px-4 mx-auto'>
-        <div className='relative z-10 max-w-4xl text-start text-white mb-4'>
-          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
-            {post.fields.title}
-          </h1>
-        </div>
+        <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
+          {post.fields.title || 'Untitled Post'}
+        </h1>
 
-        {/* Date Published */}
         <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
-          <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>
+          <span>
+            {post.sys?.createdAt
+              ? new Date(post.sys.createdAt).toLocaleDateString()
+              : 'Unknown Date'}
+          </span>
         </div>
 
-        {/* Render Rich Text Content */}
         <div className='mb-8 text-lg leading-relaxed text-gray-800'>
-          {documentToReactComponents(post.fields.body, renderOptions)}
+          {post.fields.body
+            ? documentToReactComponents(post.fields.body, renderOptions)
+            : 'Content unavailable.'}
         </div>
 
-        {/* Author Introduction Section */}
-        {Array.isArray(post.fields.author) && (
+        {authors.length > 0 && (
           <div className='mt-8'>
             <h3 className='text-xl font-bold text-gray-800 mb-4'>
               {t('global.blog.about_the_author')}
             </h3>
             <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-              {post.fields.author.map((author) => (
+              {authors.map((author) => (
                 <div
-                  key={author.sys.id}
+                  key={author.sys?.id || Math.random()}
                   className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 hover:shadow-lg transition'
                 >
                   <div className='flex items-start mb-4'>
                     <div className='w-16 h-16 rounded-full border flex items-center justify-center bg-primary'>
                       <img
                         src={
-                          author.fields.profilePhoto?.fields?.file?.url ||
+                          author.fields?.profilePhoto?.fields?.file?.url ||
                           imgPlaceholder
                         }
-                        alt={author.fields.name}
+                        alt={author.fields?.name || 'Author'}
                         className='w-full h-full rounded-full object-cover'
                       />
                     </div>
                     <div className='flex flex-col ml-4'>
                       <p className='font-semibold text-text text-lg'>
-                        {author.fields.name}
+                        {author.fields?.name || 'Unknown Author'}
                       </p>
                       <p className='text-text text-base'>
-                        {author.fields.title}
+                        {author.fields?.title || 'Unknown Title'}
                       </p>
                     </div>
                   </div>
                   <p className='text-gray-600 mb-4 text-base leading-relaxed'>
-                    {author.fields.introduction}
+                    {author.fields?.introduction ||
+                      'No introduction available.'}
                   </p>
                   <Link
-                    to={`/attorneys/${author.fields.slug}`}
+                    to={`/attorneys/${author.fields?.slug || '#'}`}
                     className='underline-animation text-primary font-medium'
                   >
                     {t('practice_details_page.view_profile')}
@@ -233,16 +239,6 @@ const BlogPost = () => {
             </div>
           </div>
         )}
-
-        <p className='text-lg mt-4'>
-          {t('global.blog.for_media_inquiries')}{' '}
-          <a
-            href={`mailto:${t('global.email')}`}
-            className='text-blue-600 hover:underline'
-          >
-            {t('global.email')}
-          </a>
-        </p>
       </div>
     </div>
   );

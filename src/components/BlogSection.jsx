@@ -1,9 +1,8 @@
 import useContentful from '../useContentful';
-import { useTranslation } from 'react-i18next'; // Use i18n's useTranslation hook
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import LoadingDots from './LoadingDots';
 
-// Utility function to convert Rich Text to string recursively
 const convertRichTextToString = (richTextNode) => {
   if (!richTextNode || !Array.isArray(richTextNode.content)) return '';
 
@@ -24,19 +23,18 @@ const convertRichTextToString = (richTextNode) => {
 };
 
 const BlogSection = () => {
-  const { t, i18n } = useTranslation(); // Use i18n's useTranslation hook
-  const language = i18n.language; // Get current language
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
 
   const { data, loading, error } = useContentful([
     {
       content_type: 'blogPage',
       order: '-sys.createdAt',
-      limit: 3, // Limit to the latest 3 blog posts
+      limit: 3,
       locale: language,
     },
   ]);
 
-  // Handle loading and error states
   if (loading) {
     return (
       <div className='flex bg-background items-center justify-center h-screen text-center py-10'>
@@ -54,7 +52,7 @@ const BlogSection = () => {
     );
   }
 
-  const blogPosts = data.blogPage || [];
+  const blogPosts = data?.blogPage || [];
 
   return (
     <section className='py-16'>
@@ -70,60 +68,51 @@ const BlogSection = () => {
                 ? bodyText.substring(0, 300) + '...'
                 : bodyText;
 
+            const authors = Array.isArray(post.fields.author)
+              ? post.fields.author.filter((author) => author?.fields)
+              : [];
+
             return (
               <div
-                key={post.sys.id}
+                key={post?.sys?.id || Math.random()}
                 className='p-6 bg-section_background border rounded-md'
               >
                 <Link
                   to={
                     language === 'vi'
-                      ? `/vi/blog/${post.fields.slug}`
-                      : `/en/blog/${post.fields.slug}`
+                      ? `/vi/blog/${post.fields?.slug}`
+                      : `/en/blog/${post.fields?.slug}`
                   }
-                  className='flex items-center hover:underline'
+                  className='hover:underline'
                 >
-
-                  <Link
-                    to={
-                      language === 'vi'
-                        ? `/vi/blog/${post.fields.slug}`
-                        : `/en/blog/${post.fields.slug}`
-                    }
-                    className='flex items-center hover:underline'
-                  >
-                    <h3 className='text-2xl font-semibold mb-2'>
-                      {post.fields.title}
-                    </h3>
-                  </Link>
+                  <h3 className='text-2xl font-semibold mb-2'>
+                    {post.fields?.title || 'Untitled'}
+                  </h3>
                 </Link>
-                <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
-                  {/* Author Section */}
-                  {Array.isArray(post.fields.author) &&
-                  post.fields.author.length > 0 ? (
+                <div className='flex items-center text-sm text-gray-500 mb-4'>
+                  {authors.length > 0 ? (
                     <span className='flex items-center space-x-2'>
-                      {post.fields.author.map((author, index) => {
-                        const authorProfilePhoto =
+                      {authors.map((author, index) => {
+                        const authorPhoto =
                           author.fields?.profilePhoto?.fields?.file?.url;
-
-                        const authorSlug = author.fields?.slug; // Get slug safely
-                        const authorName = author.fields?.name; // Get name safely
+                        const authorSlug = author.fields?.slug;
+                        const authorName = author.fields?.name;
 
                         return (
                           <span
-                            key={author.sys.id}
+                            key={author?.sys?.id || index}
                             className='flex items-center space-x-2'
                           >
-                            {authorProfilePhoto ? (
+                            {authorPhoto ? (
                               <img
-                                src={authorProfilePhoto}
-                                alt={authorName}
+                                src={authorPhoto}
+                                alt={authorName || 'Author'}
                                 className='w-6 h-6 rounded-full object-cover'
                               />
                             ) : (
-                              <span className='w-6 h-6 rounded-full bg-gray-300'></span> // Placeholder for missing profile photo
+                              <span className='w-6 h-6 rounded-full bg-gray-300'></span>
                             )}
-                            {authorSlug ? ( // Check if slug exists before rendering Link
+                            {authorSlug ? (
                               <Link
                                 to={
                                   language === 'vi'
@@ -132,37 +121,32 @@ const BlogSection = () => {
                                 }
                                 className='text-primary font-bold uppercase hover:underline'
                               >
-                                {authorName}
+                                {authorName || 'Unknown'}
                               </Link>
                             ) : (
-                              <span className='text-gray-500'></span> // Fallback for missing slug
+                              <span className='text-gray-500'>
+                                {authorName || 'Unknown'}
+                              </span>
                             )}
-                            {index < post.fields.author.length - 1 && ', '}
+                            {index < authors.length - 1 && ', '}
                           </span>
                         );
                       })}
                     </span>
-                  ) : (
-                    <span>N/A</span> // Fallback message if no authors
-                  )}
+                  ) : null}
 
-                  {Array.isArray(post.fields.author) &&
-                    post.fields.author.length > 0 && (
-                      <span className='mx-2'>|</span>
-                    )}
+                  {authors.length > 0 && <span className='mx-2'>|</span>}
                   <span>
-                    {new Date(post.sys.createdAt).toLocaleDateString()}
+                    {new Date(post?.sys?.createdAt).toLocaleDateString() ||
+                      'Unknown Date'}
                   </span>
-                  {/* Date Published */}
                 </div>
-                
                 <p className='mb-4'>{previewText}</p>
-
                 <Link
                   to={
                     language === 'vi'
-                      ? `/vi/blog/${post.fields.slug}`
-                      : `/en/blog/${post.fields.slug}`
+                      ? `/vi/blog/${post.fields?.slug}`
+                      : `/en/blog/${post.fields?.slug}`
                   }
                   className='flex items-center text-primary hover:underline'
                 >

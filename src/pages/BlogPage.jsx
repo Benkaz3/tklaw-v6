@@ -12,13 +12,16 @@ const convertRichTextToString = (richTextNode) => {
 
   return richTextNode.content
     .map((node) => {
+      if (!node) return '';
       switch (node.nodeType) {
         case 'paragraph':
           return convertRichTextToString(node);
         case 'text':
-          return node.value;
+          return node.value || '';
         case 'hyperlink':
-          return node.content.map((linkNode) => linkNode.value).join('');
+          return (node.content || [])
+            .map((linkNode) => linkNode.value || '')
+            .join('');
         default:
           return '';
       }
@@ -56,15 +59,12 @@ const BlogPage = () => {
     );
   }
 
-  const blogPosts = data.blogPage || [];
+  const blogPosts = data?.blogPage || [];
   console.log('Blog Posts:', blogPosts);
 
-
   // Split featured and other posts
-  const featuredPosts = blogPosts.slice(0, 2); // Assuming the first 2 are featured
+  const featuredPosts = blogPosts.slice(0, 2);
   const remainingPosts = blogPosts.slice(2);
-
-
 
   return (
     <div className=''>
@@ -81,13 +81,16 @@ const BlogPage = () => {
       {/* Breadcrumb */}
       <Breadcrumb />
       <div className='flex justify-center items-center mt-4 space-x-2'>
-      <MdWarning color="orange" size={18} />
-      <span className='text-xs'>Available in Vietnamese only</span>
-    </div>
+        <MdWarning color='orange' size={18} />
+        <span className='text-xs'>Available in Vietnamese only</span>
+      </div>
+
       {/* Blog Posts Section */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
         {blogPosts.map((post) => {
-          const bodyText = convertRichTextToString(post.fields.body);
+          if (!post?.fields) return null;
+
+          const bodyText = convertRichTextToString(post.fields.body || {});
           const previewText =
             bodyText.length > 300
               ? bodyText.substring(0, 300) + '...'
@@ -95,57 +98,71 @@ const BlogPage = () => {
 
           return (
             <div
-              key={post.sys.id}
+              key={post?.sys?.id || Math.random()}
               className='p-6 bg-section_background border rounded-md'
-              >
-                 <Link
-                to={`/${language}/blog/${post.fields.slug}`}
+            >
+              <Link
+                to={`/${language}/blog/${post.fields.slug || ''}`}
                 className='flex items-center text-buttonBg hover:underline mt-4'
               >
-                              <h2 className='text-xl font-semibold mb-2'>{post.fields.title}</h2>
-
+                <h2 className='text-xl font-semibold mb-2'>
+                  {post.fields.title || 'Untitled'}
+                </h2>
               </Link>
               {/* Date and Author Section */}
-              <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
-                {/* Check if post.fields.author exists and is an array */}
-                {Array.isArray(post.fields.author) && post.fields.author.length > 0 && (
-                  <span className='flex items-center space-x-2'>
+              {/* Date and Author Section */}
+              <div
+                className={`flex items-center text-sm text-gray-500 mb-4 ${
+                  Array.isArray(post.fields.author) &&
+                  post.fields.author.length > 0
+                    ? 'space-x-2'
+                    : ''
+                }`}
+              >
+                {Array.isArray(post.fields.author) &&
+                  post.fields.author.length > 0 && (
+                    <span className='flex items-center'>
+                      {post.fields.author.map((author, index) => {
+                        if (!author?.fields) return null;
 
-                    {post.fields.author.map((author, index) => (
-                      <span
-                        key={author.sys.id}
-                        className='flex items-center space-x-2'
-                      >
-                        {/* Author's photo */}
-                        {author.fields.profilePhoto?.fields?.file?.url && (
-                          <img
-                            src={author.fields.profilePhoto.fields.file.url}
-                            alt={author.fields.name}
-                            className='w-6 h-6 rounded-full object-cover bg-buttonBg'
-                          />
-                        )}
-                        {/* Author's name */}
-                        <Link
-                          to={`/${
-                            language === 'vi' ? 'vi/luat-su/' : 'en/attorneys/'
-                          }${author.fields.slug}`}
-                          className='text-buttonBg font-bold uppercase hover:underline'
-                        >
-                          {author.fields.name}
-                        </Link>
-                        {index < post.fields.author.length - 1 && ', '}
-                      </span>
-                    ))}
-                  </span>
-                )}
-                {Array.isArray(post.fields.author) && (
-                  <span className='mx-2'>|</span>
-                )}
-                <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>{' '}
+                        return (
+                          <span
+                            key={author.sys?.id || index}
+                            className='flex items-center space-x-2'
+                          >
+                            {author.fields.profilePhoto?.fields?.file?.url && (
+                              <img
+                                src={author.fields.profilePhoto.fields.file.url}
+                                alt={author.fields.name || 'Author'}
+                                className='w-6 h-6 rounded-full object-cover bg-buttonBg'
+                              />
+                            )}
+                            <Link
+                              to={`/${
+                                language === 'vi'
+                                  ? 'vi/luat-su/'
+                                  : 'en/attorneys/'
+                              }${author.fields.slug || ''}`}
+                              className='text-buttonBg font-bold uppercase hover:underline'
+                            >
+                              {author.fields.name || 'Unknown'}
+                            </Link>
+                            {index < post.fields.author.length - 1 && ', '}
+                          </span>
+                        );
+                      })}
+                    </span>
+                  )}
+                <span>
+                  {post.sys?.createdAt
+                    ? new Date(post.sys.createdAt).toLocaleDateString()
+                    : 'Unknown Date'}
+                </span>
               </div>
-              <p className='mb-4'>{previewText}</p>{' '}
+
+              <p className='mb-4'>{previewText}</p>
               <Link
-                to={`/${language}/blog/${post.fields.slug}`}
+                to={`/${language}/blog/${post.fields.slug || ''}`}
                 className='flex items-center text-buttonBg hover:underline mt-4'
               >
                 <span className='mr-1 text-sm font-bold'>
