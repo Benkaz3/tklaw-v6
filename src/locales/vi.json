@@ -132,7 +132,7 @@
     }
   },
   "businessInfo": {
-    "name": "TK & Associates",
+    "name": "Văn phòng Luật sư TK và Liên danh",
     "hotline": "+84 28 2221 6597",
     "longHotlineText": "Gọi ngay để đặt lịch tư vấn: ",
     "shortHotlineText": "Gọi: ",
@@ -186,7 +186,6 @@
       "featured_posts": "Bài viết được quan tâm",
 
       "post_not_found": "Không tìm thấy bài viết",
-
 
       "breadcrumb_labels": {
         "home": "Trang chủ",
