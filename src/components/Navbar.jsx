@@ -19,7 +19,7 @@ function Navbar() {
 
   return (
     <nav className='fixed top-0 left-0 w-full z-50 bg-white text-black shadow navbar'>
-      <div className='container mx-auto py-2 px-4 sm:px-6'>
+      <div className='container mx-auto py-2 px-4 sm:px-6 max-w-3xl'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold'>
             <Link
