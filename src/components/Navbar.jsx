@@ -27,9 +27,9 @@ function Navbar() {
               className='flex items-center p-1 border border-buttonBg rounded-sm'
             >
               <svg
-                width='auto'
+                width='27'
                 height='27'
-                viewBox='0 0 136 167'
+                viewBox='0 0 100 100'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
                 // style='width: 50%; height: auto;'
