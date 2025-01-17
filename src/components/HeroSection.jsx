@@ -14,9 +14,17 @@ function HeroSection() {
         <h1 className='font-primary capitalize text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-text'>
           {t('homepage.hero.title')}
         </h1>
-        <p className='text-lg md:text-xl lg:text-2xl text-text mb-8'>
+        {/* <p className='text-lg md:text-xl lg:text-2xl text-text mb-8'>
           {t('homepage.hero.subtitle')}
-        </p>
+        </p> */}
+        
+          {t('homepage.hero.subtitle', { returnObjects: true }).map(
+            (paragraph, index) => (
+              <p key={index} className='text-lg md:text-xl lg:text-2xl text-text mb-8'>
+                {paragraph}
+              </p>
+            )
+          )}
 
         {/* Buttons Container */}
         <div className='flex flex-col md:flex-row justify-center gap-4'>

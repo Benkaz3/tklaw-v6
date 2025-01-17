@@ -1,8 +1,11 @@
 {
   "homepage": {
     "hero": {
-      "title": "Expert Legal Solutions, Tailored for You.",
-      "subtitle": "Specializing in Business Law, Real Estate, and Personal Legal Services with a Commitment to Personalized Attention and Results.",
+      "title": "TK & Associates Law Office - Superior Legal Solutions",
+      "subtitle": [
+        "TK & Associates Law Firm, led by Attorney Khương Đình Tiến, specializes in providing a diverse range of legal services, including litigation, legal consultation, and other legal services as prescribed by law.", 
+        "With a team of experienced and dedicated lawyers, TK & Associates has received positive feedback from clients, who highly appreciate the professionalism and in-depth legal knowledge of our attorneys."
+      ],
       "button_text": "Talk to us",
       "meet_the_team": "Meet the team"
     },
@@ -162,12 +165,12 @@
     }
   },
   "global": {
-    "office_address": "1st Floor, Rosana Building, 60 Nguyen Dinh Chieu, Da Kao Ward, District 1, Ho Chi Minh city, Vietnam",
+    "office_address": "2nd Floor, Rosana Building, 60 Nguyen Dinh Chieu, Da Kao Ward, District 1, Ho Chi Minh city, Vietnam",
     "phone": "+84 28 2221 6597",
     "email": "khuongdinhtien@gmail.com",
     "footer_copy_statement": "TK & Associates - HCMC, Vietnam. All rights reserved.",
     "labels": {
-      "office_address_label": "Ho Chi Minh city Office: ",
+      "office_address_label": "TK & Associates Law Office",
       "phone_label": "Tel: ",
       "email_label": "Email: ",
       "awards_label": "Awards",
@@ -240,49 +243,48 @@
       }
     ]
   },
-  "policies": {
-    "title": "Policies",
-
+ "policies": {
+    "title": "Terms and Conditions",
+    "terms_acceptance": {
+      "title": "Terms Acceptance",
+      "content": [
+        "By accessing and using this website, you agree to be bound by these terms and conditions."
+      ]
+    },
+    "use_of_information": {
+      "title": "Use of Information",
+      "content": [
+        "The information on this website is for general reference purposes only and does not constitute legal advice. You should not rely on this information for any commercial or illegal purpose."
+      ]
+    },
+    "copyrights_ip": {
+      "title": "Copyright and Intellectual Property",
+      "content": [
+        "The content on this website, including but not limited to text, images, and logos, is the property of the law firm and is protected by copyright laws. Any reproduction, distribution, or other use of the content requires prior written consent from the firm."
+      ]
+    },
+    "limitation_of_liability": {
+      "title": "Limitation of Liability",
+      "content": [
+        "The law firm shall not be liable for any damages arising from the use or inability to use this website, including but not limited to technical failures, inaccuracies in content, or links to third-party websites."
+      ]
+    },
+    "changes_to_terms_of_use": {
+      "title": "Changes to Terms of Use",
+      "content": [
+        "The law firm reserves the right to change or modify these terms of use without prior notice. You should review these terms regularly for any updates."
+      ]
+    },
+    "third_party_links": {
+      "title": "Third-Party Links",
+      "content": [
+        "This website may contain links to other websites. The law firm is not responsible for the content or privacy practices of such websites."
+      ]
+    },
     "privacy_policy": {
       "title": "Privacy Policy",
       "content": [
-        "We collect personal information such as names, emails, and browsing behavior to provide legal services and respond to client inquiries.",
-        "We secure your personal information with reasonable security measures and do not share your information with third parties without your consent.",
-        "We use cookies to enhance your browsing experience."
-      ]
-    },
-    "terms_of_use": {
-      "title": "Terms of Use",
-      "content": [
-        "Users may not use the content on this website without permission from TK & Associates.",
-        "We are not responsible for any errors or omissions on this website."
-      ]
-    },
-    "disclaimer": {
-      "title": "Disclaimer",
-      "content": [
-        "The information on this website is for informational purposes only and does not constitute legal advice.",
-        "Contacting TK & Associates does not establish an attorney-client relationship."
-      ]
-    },
-    "cookie_policy": {
-      "title": "Cookie Policy",
-      "content": [
-        "We use cookies to track your browsing behavior and improve your experience on our website.",
-        "You can control cookies through your browser settings."
-      ]
-    },
-    "accessibility_statement": {
-      "title": "Accessibility Statement",
-      "content": [
-        "We are committed to ensuring that our website is accessible to all users, including those with disabilities."
-      ]
-    },
-    "client_rights": {
-      "title": "Client Rights",
-      "content": [
-        "Clients have the right to expect absolute confidentiality regarding communications with their attorney.",
-        "We are committed to providing timely and professional legal services."
+        "The firm is committed to protecting your personal information in accordance with applicable laws."
       ]
     }
   },
@@ -293,5 +295,10 @@
   },
   "practice_details_page": {
     "view_profile": "View profile"
-  }
+  },
+  
+    "logo": {
+      "alt": "TK & Associates -TKLaw Logo",
+      "title": "TK & Associates - TKLaw Official Logo"
+    }
 }

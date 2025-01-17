@@ -1,8 +1,11 @@
 {
   "homepage": {
     "hero": {
-      "title": "Giải pháp pháp lý tối ưu cho mỗi khách hàng.",
-      "subtitle": "TK & Associates hoạt động trong các lĩnh vực luật kinh doanh, bất động sản, và dịch vụ pháp lý cá nhân với cam kết tận tình và hiệu quả.",
+      "title": "Văn phòng luật sư TK & Liên danh - Giải pháp Pháp lý ưu việt",
+      "subtitle": [
+        "Văn phòng Luật sư TK & Associates, do Luật sư Khương Đình Tiến làm Trưởng văn phòng, chuyên cung cấp các dịch vụ pháp lý đa dạng, bao gồm tham gia tố tụng, tư vấn pháp luật và thực hiện các dịch vụ pháp lý khác theo quy định của pháp luật.", 
+        "Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, TK Và Liên Danh đã nhận được nhiều phản hồi tích cực từ khách hàng, đánh giá cao sự chuyên nghiệp và kiến thức sâu rộng về luật pháp của đội ngũ luật sư."
+      ],
       "button_text": "Liên hệ với chúng tôi",
       "meet_the_team": "Đội ngũ luật sư"
     },
@@ -161,13 +164,13 @@
     }
   },
   "global": {
-    "office_address": "Tầng 1, tòa nhà Rosana, 60 Nguyễn Đình Chiểu, Phường Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
+    "office_address": "Tầng 2, tòa nhà Rosana, 60 Nguyễn Đình Chiểu, Phường Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
     "phone": "+84 28 2221 6597",
     "email": "khuongdinhtien@gmail.com",
     "firm_name": "TK & Associates",
     "footer_copy_statement": "TK & Associates - HCMC, Vietnam. All rights reserved.",
     "labels": {
-      "office_address_label": "Văn phòng TP. Hồ Chí Minh: ",
+      "office_address_label": "Văn Phòng Luật sư TK và Liên Danh",
       "phone_label": "Điện thoại: ",
       "email_label": "Email: ",
       "awards_label": "Giải thưởng",
@@ -253,46 +256,46 @@
   },
   "policies": {
     "title": "Chính sách và điều khoản sử dụng",
+    "terms_acceptance": {
+      "title": "Chấp nhận Điều khoản sử dụng",
+      "content": [
+        "Khi truy cập và sử dụng trang web, người dùng được coi là đã đồng ý tuân thủ các điều khoản và điều kiện được nêu ra."
+      ]
+    },
+    "use_of_information": {
+      "title": "Sử dụng thông tin",
+      "content": [
+        "Thông tin trên trang web chủ yếu mang tính chất tham khảo và không thay thế cho tư vấn pháp lý cụ thể. Người dùng không nên sử dụng thông tin này cho mục đích thương mại hoặc phi pháp."
+      ]
+    },
+    "copyrights_ip": {
+      "title": "Bản quyền và quyền sở hữu trí tuệ",
+      "content": [
+        "Nội dung trên trang web, bao gồm văn bản, hình ảnh và biểu tượng, thuộc sở hữu của văn phòng luật sư và được bảo vệ bởi luật sở hữu trí tuệ. Việc sao chép, phân phối hoặc sử dụng lại nội dung cần có sự đồng ý bằng văn bản từ văn phòng."
+      ]
+    },
+    "limitation_of_liability": {
+      "title": "Giới hạn trách nhiệm",
+      "content": [
+        "Văn phòng luật sư không chịu trách nhiệm về bất kỳ thiệt hại nào phát sinh từ việc sử dụng hoặc không thể sử dụng trang web, bao gồm lỗi kỹ thuật, nội dung không chính xác hoặc liên kết đến trang web bên thứ ba."
+      ]
+    },
+    "changes_to_terms_of_use": {
+      "title": "Thay đổi Điều khoản sử dụng",
+      "content": [
+        "Văn phòng luật sư có quyền thay đổi, chỉnh sửa các điều khoản sử dụng mà không cần thông báo trước. Người dùng nên thường xuyên kiểm tra để cập nhật những thay đổi mới nhất."
+      ]
+    },
+    "third_party_links": {
+      "title": "Liên kết đến trang web bên thứ ba",
+      "content": [
+        "Trang web có thể chứa liên kết đến các trang web khác. Văn phòng luật sư không chịu trách nhiệm về nội dung hoặc chính sách bảo mật của các trang web này."
+      ]
+    },
     "privacy_policy": {
-      "title": "Chính Sách Bảo Mật",
+      "title": "Bảo mật thông tin cá nhân",
       "content": [
-        "Chúng tôi thu thập các thông tin cá nhân như tên, địa chỉ email và hành vi duyệt web để cung cấp dịch vụ pháp lý và đáp ứng yêu cầu của khách hàng.",
-        "Chúng tôi bảo mật thông tin cá nhân bằng các biện pháp bảo mật hợp lý và không chia sẻ thông tin của bạn với bên thứ ba mà không có sự đồng ý của bạn.",
-        "Chúng tôi sử dụng cookie để cải thiện trải nghiệm duyệt web của bạn."
-      ]
-    },
-    "terms_of_use": {
-      "title": "Điều Khoản Sử Dụng",
-      "content": [
-        "Người dùng không được phép sử dụng nội dung trên trang web này mà không có sự cho phép của TK & Associates.",
-        "Chúng tôi không chịu trách nhiệm cho các lỗi hoặc thiếu sót trên trang web này."
-      ]
-    },
-    "disclaimer": {
-      "title": "Miễn Trừ Trách Nhiệm",
-      "content": [
-        "Thông tin trên trang web này chỉ mang tính chất tham khảo và không phải là lời khuyên pháp lý.",
-        "Liên hệ với TK & Associates không tạo ra mối quan hệ luật sư-khách hàng."
-      ]
-    },
-    "cookie_policy": {
-      "title": "Chính Sách Cookie",
-      "content": [
-        "Chúng tôi sử dụng cookie để theo dõi hành vi duyệt web của bạn và cải thiện trải nghiệm của bạn trên trang web.",
-        "Bạn có thể kiểm soát cookie trong cài đặt trình duyệt của mình."
-      ]
-    },
-    "accessibility_statement": {
-      "title": "Tuyên Bố Về Khả Năng Truy Cập",
-      "content": [
-        "Chúng tôi cam kết đảm bảo trang web của chúng tôi có thể truy cập được cho tất cả người dùng, bao gồm cả những người có khuyết tật."
-      ]
-    },
-    "client_rights": {
-      "title": "Quyền Lợi Của Khách Hàng",
-      "content": [
-        "Khách hàng có quyền yêu cầu sự bảo mật tuyệt đối đối với thông tin trao đổi với luật sư.",
-        "Chúng tôi cam kết cung cấp dịch vụ pháp lý chuyên nghiệp và kịp thời."
+        "Văn phòng cam kết bảo vệ thông tin cá nhân của người dùng theo quy định pháp luật."
       ]
     }
   },
@@ -303,5 +306,9 @@
   },
   "practice_details_page": {
     "view_profile": "Xem hồ sơ"
+  },
+  "logo": {
+    "alt": "Logo của văn phòng luật TK và Liên Danh - TKLaw",
+    "title": "Logo chính thức văn phòng luật TK & Liên Danh - TKLaw"
   }
 }
