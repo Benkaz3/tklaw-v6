@@ -82,7 +82,7 @@ function Navbar() {
 
           <div className='flex items-center space-x-4'>
             {/* Language switcher */}
-            <LangSwitcher /> {/* This will handle the language switching */}
+            <LangSwitcher /> 
             <button
               onClick={toggleMenu}
               className='block lg:hidden focus:outline-none transition-transform duration-1000 transform hover:scale-110 text-black menu-button'
