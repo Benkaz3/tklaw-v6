@@ -24,10 +24,6 @@ function Navbar() {
     vi: LogoVi,
   };
 
-  const logoAlts = {
-
-  }
-
   const currentLogo = logos[i18n.language] || LogoEn;
 
   return (
