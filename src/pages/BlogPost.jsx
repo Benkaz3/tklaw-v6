@@ -1,14 +1,14 @@
-import { useParams } from 'react-router-dom';
-import useContentful from '../useContentful';
-import Breadcrumb from '../components/Breadcrumb';
-import heroBg from '../assets/practices_hero_bg.webp';
-import { useTranslation } from 'react-i18next';
-import LoadingDots from '../components/LoadingDots';
-import { Link } from 'react-router-dom';
-import { MdWarning } from 'react-icons/md';
-import imgPlaceholder from '../assets/img_placeholder.svg';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import useContentful from '../useContentful'
+import LoadingDots from '../components/LoadingDots'
+import Breadcrumb from '../components/Breadcrumb'
+import heroBg from '../assets/practices_hero_bg.webp'
+import imgPlaceholder from '../assets/img_placeholder.svg'
+import { MdWarning } from 'react-icons/md'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types'
 
 const renderOptions = {
   renderMark: {
@@ -44,35 +44,30 @@ const renderOptions = {
       <ol className='list-decimal list-inside mb-4 space-y-2'>{children}</ol>
     ),
     [BLOCKS.LIST_ITEM]: (node, children) => (
-      <li className='mb-2'>
-        {children.map((child) =>
-          child.type === 'p' ? child.props.children : child
-        )}
-      </li>
+      <li className='mb-2'>{children}</li>
     ),
     [BLOCKS.HR]: () => <hr className='my-4 border-t border-gray-300' />,
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { title, file } = node.data.target.fields || {};
-      return file?.url ? (
+      const { title, file } = node.data.target.fields || {}
+      if (!file?.url) return null
+      return (
         <div className='my-4'>
           <img
             src={file.url}
             alt={title || 'Embedded Asset'}
             className='w-full h-auto rounded-lg'
           />
-          {title && (
-            <p className='text-center text-sm text-gray-600'>{title}</p>
-          )}
+          {title && <p className='text-center text-sm text-gray-600'>{title}</p>}
         </div>
-      ) : null;
+      )
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-      const { title, slug } = node.data.target.fields || {};
+      const { title, slug } = node.data.target.fields || {}
       const thumbnail =
         node.data.target.fields?.thumbnail?.fields?.file?.url ||
         node.data.target.fields?.image?.fields?.file?.url ||
-        imgPlaceholder;
-
+        imgPlaceholder
+      if (!slug) return null
       return (
         <a
           href={`/vi/blog/${slug}`}
@@ -80,9 +75,7 @@ const renderOptions = {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <div className='flex-grow text-lg font-bold'>
-            {title || 'Untitled'}
-          </div>
+          <div className='flex-grow text-lg font-bold'>{title || 'Untitled'}</div>
           {thumbnail && (
             <img
               src={thumbnail}
@@ -91,18 +84,19 @@ const renderOptions = {
             />
           )}
         </a>
-      );
+      )
     },
     [INLINES.EMBEDDED_ENTRY]: (node) => {
-      const { name, slug } = node.data.target.fields || {};
-      return name && slug ? (
+      const { name, slug } = node.data.target.fields || {}
+      if (!name || !slug) return null
+      return (
         <a
           href={`/vi/luat-su/${slug}`}
           className='inline-block bg-blue-50 px-2 py-1 rounded text-blue-600 hover:underline'
         >
           {name}
         </a>
-      ) : null;
+      )
     },
     [INLINES.HYPERLINK]: (node, children) => (
       <a
@@ -115,70 +109,55 @@ const renderOptions = {
       </a>
     ),
   },
-};
+}
 
 const BlogPost = () => {
-  const { t } = useTranslation();
-  const { slug } = useParams();
-
+  const { t } = useTranslation()
+  const { slug } = useParams()
   const { data, loading, error } = useContentful([
     {
       content_type: 'blogPage',
       'fields.slug': slug,
     },
-  ]);
+  ])
 
-  if (loading) {
-    return <LoadingDots />;
-  }
-
-  if (error) {
-    console.error(error);
+  if (loading)
+    return <LoadingDots />
+  if (error)
     return (
       <div className='text-red-500 text-center py-10'>
         Error: {error.message || 'An unknown error occurred.'}
       </div>
-    );
-  }
+    )
 
-  const post = Array.isArray(data?.blogPage) ? data.blogPage[0] : null;
-
-  if (!post || !post.fields) {
+  const post = data?.blogPage?.[0]
+  if (!post?.fields)
     return (
       <div className='text-center py-10'>
         {t('global.labels.post_not_found')}
       </div>
-    );
-  }
+    )
 
-  const authors = Array.isArray(post.fields.author)
-    ? post.fields.author.filter((author) => author?.fields)
-    : [];
+  const { title, body, author } = post.fields
+  const authors = Array.isArray(author) ? author.filter(a => a?.fields) : []
 
   return (
     <div className='container mx-auto lg:px-8'>
-      {/* Hero Section */}
       <section
         className='relative h-[25vh] bg-cover bg-center flex items-center justify-center'
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className='absolute inset-0 bg-black opacity-50'></div>
+        <div className='absolute inset-0 bg-black opacity-50' />
       </section>
-
-      {/* Breadcrumb */}
-      <Breadcrumb postTitle={post.fields.title || 'Untitled Post'} />
-
+      <Breadcrumb postTitle={title || 'Untitled Post'} />
       <div className='flex justify-center items-center mt-4 space-x-2'>
         <MdWarning color='orange' size={18} />
         <span className='text-xs'>Available in Vietnamese only</span>
       </div>
-
-      {/* Post Content */}
       <div className='py-10 max-w-3xl px-4 mx-auto'>
         <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
-          {post.fields.title || 'Untitled Post'}
+          {title || 'Untitled Post'}
         </h1>
-
         <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
           <span>
             {post.sys?.createdAt
@@ -186,62 +165,62 @@ const BlogPost = () => {
               : 'Unknown Date'}
           </span>
         </div>
-
         <div className='mb-8 text-lg leading-relaxed text-gray-800'>
-          {post.fields.body
-            ? documentToReactComponents(post.fields.body, renderOptions)
+          {body
+            ? documentToReactComponents(body, renderOptions)
             : 'Content unavailable.'}
         </div>
-
         {authors.length > 0 && (
           <div className='mt-8'>
             <h3 className='text-xl font-bold text-gray-800 mb-4'>
               {t('global.blog.about_the_author')}
             </h3>
             <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-              {authors.map((author) => (
-                <div
-                  key={author.sys?.id || Math.random()}
-                  className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 hover:shadow-lg transition'
-                >
-                  <div className='flex items-start mb-4'>
-                    <div className='w-16 h-16 rounded-full border flex items-center justify-center bg-primary'>
-                      <img
-                        src={
-                          author.fields?.profilePhoto?.fields?.file?.url ||
-                          imgPlaceholder
-                        }
-                        alt={author.fields?.name || 'Author'}
-                        className='w-full h-full rounded-full object-cover'
-                      />
-                    </div>
-                    <div className='flex flex-col ml-4'>
-                      <p className='font-semibold text-text text-lg'>
-                        {author.fields?.name || 'Unknown Author'}
-                      </p>
-                      <p className='text-text text-base'>
-                        {author.fields?.title || 'Unknown Title'}
-                      </p>
-                    </div>
-                  </div>
-                  <p className='text-gray-600 mb-4 text-base leading-relaxed'>
-                    {author.fields?.introduction ||
-                      'No introduction available.'}
-                  </p>
-                  <Link
-                    to={`/attorneys/${author.fields?.slug || '#'}`}
-                    className='underline-animation text-primary font-medium'
+              {authors.map((author) => {
+                const { sys, fields } = author
+                if (!fields) return null
+                const { name, title, introduction, slug: authorSlug, profilePhoto } = fields
+                const photoUrl = profilePhoto?.fields?.file?.url || imgPlaceholder
+                return (
+                  <div
+                    key={sys?.id}
+                    className='card flex flex-col items-start bg-card_background rounded-lg shadow-sm p-6 hover:shadow-lg transition'
                   >
-                    {t('practice_details_page.view_profile')}
-                  </Link>
-                </div>
-              ))}
+                    <div className='flex items-start mb-4'>
+                      <div className='w-16 h-16 rounded-full border flex items-center justify-center bg-primary'>
+                        <img
+                          src={photoUrl}
+                          alt={name || 'Author'}
+                          className='w-full h-full rounded-full object-cover'
+                        />
+                      </div>
+                      <div className='flex flex-col ml-4'>
+                        <p className='font-semibold text-text text-lg'>
+                          {name || 'Unknown Author'}
+                        </p>
+                        <p className='text-text text-base'>
+                          {title || 'Unknown Title'}
+                        </p>
+                      </div>
+                    </div>
+                    <p className='text-gray-600 mb-4 text-base leading-relaxed'>
+                      {introduction || 'No introduction available.'}
+                    </p>
+                    <Link
+                      to={`/attorneys/${authorSlug || '#'}`}
+                      className='underline-animation text-primary font-medium'
+                    >
+                      {t('practice_details_page.view_profile')}
+                    </Link>
+                  </div>
+                )
+              })}
             </div>
           </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlogPost;
+export default BlogPost

@@ -10,10 +10,11 @@
       "meet_the_team": "Meet the team"
     },
     "practices_and_sectors_title": "Practices & Client Sectors",
-    "practices": "Practices",
+    "practices_section": {
+      "title": "Practices"
+    },
     "client_sectors": "Client sectors",
     "link_text": "Read more...",
-
     "why_choose_us_section_title": "Why Choose TK & Associates?",
     "why_choose_us": [
       {
@@ -150,12 +151,11 @@
   },
   "menu": {
     "attorneys": "Attorneys",
-    "practices": "Practices",
+    "practices_and_sectors": "Practices & sectors",
     "blog": "Blog",
     "location": "Location",
     "contact": "Contact us",
     "policies": "Policies",
-
     "path": {
       "attorneys": "attorneys",
       "blog": "blog",
@@ -182,7 +182,7 @@
       "expertise_label": "Expertise",
       "about_label": "About",
       "contact_label": "Contact",
-      "read_more_label": "Continue Reading...",
+      "read_more": "Continue Reading...",
       "view_on_map_label": "View on map",
       "post_not_found": "Post not found",
       "breadcrumb_labels": {
@@ -243,7 +243,7 @@
       }
     ]
   },
- "policies": {
+  "policies": {
     "title": "Terms and Conditions",
     "terms_acceptance": {
       "title": "Terms Acceptance",
@@ -294,11 +294,18 @@
     "link_text": "Go back to Home"
   },
   "practice_details_page": {
-    "view_profile": "View profile"
+    "view_profile": "View profile",
+    "cases_handled": "Cases handled",
+    "specialized_attorney": "Specialized attorney"
   },
-  
-    "logo": {
-      "alt": "TK & Associates -TKLaw Logo",
-      "title": "TK & Associates - TKLaw Official Logo"
-    }
+  "logo": {
+    "alt": "TK & Associates -TKLaw Logo",
+    "title": "TK & Associates - TKLaw Official Logo"
+  },
+  "errors": {
+    "fetchFailed": "Failed to load data: {{message}}",
+    "retry": "Retry",
+    "practiceNotFound": "Practice not found.",
+    "goHome": "Go to Home"
+  }
 }

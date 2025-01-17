@@ -1,70 +1,65 @@
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'; // Use i18n's useTranslation hook
+import { useTranslation } from 'react-i18next';
 
-function Footer() {
-  const { t, i18n } = useTranslation(); // Use i18n's useTranslation hook
+const Footer = () => {
+  const { t, i18n } = useTranslation();
+  const language = i18n.language || 'en';
 
-  // Function to generate dynamic paths based on language
+  const menuItems = [
+    { key: 'contact', path: 'contact' },
+    { key: 'attorneys', path: 'attorneys' },
+    { key: 'policies', path: 'policies' },
+    { key: 'practices', path: 'practices_and_sectors' },
+  ];
+
+  const socialMedia = [
+    { icon: FaFacebook, url: 'https://www.facebook.com', label: 'Facebook' },
+    { icon: FaLinkedin, url: 'https://www.linkedin.com', label: 'LinkedIn' },
+    { icon: FaTwitter, url: 'https://www.twitter.com', label: 'Twitter' },
+  ];
+
   const getDynamicPath = (path) => {
-    const basePath = t(`menu.path.${path}`) || ''; // Handle undefined paths
-    return `/${i18n.language}${basePath ? `/${basePath}` : ''}`; // Append basePath only if it exists
+    const basePath = t(`menu.path.${path}`, { defaultValue: '' });
+    return `/${language}${basePath ? `/${basePath}` : ''}`;
   };
 
   return (
-    <footer className={`py-8 px-4 lg:px-12 mt-12 relative z-10`}>
-      <div className='container mx-auto flex flex-col items-start space-y-4'>
-        {/* First Row: Contact Us, Our Team, Policies, Expertise */}
-        <div className='flex flex-wrap items-start gap-6'>
-          <Link
-            to={getDynamicPath('contact')}
-            className={`uppercase hover:text-accent transition duration-300`}
-          >
-            {t('menu.contact')}
-          </Link>
-          <Link
-            to={getDynamicPath('attorneys')}
-            className={`uppercase hover:text-accent transition duration-300`}
-          >
-            {t('menu.attorneys')}
-          </Link>
-          <Link
-            to={getDynamicPath('policies')}
-            className={`uppercase hover:text-accent transition duration-300`}
-          >
-            {t('menu.policies')}
-          </Link>
-          <Link
-            to={getDynamicPath('practices_and_sectors')}
-            className={`uppercase hover:text-accent transition duration-300`}
-          >
-            {t('menu.practices')}
-          </Link>
+    <footer className="py-8 px-4 lg:px-12 mt-12 relative z-10">
+      <div className="container mx-auto flex flex-col items-start space-y-4">
+        <div className="flex flex-wrap items-start gap-6">
+          {menuItems.map(({ key, path }) => (
+            <Link
+              key={key}
+              to={getDynamicPath(path)}
+              className="uppercase hover:text-accent transition duration-300"
+            >
+              {t(`menu.${key}`)}
+            </Link>
+          ))}
         </div>
-
-        {/* Second Row: Social Media Links */}
-        <div className='flex space-x-4 text-center'>
-          <a href='#' className={`hover:text-accent transition duration-300`}>
-            <FaFacebook size={20} />
-          </a>
-          <a href='#' className={`hover:text-accent transition duration-300`}>
-            <FaLinkedin size={20} />
-          </a>
-          <a href='#' className={`hover:text-accent transition duration-300`}>
-            <FaTwitter size={20} />
-          </a>
+        <div className="flex space-x-4 text-center">
+          {socialMedia.map(({ icon: Icon, url, label }) => (
+            <a
+              key={label}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition duration-300"
+              aria-label={label}
+            >
+              <Icon size={20} />
+            </a>
+          ))}
         </div>
-
-        {/* Bottom Row: Copyright */}
-        <div className='text-center border-t border-accent opacity-50 pt-4 text-sm w-full'>
+        <div className="text-center border-t border-accent opacity-50 pt-4 text-sm w-full">
           <p>
-            &copy; {new Date().getFullYear()}{' '}
-            {t('global.footer_copy_statement')}
+            &copy; {new Date().getFullYear()} {t('global.footer_copy_statement')}
           </p>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

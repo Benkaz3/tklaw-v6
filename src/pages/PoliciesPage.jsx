@@ -2,121 +2,75 @@ import { useTranslation } from 'react-i18next';
 import heroBg from '../assets/practices_hero_bg.webp';
 import BreadCrumb from '../components/Breadcrumb';
 
-function PoliciesPage() {
-  const { t } = useTranslation(); 
+const policies = [
+  {
+    titleKey: 'policies.terms_acceptance.title',
+    contentKey: 'policies.terms_acceptance.content',
+  },
+  {
+    titleKey: 'policies.use_of_information.title',
+    contentKey: 'policies.use_of_information.content',
+  },
+  {
+    titleKey: 'policies.copyrights_ip.title',
+    contentKey: 'policies.copyrights_ip.content',
+  },
+  {
+    titleKey: 'policies.limitation_of_liability.title',
+    contentKey: 'policies.limitation_of_liability.content',
+  },
+  {
+    titleKey: 'policies.changes_to_terms_of_use.title',
+    contentKey: 'policies.changes_to_terms_of_use.content',
+  },
+  {
+    titleKey: 'policies.third_party_links.title',
+    contentKey: 'policies.third_party_links.content',
+  },
+  {
+    titleKey: 'policies.privacy_policy.title',
+    contentKey: 'policies.privacy_policy.content',
+  },
+];
+
+const PoliciesPage = () => {
+  const { t } = useTranslation();
+
+  if (!heroBg) return null;
 
   return (
-    <div className='container mx-auto'>
+    <div className="container mx-auto">
       <section
-        className='relative h-[20vh] bg-cover bg-center flex items-center justify-start'
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className='absolute inset-0 bg-black opacity-50'></div>
+        <div className="absolute inset-0 bg-black opacity-50" />
       </section>
-
       <BreadCrumb />
-      <div className='px-4 py-16'>
-        <h1 className='text-4xl font-bold text-center mb-8'>
-          {t('policies.title')}
-        </h1>
+      <div className="px-4 py-16">
+        {t('policies.title') && (
+          <h1 className="text-4xl font-bold text-center mb-8">{t('policies.title')}</h1>
+        )}
+        {policies.map(({ titleKey, contentKey }, index) => {
+          const title = t(titleKey);
+          const content = t(contentKey, { returnObjects: true });
 
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.terms_acceptance.title')}
-          </h2>
-          {t('policies.terms_acceptance.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
+          if (!title || !content) return null;
 
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.use_of_information.title')}
-          </h2>
-          {t('policies.use_of_information.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
-
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.copyrights_ip.title')}
-          </h2>
-          {t('policies.copyrights_ip.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
-
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.limitation_of_liability.title')}
-          </h2>
-          {t('policies.limitation_of_liability.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
-
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.changes_to_terms_of_use.title')}
-          </h2>
-          {t('policies.changes_to_terms_of_use.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
-
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.third_party_links.title')}
-          </h2>
-          {t('policies.third_party_links.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
-
-        <section className='mb-6'>
-          <h2 className='text-2xl font-semibold mb-2'>
-            {t('policies.privacy_policy.title')}
-          </h2>
-          {t('policies.privacy_policy.content', { returnObjects: true }).map(
-            (paragraph, index) => (
-              <p key={index} className='text-lg mb-4'>
-                {paragraph}
-              </p>
-            )
-          )}
-        </section>
+          return (
+            <section key={index} className="mb-6">
+              <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+              {content.map((paragraph, idx) => (
+                <p key={idx} className="text-lg mb-4">
+                  {paragraph}
+                </p>
+              ))}
+            </section>
+          );
+        })}
       </div>
     </div>
   );
-}
+};
 
 export default PoliciesPage;

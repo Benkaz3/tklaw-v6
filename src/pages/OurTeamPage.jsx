@@ -3,16 +3,15 @@ import OurTeamSection from '../components/OurTeamSection';
 import Breadcrumb from '../components/Breadcrumb';
 
 const OurTeamPage = () => {
+  if (!heroBg) return null;
+
   return (
-    <div className=''>
-      {/* Hero Section */}
+    <div>
       <section
-        className='relative h-[25vh] bg-cover bg-center flex items-center justify-center'
-        style={{
-          backgroundImage: `url(${heroBg})`,
-        }}
+        className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className='absolute inset-0 bg-black opacity-50'></div>
+        <div className="absolute inset-0 bg-black opacity-50" />
       </section>
       <Breadcrumb />
       <OurTeamSection />

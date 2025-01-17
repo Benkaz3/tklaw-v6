@@ -10,10 +10,11 @@
       "meet_the_team": "Đội ngũ luật sư"
     },
     "practices_and_sectors_title": "Lĩnh vực hoạt động và ngành nghề",
-    "practices": "Lĩnh vực",
+    "practices_section": {
+      "title": "Lĩnh vực"
+    },
     "client_sectors": "Ngành nghề",
     "link_text": "Đọc thêm...",
-
     "why_choose_us_section_title": "Tại Sao Chọn TK & Associates?",
     "why_choose_us": [
       {
@@ -150,7 +151,7 @@
   },
   "menu": {
     "attorneys": "Luật sư",
-    "practices": "Lĩnh vực",
+    "practices_and_sectors": "Lĩnh vực và ngành nghề",
     "blog": "Bài viết",
     "location": "Location",
     "contact": "Liên hệ",
@@ -182,14 +183,11 @@
       "expertise_label": "Lĩnh vực",
       "about_label": "Về chúng tôi",
       "contact_label": "Liên hệ",
-      "read_more_label": "Đọc tiếp...",
+      "read_more": "Đọc tiếp...",
       "view_on_map_label": "Xem bản đồ",
-
       "latest_posts": "Bài viết mới nhất",
       "featured_posts": "Bài viết được quan tâm",
-
       "post_not_found": "Không tìm thấy bài viết",
-
       "breadcrumb_labels": {
         "home": "Trang chủ",
         "chinh-sach": "Chính sách",
@@ -199,21 +197,13 @@
         "linh-vuc-va-nganh-nghe": "Lĩnh vực & ngành nghề",
         "lien-he": "Liên hệ",
         "ban-le": "Bán lẻ",
-
         "nganh-bat-dong-san": "Bất động sản",
-
         "cham-soc-suc-khoe": "Chăm sóc sức khỏe",
-
         "cong-nghe": "Công nghệ",
-
         "dich-vu-tai-chinh": "Dịch vụ tài chính",
-
         "luat-bat-dong-san": "Luật Bất Động Sản",
-
         "luat-doanh-nghiep": "Luật Doanh Nghiệp",
-
         "luat-gia-dinh": "Luật Gia Đình",
-
         "luat-lao-dong": "Luật Lao Động"
       }
     },
@@ -305,10 +295,18 @@
     "link_text": "Trở về trang chủ"
   },
   "practice_details_page": {
-    "view_profile": "Xem hồ sơ"
+    "view_profile": "Xem hồ sơ",
+    "cases_handled": "Vụ việc liên quan",
+    "specialized_attorney": "Luật sư phụ trách"
   },
   "logo": {
     "alt": "Logo của văn phòng luật TK và Liên Danh - TKLaw",
     "title": "Logo chính thức văn phòng luật TK & Liên Danh - TKLaw"
+  },
+  "errors": {
+    "fetchFailed": "Không tải được dữ liệu: {{message}}",
+    "retry": "Thử lại",
+    "practiceNotFound": "Không tìm thấy lĩnh vực.",
+    "goHome": "Trở về trang chủ"
   }
 }
