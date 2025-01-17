@@ -5,6 +5,8 @@ import LoadingDots from '../components/LoadingDots'
 import useContentful from '../useContentful'
 import heroBg from '../assets/practices_hero_bg.webp'
 import Breadcrumb from '../components/Breadcrumb'
+import { Helmet } from 'react-helmet-async';
+import useSeo from '../seo/useSeo';
 
 const PracticesAndSectorsSection = () => {
   const { t, i18n } = useTranslation()
@@ -22,6 +24,8 @@ const PracticesAndSectorsSection = () => {
       locale: language,
     },
   ])
+
+  const seo = useSeo('PracticesAndSectors')
 
   const [selectedTab, setSelectedTab] = useState('practices')
   const [expandedRow, setExpandedRow] = useState(null)
@@ -98,6 +102,11 @@ const PracticesAndSectorsSection = () => {
 
   return (
     <section className="py-10 bg-transparent">
+         <Helmet>
+        <title>{seo.Title}</title>
+        <meta name="description" content={seo.Description} />
+        <meta name="keywords" content={seo.Keywords.join(', ')} />
+      </Helmet>
       <section
         className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `url(${heroBg})` }}

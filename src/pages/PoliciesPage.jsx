@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import heroBg from '../assets/practices_hero_bg.webp';
 import BreadCrumb from '../components/Breadcrumb';
+import { Helmet } from 'react-helmet-async';
+import useSeo from '../seo/useSeo';
 
 const policies = [
   {
@@ -35,11 +37,17 @@ const policies = [
 
 const PoliciesPage = () => {
   const { t } = useTranslation();
+  const seo = useSeo('PoliciesPage');
 
   if (!heroBg) return null;
 
   return (
     <div className="container mx-auto">
+         <Helmet>
+        <title>{seo.Title}</title>
+        <meta name="description" content={seo.Description} />
+        <meta name="keywords" content={seo.Keywords.join(', ')} />
+      </Helmet>
       <section
         className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
         style={{ backgroundImage: `url(${heroBg})` }}

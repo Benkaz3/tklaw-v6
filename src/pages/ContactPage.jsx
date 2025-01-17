@@ -3,6 +3,8 @@ import Breadcrumb from '../components/Breadcrumb'
 import LoadingDots from '../components/LoadingDots'
 import heroBg from '../assets/practices_hero_bg.webp'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async';
+import useSeo from '../seo/useSeo';
 
 const ContactPage = () => {
   const { t } = useTranslation()
@@ -17,8 +19,15 @@ const ContactPage = () => {
     setMapLoading(false)
   }
 
+  const seo = useSeo('ContactPage')
+
   return (
     <div>
+       <Helmet>
+        <title>{seo.Title}</title>
+        <meta name="description" content={seo.Description} />
+        <meta name="keywords" content={seo.Keywords.join(', ')} />
+      </Helmet>
       {heroBg && (
         <section
           className="relative h-64 bg-cover bg-center flex items-center justify-center"

@@ -7,6 +7,8 @@ import CTASection from '../components/CTASection';
 import BlogSection from '../components/BlogSection';
 import ContactSection from '../components/ContactSection';
 import FAQSection from '../components/FAQs';
+import { Helmet } from 'react-helmet-async';
+import useSeo from '../seo/useSeo';
 
 const sections = [
   HeroSection,
@@ -21,12 +23,19 @@ const sections = [
 ];
 
 function HomePage() {
+  const seo = useSeo('HomePage');
+
   return (
-    <div>
+    <>
+    <Helmet>
+        <title>{seo.Title}</title>
+        <meta name="description" content={seo.Description} />
+        <meta name="keywords" content={seo.Keywords.join(', ')} />
+      </Helmet>
       {sections.map((Section, index) => (
         <Section key={index} data-aos="fade-up" />
       ))}
-    </div>
+    </>
   );
 }
 

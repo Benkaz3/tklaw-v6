@@ -47,16 +47,30 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 bg-white text-black shadow">
       <div className="container mx-auto py-2 px-4 sm:px-6 max-w-3xl">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center max-w-16">
-            <img
-              src={currentLogo}
-              alt={t('logo.alt')}
-              title={t('logo.title')}
-              loading="lazy"
-              aria-label={t('logo.alt')}
-              className="h-8 w-auto"
-            />
-          </Link>
+        <Link to="/" className="flex items-center justify-center">
+  <img
+    src={currentLogo}
+    alt={t('logo.alt')}
+    title={t('logo.title')}
+    loading="lazy"
+    aria-label={t('logo.alt')}
+    className="h-8 w-auto flex-shrink-0"
+  />
+  <div className="text-left" style={{ fontSize: '0.2rem' }}>
+    <p className='text-center text-blue-700'>VĂN PHÒNG LUẬT SƯ TK VÀ LIÊN DANH</p>
+    <p className='text-center text-blue-700'>TK & ASSOCIATES</p>
+    <p className='font-style: italic font-weight: bold'>Tầng 2 Tòa nhà Rosana 60 Nguyễn Đình Chiểu</p>
+    <p className='font-style: italic font-weight: bold'>Phường Đa Kao - Quận 1- TP. Hồ Chí Minh</p>
+    <p className='font-style: italic font-weight: bold'>
+      <span>ĐT: (028) 22216597</span>
+      <span> Fax: (028) 22202201</span>
+    </p>
+    <p className='font-style: italic font-weight: bold'>
+      Email: tklaw.vn@gmail.com Web: www.tklaw.vn
+    </p>
+  </div>
+</Link>
+
           <div className="hidden lg:flex space-x-6">
             {menuItems.map(({ key, icon }) => (
               <Link

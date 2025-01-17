@@ -1,8 +1,12 @@
 import { useParams } from 'react-router-dom'
 import useContentful from '../useContentful'
 import LoadingDots from '../components/LoadingDots'
+import { Helmet } from 'react-helmet-async';
+import useSeo from '../seo/useSeo';
 
 const CategoryPage = () => {
+  const seo = useSeo('BlogCategoryPage')
+
   const { categorySlug } = useParams()
   const {
     data: categoryDataResult,
@@ -52,6 +56,11 @@ const CategoryPage = () => {
 
   return (
     <div className='container mx-auto mt-32'>
+      <Helmet>
+        <title>{seo.Title}</title>
+        <meta name="description" content={seo.Description} />
+        <meta name="keywords" content={seo.Keywords.join(', ')} />
+      </Helmet>
       <h1 className='text-4xl font-bold mb-8'>Category: {category.fields.name}</h1>
       <div className='space-y-8'>
         {blogPosts.length > 0 ? (

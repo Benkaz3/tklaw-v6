@@ -14,6 +14,8 @@ import AuthorProfile from './pages/AuthorProfile';
 import BlogCategoryPage from './pages/BlogCategoryPage';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { SeoProvider } from './seo/SeoContext';
+
 
 function App() {
   useEffect(() => {
@@ -24,7 +26,8 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <SeoProvider>
+ <Router>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Navigate replace to="/vi" />} />
@@ -52,6 +55,8 @@ function App() {
         </Route>
       </Routes>
     </Router>
+    </SeoProvider>
+   
   );
 }
 

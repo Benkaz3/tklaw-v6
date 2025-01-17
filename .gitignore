@@ -29,3 +29,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Internal reports and working files
+
+project_structure_report.md
+generate_project_report.py
