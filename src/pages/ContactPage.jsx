@@ -5,6 +5,7 @@ import heroBg from '../assets/practices_hero_bg.webp'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import useSeo from '../seo/useSeo';
+import generateMetaTags from '../seo/generateMetaTags';
 
 const ContactPage = () => {
   const { t } = useTranslation()
@@ -20,13 +21,20 @@ const ContactPage = () => {
   }
 
   const seo = useSeo('ContactPage')
+  const metaTags = generateMetaTags(seo);
 
   return (
     <div>
-       <Helmet>
+        <Helmet>
         <title>{seo.Title}</title>
-        <meta name="description" content={seo.Description} />
-        <meta name="keywords" content={seo.Keywords.join(', ')} />
+        <link rel="canonical" href={seo.ogUrl} />
+        {metaTags.map((tag, index) =>
+          tag.name ? (
+            <meta key={index} name={tag.name} content={tag.content} />
+          ) : (
+            <meta key={index} property={tag.property} content={tag.content} />
+          )
+        )}
       </Helmet>
       {heroBg && (
         <section

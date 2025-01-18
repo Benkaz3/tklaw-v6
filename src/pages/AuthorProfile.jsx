@@ -4,8 +4,15 @@ import useContentful from '../useContentful'
 import LoadingDots from '../components/LoadingDots'
 import Breadcrumb from '../components/Breadcrumb'
 import heroBg from '../assets/practices_hero_bg.webp'
+import generateMetaTags from '../seo/generateMetaTags';
+import { Helmet } from 'react-helmet-async';
+import useSeo from '../seo/useSeo';
 
 const AuthorProfile = () => {
+
+  const seo = useSeo('AuthorProfilePage');
+
+  const metaTags = generateMetaTags(seo);
   const { slug } = useParams()
   const { t, i18n } = useTranslation()
   const language = i18n.language
@@ -55,6 +62,22 @@ const AuthorProfile = () => {
 
   return (
     <div className='py-10 max-w-4xl mx-auto'>
+       <Helmet>
+  <title>{seo?.Title || 'Default Title'}</title>
+  
+  {Array.isArray(metaTags) &&
+    metaTags.map((meta, index) => {
+      if (meta && typeof meta === 'object') {
+        return <meta key={index} {...meta} />;
+      }
+      console.warn(`Invalid meta tag at index ${index}:`, meta);
+      return null; 
+    })}
+
+  {seo?.ogUrl && typeof seo.ogUrl === 'string' && (
+    <link rel="canonical" href={seo.ogUrl} />
+  )}
+</Helmet>
       <section
         className='relative h-64 bg-cover bg-center flex items-center justify-center mb-6'
         style={{ backgroundImage: `url(${heroBg})` }}

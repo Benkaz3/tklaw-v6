@@ -7,6 +7,7 @@ import heroBg from '../assets/practices_hero_bg.webp'
 import { MdWarning } from 'react-icons/md'
 import { Helmet } from 'react-helmet-async';
 import useSeo from '../seo/useSeo';
+import generateMetaTags from '../seo/generateMetaTags';
 
 const convertRichTextToString = (richTextNode) => {
   if (!richTextNode?.content) return ''
@@ -32,6 +33,7 @@ const BlogPage = () => {
   const language = i18n.language
 
   const seo = useSeo('BlogPage');
+  const metaTags = generateMetaTags(seo);
 
   const { data, loading, error } = useContentful([
     {
@@ -64,11 +66,17 @@ const BlogPage = () => {
 
   return (
     <div>
-         <Helmet>
-              <title>{seo.Title}</title>
-              <meta name="description" content={seo.Description} />
-              <meta name="keywords" content={seo.Keywords.join(', ')} />
-            </Helmet>
+       <Helmet>
+        <title>{seo.Title}</title>
+        <link rel="canonical" href={seo.ogUrl} />
+        {metaTags.map((tag, index) =>
+          tag.name ? (
+            <meta key={index} name={tag.name} content={tag.content} />
+          ) : (
+            <meta key={index} property={tag.property} content={tag.content} />
+          )
+        )}
+      </Helmet>
       <section
         className='relative h-[25vh] bg-cover w-full bg-center flex items-center justify-center'
         style={{ backgroundImage: `url(${heroBg})` }}

@@ -3,6 +3,7 @@ import heroBg from '../assets/practices_hero_bg.webp';
 import BreadCrumb from '../components/Breadcrumb';
 import { Helmet } from 'react-helmet-async';
 import useSeo from '../seo/useSeo';
+import generateMetaTags from '../seo/generateMetaTags';
 
 const policies = [
   {
@@ -38,15 +39,22 @@ const policies = [
 const PoliciesPage = () => {
   const { t } = useTranslation();
   const seo = useSeo('PoliciesPage');
+  const metaTags = generateMetaTags(seo);
 
   if (!heroBg) return null;
 
   return (
     <div className="container mx-auto">
-         <Helmet>
+           <Helmet>
         <title>{seo.Title}</title>
-        <meta name="description" content={seo.Description} />
-        <meta name="keywords" content={seo.Keywords.join(', ')} />
+        <link rel="canonical" href={seo.ogUrl} />
+        {metaTags.map((tag, index) =>
+          tag.name ? (
+            <meta key={index} name={tag.name} content={tag.content} />
+          ) : (
+            <meta key={index} property={tag.property} content={tag.content} />
+          )
+        )}
       </Helmet>
       <section
         className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
