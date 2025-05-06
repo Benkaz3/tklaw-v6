@@ -25,10 +25,10 @@ const Navbar = () => {
 
   const menuItems = useMemo(
     () => [
-      { key: 'attorneys', icon: null },
-      { key: 'practices_and_sectors', icon: null },
-      { key: 'blog', icon: null },
-      { key: 'contact', icon: FaInfoCircle },
+      { key: 'attorneys', Icon: null },
+      { key: 'practices_and_sectors', Icon: null },
+      { key: 'blog', Icon: null },
+      { key: 'contact', Icon: FaInfoCircle },
     ],
     []
   );
@@ -74,13 +74,13 @@ const Navbar = () => {
 </Link>
 
           <div className="hidden lg:flex space-x-6">
-            {menuItems.map(({ key, icon }) => (
+            {menuItems.map(({ key, Icon }) => (
               <Link
                 key={key}
                 to={getDynamicPath(key)}
                 className="flex items-center hover:text-buttonBg transition duration-300 uppercase"
               >
-                {icon && <icon className="mr-2" />} {t(`menu.${key}`)}
+                {Icon && <Icon className="mr-2" />} {t(`menu.${key}`)}
               </Link>
             ))}
           </div>
