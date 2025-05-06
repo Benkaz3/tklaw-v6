@@ -57,17 +57,19 @@ const Navbar = () => {
     className="h-8 w-auto flex-shrink-0"
   />
   <div className="text-left" style={{ fontSize: '0.2rem' }}>
-    <p className='text-center text-blue-700'>VĂN PHÒNG LUẬT SƯ TK VÀ LIÊN DANH</p>
-    <p className='text-center text-blue-700'>TK & ASSOCIATES</p>
-    <p className='font-style: italic font-weight: bold'>Tầng 2 Tòa nhà Rosana 60 Nguyễn Đình Chiểu</p>
-    <p className='font-style: italic font-weight: bold'>Phường Đa Kao - Quận 1- TP. Hồ Chí Minh</p>
-    <p className='font-style: italic font-weight: bold'>
-      <span>ĐT: (028) 22216597</span>
-      <span> Fax: (028) 22202201</span>
-    </p>
-    <p className='font-style: italic font-weight: bold'>
-      Email: tklaw.vn@gmail.com Web: www.tklaw.vn
-    </p>
+  <p
+  className="
+    text-start
+   text-[#3E4F7A]
+    w-10          
+    text-[0.378rem]      
+    whitespace-pre-line  
+    mx-auto       
+  "
+>
+  VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH
+</p>
+    
   </div>
 </Link>
 
