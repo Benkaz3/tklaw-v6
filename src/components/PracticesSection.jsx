@@ -1,4 +1,3 @@
-// PracticesSection.tsx
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -6,26 +5,12 @@ import { useTranslation } from 'react-i18next'
 import LoadingDots from './LoadingDots'
 import useContentful from '../useContentful'
 
-const FALLBACK_ICON = '/images/placeholder-64.png'
-
-const PracticeCard = ({ id, slug, title, description, iconUrl, url }) => (
+const PracticeCard = ({ id, slug, title, description, url }) => (
   <Link
     key={id}
     to={url}
     className='flex flex-col items-start border-2 rounded-lg shadow-sm p-8 group transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5'
   >
-    <img
-  src={iconUrl}
-  alt={title}
-  className="w-16 h-16 mb-4 object-cover rounded"
-  onError={({ currentTarget }) => {
-    if (currentTarget.src !== FALLBACK_ICON) {
-      currentTarget.src = FALLBACK_ICON
-    }
-  }}
-/>
-
-
     <div className='relative inline-flex items-start justify-start capitalize text-text transition duration-300 group'>
       <h3 className='relative z-10 text-h3 text-left font-semibold mb-2'>
         {title}
@@ -90,8 +75,7 @@ const PracticesSection = () => {
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {practices.map(({ sys: { id }, fields }) => {
-              const { slug, title, homepageDescription, icon } = fields
-              const iconUrl = icon?.fields?.file?.url ?? FALLBACK_ICON
+              const { slug, title, homepageDescription } = fields
               const url = practicePath.replace(':slug', slug)
 
               return (
@@ -101,7 +85,6 @@ const PracticesSection = () => {
                   slug={slug}
                   title={title}
                   description={homepageDescription}
-                  iconUrl={iconUrl}
                   url={url}
                 />
               )
