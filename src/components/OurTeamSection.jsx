@@ -32,9 +32,9 @@ const OurTeamSection = () => {
     return (
       <section className='py-10 bg-background'>
         <div className='max-w-container-desktop mx-auto px-4 text-center'>
-          <h2 className='font-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2 text-text'>
+          <h1 className='font-primary sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-2 text-text'>
             {t('homepage.our_team_section.title')}
-          </h2>
+          </h1>
           <p className='text-lg md:text-xl text-text mb-6'>
             {t('homepage.our_team_section.subtitle')}
           </p>
@@ -49,9 +49,9 @@ const OurTeamSection = () => {
   return (
     <section className='py-10 bg-background'>
       <div className='max-w-container-desktop mx-auto px-4'>
-        <h2 className='font-primary text-start sm:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2 text-text'>
+        <h1 className='font-primary text-start sm:text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-2 text-text'>
           {t('homepage.our_team_section.title')}
-        </h2>
+        </h1>
         <p className='text-start sm:text-center text-lg md:text-xl text-text mb-6'>
           {t('homepage.our_team_section.subtitle')}
         </p>
