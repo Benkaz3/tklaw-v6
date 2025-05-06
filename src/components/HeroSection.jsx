@@ -39,14 +39,11 @@ const HeroSection = () => {
   return (
     <header className="bg-card_background flex flex-col items-center justify-center mt-14 py-16">
       <div className="relative z-10 max-w-2xl text-center px-6 md:px-12 lg:px-16 transition duration-300 fade-in">
-        <h2 className="my-8 text-lg sm:text-xl md:text-2xl lg:text-3xl font-primary font-bold text-buttonBg hover:text-buttonBg transition duration-300">
-          {t('businessInfo.name')}
-        </h2>
         <h1 className="font-primary capitalize text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-text">
           {t('homepage.hero.title')}
         </h1>
         {subtitles.map((paragraph, index) => (
-          <p key={index} className="text-lg md:text-xl lg:text-2xl text-text mb-8">
+          <p key={index} className="text-lg md:text-xl lg:text-2xl text-text mb-8 text-justify">
             {paragraph}
           </p>
         ))}

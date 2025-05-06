@@ -15,8 +15,6 @@ const Footer = () => {
 
   const socialMedia = [
     { icon: FaFacebook, url: 'https://www.facebook.com', label: 'Facebook' },
-    { icon: FaLinkedin, url: 'https://www.linkedin.com', label: 'LinkedIn' },
-    { icon: FaTwitter, url: 'https://www.twitter.com', label: 'Twitter' },
   ];
 
   const getDynamicPath = (path) => {

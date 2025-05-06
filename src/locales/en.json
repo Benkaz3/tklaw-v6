@@ -3,8 +3,8 @@
     "hero": {
       "title": "TK & Associates Law Office - Superior Legal Solutions",
       "subtitle": [
-        "TK & Associates Law Firm, led by Attorney Khương Đình Tiến, specializes in providing a diverse range of legal services, including litigation, legal consultation, and other legal services as prescribed by law.", 
-        "With a team of experienced and dedicated lawyers, TK & Associates has received positive feedback from clients, who highly appreciate the professionalism and in-depth legal knowledge of our attorneys."
+        "The Ho Chi Minh City Department of Justice licensed TK & Liên Danh Law Office on April 1, 2014. The Chief of Office is lawyer Khương Đình Tiến.", 
+        "The office’s scope covers litigation under applicable law, legal consulting, delivery of legal services and out-of-court representation for legal matters."
       ],
       "button_text": "Talk to us",
       "meet_the_team": "Meet the team"
@@ -166,8 +166,8 @@
     }
   },
   "global": {
-    "office_address": "2nd Floor, Rosana Building, 60 Nguyen Dinh Chieu, Da Kao Ward, District 1, Ho Chi Minh city, Vietnam",
-    "phone": "+84 28 2221 6597",
+    "office_address": "6th Floor, Rosana Building, 60 Nguyen Dinh Chieu, Da Kao Ward, District 1, Ho Chi Minh city, Vietnam",
+    "phone": "+84 9 1377 7995",
     "email": "khuongdinhtien@gmail.com",
     "footer_copy_statement": "TK & Associates - HCMC, Vietnam. All rights reserved.",
     "labels": {

@@ -3,9 +3,9 @@
     "hero": {
       "title": "Văn phòng luật sư TK & Liên danh - Giải pháp Pháp lý ưu việt",
       "subtitle": [
-        "Văn phòng Luật sư TK & Associates, do Luật sư Khương Đình Tiến làm Trưởng văn phòng, chuyên cung cấp các dịch vụ pháp lý đa dạng, bao gồm tham gia tố tụng, tư vấn pháp luật và thực hiện các dịch vụ pháp lý khác theo quy định của pháp luật.", 
-        "Với đội ngũ luật sư giàu kinh nghiệm và tận tâm, TK Và Liên Danh đã nhận được nhiều phản hồi tích cực từ khách hàng, đánh giá cao sự chuyên nghiệp và kiến thức sâu rộng về luật pháp của đội ngũ luật sư."
-      ],
+        "Văn phòng Luật sư TK & Liên Danh được thành lập theo giấy phép ngày 01/04/2014 của sở Tư pháp Thành phố Hồ Chí Minh do Luật sư Khương Đình Tiến làm Trưởng văn phòng.",
+        "Lĩnh vực đăng ký hoạt động bao gồm tham gia tố tụng theo quy định của pháp luật, tư vấn pháp luật, thực hiện các dịch vụ pháp lý theo quy định pháp luật và đại diện ngoài tố tụng để thực hiện các công việc có liên quan đến pháp luật." 
+        ],
       "button_text": "Liên hệ với chúng tôi",
       "meet_the_team": "Đội ngũ luật sư"
     },
@@ -166,8 +166,8 @@
     }
   },
   "global": {
-    "office_address": "Tầng 2, tòa nhà Rosana, 60 Nguyễn Đình Chiểu, Phường Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
-    "phone": "+84 28 2221 6597",
+    "office_address": "Tầng 6, tòa nhà Rosana, 60 Nguyễn Đình Chiểu, Phường Đa Kao, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
+    "phone": "+84 9 1377 7995",
     "email": "khuongdinhtien@gmail.com",
     "firm_name": "TK & Associates",
     "footer_copy_statement": "TK & Associates - HCMC, Vietnam. All rights reserved.",
