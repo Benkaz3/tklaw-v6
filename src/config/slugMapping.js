@@ -12,7 +12,7 @@ const SLUG_MAPPING = {
     'nganh-bat-dong-san': 'real-estate-sector',
     'cham-soc-suc-khoe': 'healthcare',
     'lien-he': 'contact',
-    'linh-vuc-va-nganh-nghe': 'practices-and-sectors',
+    'linh-vuc-hanh-nghe': 'practices',
     'luat-su': 'attorneys',
     'chu-de': 'category', 
     'chinh-sach': 'policies'
@@ -28,7 +28,7 @@ const SLUG_MAPPING = {
     'real-estate-sector': 'nganh-bat-dong-san',
     'healthcare': 'cham-soc-suc-khoe',
     'contact': 'lien-he',
-    'practices-and-sectors': 'linh-vuc-va-nganh-nghe',
+    'practices': 'linh-vuc-hanh-nghe',
     'attorneys': 'luat-su',  
     'category': 'chu-de',          
     'policies': 'chinh-sach',         

@@ -1,27 +1,26 @@
-import { useState, useCallback, useMemo } from 'react';
-import { FaBars, FaTimes, FaInfoCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import LangSwitcher from './LangSwitcher';
-import LogoVi from '../assets/tklaw-logo-vi.png';
-import LogoEn from '../assets/tklaw-logo-en.png';
+import { useState, useCallback, useMemo } from 'react'
+import { FaBars, FaTimes, FaInfoCircle } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import LangSwitcher from './LangSwitcher'
+import logo from '../assets/logo-v6.png'
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { t, i18n } = useTranslation();
-  const language = i18n.language || 'en';
+  const [isOpen, setIsOpen] = useState(false)
+  const { t, i18n } = useTranslation()
+  const language = i18n.language || 'en'
 
   const toggleMenu = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
+    setIsOpen((prev) => !prev)
+  }, [])
 
   const getDynamicPath = useCallback(
     (path) => {
-      const basePath = t(`menu.path.${path}`, { defaultValue: '' });
-      return `/${language}${basePath ? `/${basePath}` : ''}`;
+      const basePath = t(`menu.path.${path}`, { defaultValue: '' })
+      return `/${language}${basePath ? `/${basePath}` : ''}`
     },
     [language, t]
-  );
+  )
 
   const menuItems = useMemo(
     () => [
@@ -31,59 +30,34 @@ const Navbar = () => {
       { key: 'contact', Icon: FaInfoCircle },
     ],
     []
-  );
-
-  const logos = useMemo(
-    () => ({
-      en: LogoEn,
-      vi: LogoVi,
-    }),
-    []
-  );
-
-  const currentLogo = logos[language] || LogoEn;
+  )
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white text-black shadow">
-      <div className="container mx-auto py-2 px-4 sm:px-6 max-w-3xl">
-        <div className="flex items-center justify-between">
-        <Link to="/" className="flex items-center justify-center">
-  <img
-    src={currentLogo}
-    alt={t('logo.alt')}
-    title={t('logo.title')}
-    loading="lazy"
-    aria-label={t('logo.alt')}
-    className="h-8 w-auto flex-shrink-0"
-  />
-  <div className="text-left" style={{ fontSize: '0.2rem' }}>
-  <p
-  className="
-    text-start
-   text-[#3E4F7A]
-    w-10          
-    text-[0.378rem]      
-    whitespace-pre-line  
-    mx-auto       
-  "
->
-  VĂN PHÒNG LUẬT SƯ TK & LIÊN DANH
-</p>
-    
-  </div>
-</Link>
+      <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+        {/* Top section: logo, centered title, language switcher, burger */}
+        <div className="flex items-center justify-between py-2">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt={t('logo.alt')}
+              title={t('logo.title')}
+              loading="lazy"
+              aria-label={t('logo.alt')}
+              className="h-14 w-auto flex-shrink-0"
+            />
+          </Link>
 
-          <div className="hidden lg:flex space-x-6">
-            {menuItems.map(({ key, Icon }) => (
-              <Link
-                key={key}
-                to={getDynamicPath(key)}
-                className="flex items-center hover:text-buttonBg transition duration-300 uppercase"
-              >
-                {Icon && <Icon className="mr-2" />} {t(`menu.${key}`)}
-              </Link>
-            ))}
+          {/* Centered title */}
+          <div className="flex-1 text-center">
+          <p className="text-[#3E4F7A] w-62 text-[1.15rem] md:text-[1.5rem] lg:text-[1.75rem] mx-auto font-bold">
+          <span className="block md:inline">VĂN PHÒNG LUẬT SƯ</span>
+              <span className="block md:inline"> TK & LIÊN DANH</span>
+            </p>
           </div>
+
+          {/* Lang switcher & burger */}
           <div className="flex items-center space-x-4">
             <LangSwitcher />
             <button
@@ -95,6 +69,21 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Bottom section: desktop links */}
+        <div className="hidden lg:flex justify-center space-x-6 border-t border-gray-200 py-2">
+          {menuItems.map(({ key, Icon }) => (
+            <Link
+              key={key}
+              to={getDynamicPath(key)}
+              className="flex items-center font-bold hover:text-buttonBg transition duration-300 uppercase"
+            >
+              {Icon && <Icon className="mr-2" />} {t(`menu.${key}`)}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile dropdown */}
         {isOpen && (
           <div className="lg:hidden bg-white text-black overflow-hidden transition-transform duration-300 ease-in-out">
             <div className="flex flex-col items-center space-y-4 py-4">
@@ -102,7 +91,7 @@ const Navbar = () => {
                 <Link
                   key={key}
                   to={getDynamicPath(key)}
-                  className="hover:text-accent transition duration-300 uppercase"
+                  className="hover:text-accent transition duration-300 uppercase font-bold"
                   onClick={toggleMenu}
                 >
                   {t(`menu.${key}`)}
@@ -113,7 +102,7 @@ const Navbar = () => {
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

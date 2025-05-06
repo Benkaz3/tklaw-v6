@@ -14,7 +14,7 @@ const PracticesAndSectorsPage = () => {
 
   const pagePath =
     language === 'vi'
-      ? '/vi/linh-vuc-va-nganh-nghe/:slug'
+      ? '/vi/linh-vuc-hanh-nghe/:slug'
       : '/en/practices/:slug'
 
   const { data, loading, error } = useContentful([
@@ -62,8 +62,8 @@ const PracticesAndSectorsPage = () => {
 
       <div className="max-w-container-desktop mx-auto px-4 mt-8">
         {t('homepage.practices_and_sectors_title') && (
-          <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            {t('homepage.practices_and_sectors_title')}
+          <h1 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+          {t('homepage.practices_and_sectors_title')}
           </h1>
         )}
 

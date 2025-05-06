@@ -9,7 +9,7 @@
       "button_text": "Liên hệ với chúng tôi",
       "meet_the_team": "Đội ngũ luật sư"
     },
-    "practices_and_sectors_title": "Lĩnh vực hoạt động",
+    "practices_and_sectors_title": "Lĩnh vực hành nghề",
     "practices_section": {
       "title": "Lĩnh vực"
     },
@@ -45,7 +45,7 @@
           {
             "type": "link",
             "value": "ngành nghề",
-            "to": "linh-vuc-va-nganh-nghe?tab=nganh-nghe"
+            "to": "linh-vuc-hanh-nghe?tab=nganh-nghe"
           },
           {
             "type": "text",
@@ -151,7 +151,7 @@
   },
   "menu": {
     "attorneys": "Luật sư",
-    "practices_and_sectors": "Lĩnh vực và ngành nghề",
+    "practices_and_sectors": "Lĩnh vực hành nghề",
     "blog": "Bài viết",
     "location": "Location",
     "contact": "Liên hệ",
@@ -160,7 +160,7 @@
     "path": {
       "attorneys": "luat-su",
       "blog": "blog",
-      "practices_and_sectors": "linh-vuc-va-nganh-nghe",
+      "practices_and_sectors": "linh-vuc-hanh-nghe",
       "contact": "lien-he",
       "policies": "chinh-sach"
     }
@@ -195,7 +195,7 @@
         "blog": "Bài viết",
         "attorneys": "Luật sư",
         "luat-su": "Luật sư",
-        "linh-vuc-va-nganh-nghe": "Lĩnh vực & ngành nghề",
+        "linh-vuc-hanh-nghe": "Lĩnh vực hành nghề",
         "lien-he": "Liên hệ",
         "ban-le": "Bán lẻ",
         "nganh-bat-dong-san": "Bất động sản",

@@ -151,7 +151,7 @@
   },
   "menu": {
     "attorneys": "Attorneys",
-    "practices_and_sectors": "Practices & sectors",
+    "practices_and_sectors": "Practices",
     "blog": "Blog",
     "location": "Location",
     "contact": "Contact us",
@@ -160,7 +160,7 @@
     "path": {
       "attorneys": "attorneys",
       "blog": "blog",
-      "practices_and_sectors": "practices-and-sectors",
+      "practices_and_sectors": "practices",
       "contact": "contact",
       "policies": "policies"
     }
@@ -195,7 +195,7 @@
         "blog": "Blog",
         "attorneys": "Attorneys",
         "luat-su": "Attorneys",
-        "practices-and-sectors": "Practices & Sectors",
+        "practices-and-sectors": "Practices",
         "corporate-law": "Corporate Law",
         "employment-law": "Employment Law",
         "family-law": "Family Law",

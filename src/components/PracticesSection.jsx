@@ -29,8 +29,8 @@ const PracticesSection = () => {
   const practicePath = useMemo(
     () =>
       language === 'vi'
-        ? '/vi/linh-vuc-va-nganh-nghe/:slug'
-        : '/en/practices-and-sectors/:slug',
+        ? '/vi/linh-vuc-nganh-nghe/:slug'
+        : '/en/practices/:slug',
     [language]
   )
 
