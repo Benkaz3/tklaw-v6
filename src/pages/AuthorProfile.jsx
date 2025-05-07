@@ -74,7 +74,7 @@ const AuthorProfile = () => {
       </Helmet>
 
       <header
-        className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 bg-cover bg-center mb-12"
+        className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
         aria-label={t('practice_details_page.hero_background')}
       >
