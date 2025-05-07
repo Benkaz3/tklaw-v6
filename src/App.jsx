@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { useEffect } from 'react';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -16,7 +21,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { SeoProvider } from './seo/SeoContext';
 
-
 function App() {
   useEffect(() => {
     AOS.init({
@@ -25,38 +29,59 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    window._PRERENDER_READY__ = true;
+  }, []);
+
   return (
     <SeoProvider>
- <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Navigate replace to="/vi" />} />
-          <Route path="/en" element={<HomePage />} />
-          <Route path="/vi" element={<HomePage />} />
-          <Route path="/vi/linh-vuc-hanh-nghe/:slug" element={<PracticeDetailsPage />} />
-          <Route path="/en/practices/:slug" element={<PracticeDetailsPage />} />
-          <Route path="/en/practices" element={<PracticesAndSectorsSection />} />
-          <Route path="/vi/linh-vuc-hanh-nghe" element={<PracticesAndSectorsSection />} />
-          <Route path="/vi/lien-he" element={<ContactPage />} />
-          <Route path="/en/contact" element={<ContactPage />} />
-          <Route path="/en/blog" element={<BlogPage />} />
-          <Route path="/vi/blog" element={<BlogPage />} />
-          <Route path="/vi/blog/:slug" element={<BlogPost />} />
-          <Route path="/en/blog/:slug" element={<BlogPost />} />
-          <Route path="/en/attorneys" element={<OurTeamPage />} />
-          <Route path="/vi/luat-su" element={<OurTeamPage />} />
-          <Route path="/vi/luat-su/:slug" element={<AuthorProfile />} />
-          <Route path="/en/attorneys/:slug" element={<AuthorProfile />} />
-          <Route path="/en/policies" element={<PoliciesPage />} />
-          <Route path="/vi/chinh-sach" element={<PoliciesPage />} />
-          <Route path="/vi/blog/chu-de/:slug" element={<BlogCategoryPage />} />
-          <Route path="/en/blog/category/:slug" element={<BlogCategoryPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path='/' element={<Navigate replace to='/vi' />} />
+            <Route path='/en' element={<HomePage />} />
+            <Route path='/vi' element={<HomePage />} />
+            <Route
+              path='/vi/linh-vuc-hanh-nghe/:slug'
+              element={<PracticeDetailsPage />}
+            />
+            <Route
+              path='/en/practices/:slug'
+              element={<PracticeDetailsPage />}
+            />
+            <Route
+              path='/en/practices'
+              element={<PracticesAndSectorsSection />}
+            />
+            <Route
+              path='/vi/linh-vuc-hanh-nghe'
+              element={<PracticesAndSectorsSection />}
+            />
+            <Route path='/vi/lien-he' element={<ContactPage />} />
+            <Route path='/en/contact' element={<ContactPage />} />
+            <Route path='/en/blog' element={<BlogPage />} />
+            <Route path='/vi/blog' element={<BlogPage />} />
+            <Route path='/vi/blog/:slug' element={<BlogPost />} />
+            <Route path='/en/blog/:slug' element={<BlogPost />} />
+            <Route path='/en/attorneys' element={<OurTeamPage />} />
+            <Route path='/vi/luat-su' element={<OurTeamPage />} />
+            <Route path='/vi/luat-su/:slug' element={<AuthorProfile />} />
+            <Route path='/en/attorneys/:slug' element={<AuthorProfile />} />
+            <Route path='/en/policies' element={<PoliciesPage />} />
+            <Route path='/vi/chinh-sach' element={<PoliciesPage />} />
+            <Route
+              path='/vi/blog/chu-de/:slug'
+              element={<BlogCategoryPage />}
+            />
+            <Route
+              path='/en/blog/category/:slug'
+              element={<BlogCategoryPage />}
+            />
+            <Route path='*' element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Router>
     </SeoProvider>
-   
   );
 }
 
