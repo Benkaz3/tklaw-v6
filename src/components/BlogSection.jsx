@@ -59,9 +59,9 @@ const BlogPost = React.memo(({ post, language, previewLength }) => {
   return (
     <div className="p-6 bg-section_background border rounded-md shadow-sm hover:shadow-md transition-shadow duration-300">
       <Link to={generatePath(language, 'blog', fields?.slug)} className="hover:underline">
-        <h3 className="text-2xl font-semibold mb-2 text-primary">{fields?.title || t('global.untitled')}</h3>
+        <h4 className="font-semibold mb-2 text-primary">{fields?.title || t('global.untitled')}</h4>
       </Link>
-      <div className="flex flex-wrap items-center text-sm text-gray-500 mb-4">
+      <div className="flex flex-wrap items-center text-gray-500 mb-4">
         {authors.length > 0 && (
           <>
             <span className="flex items-center space-x-2">
@@ -83,9 +83,9 @@ const BlogPost = React.memo(({ post, language, previewLength }) => {
                     {slug ? (
                       <Link
                         to={generatePath(language, 'attorney', slug)}
-                        className="text-primary font-bold uppercase hover:underline"
+                        className="text-gray-500 font-bold uppercase hover:underline"
                       >
-                        {name || t('global.unknown_author')}
+                        <span className='text-sm'>{name || t('global.unknown_author')}</span>
                       </Link>
                     ) : (
                       <span className="text-gray-500">{name || t('global.unknown_author')}</span>
@@ -102,8 +102,7 @@ const BlogPost = React.memo(({ post, language, previewLength }) => {
       </div>
       <p className="mb-4 text-gray-700">{previewText}</p>
       <Link to={generatePath(language, 'blog', fields?.slug)} className="flex items-center text-primary hover:underline">
-        <span className="mr-1 text-sm font-bold">{t('global.labels.read_more')}</span>
-        {/* You can add an icon here if desired */}
+        <p className="mr-1">{t('global.labels.read_more')}</p>
       </Link>
     </div>
   );
@@ -145,7 +144,7 @@ const BlogSection = () => {
     return (
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="font-primary text-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text">
+          <h2 className="font-primary text-start font-bold leading-tight mb-6 text-text">
             {t('homepage.blog_section.title')}
           </h2>
           <div className="text-center text-gray-500">{t('homepage.blog_section.no_posts')}</div>
@@ -157,7 +156,7 @@ const BlogSection = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="font-primary text-start text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text">
+        <h2 className="font-primary text-start font-bold leading-tight mb-6 text-text">
           {t('homepage.blog_section.title')}
         </h2>
         <div className="space-y-8">

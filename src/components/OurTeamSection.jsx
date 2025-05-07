@@ -32,13 +32,13 @@ const OurTeamSection = () => {
     return (
       <section className='py-10 bg-background'>
         <div className='max-w-container-desktop mx-auto px-4 text-center'>
-          <h1 className='font-primary sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-2 text-text'>
+          <h1 className='font-primary font-bold leading-tight mb-2 text-text'>
             {t('homepage.our_team_section.title')}
           </h1>
-          <p className='text-lg md:text-xl text-text mb-6'>
+          <p className=' text-text mb-6'>
             {t('homepage.our_team_section.subtitle')}
           </p>
-          <div className='text-text text-lg'>
+          <div className='text-text'>
             {t('homepage.our_team_section.no_authors')}
           </div>
         </div>
@@ -49,10 +49,10 @@ const OurTeamSection = () => {
   return (
     <section className='py-10 bg-background'>
       <div className='max-w-container-desktop mx-auto px-4'>
-        <h1 className='font-primary text-start sm:text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-2 text-text'>
+        <h1 className='font-primary text-start sm:text-center font-bold leading-tight mb-2 text-text'>
           {t('homepage.our_team_section.title')}
         </h1>
-        <p className='text-start sm:text-center text-lg md:text-xl text-text mb-6'>
+        <p className='text-start ] text-text mb-6'>
           {t('homepage.our_team_section.subtitle')}
         </p>
         <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
@@ -75,12 +75,12 @@ const OurTeamSection = () => {
                     />
                   </div>
                   <div className='flex flex-col ml-4'>
-                    <p className='font-semibold text-text text-lg'>{name}</p>
-                    <p className='text-text text-sm'>{title}</p>
+                    <p className='font-semibold text-text'>{name}</p>
+                    <p className='text-text'>{title}</p>
                   </div>
                 </div>
                 <hr className='border-gray-300 mb-4 w-full' />
-                <p className='text-gray-600 mb-4 text-sm'>{introduction}</p>
+                <p className='text-gray-600 mb-4'>{introduction}</p>
                 <div className='mt-2'>
                   <Link
                     to={

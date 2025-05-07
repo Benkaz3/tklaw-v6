@@ -49,7 +49,7 @@ const PracticeDetailsPage = () => {
     console.error('Contentful Fetch Error:', error);
     return (
       <div className='flex flex-col items-center justify-center text-center py-10 px-4'>
-        <p className='text-red-500 mb-4 text-lg'>
+        <p className='text-red-500 mb-4'>
           {t('errors.fetchFailed', { message: error.message })}
         </p>
         <button
@@ -67,7 +67,7 @@ const PracticeDetailsPage = () => {
   if (!practice) {
     return (
       <div className='flex flex-col items-center justify-center text-center py-10 px-4'>
-        <p className='text-red-500 mb-4 text-lg'>
+        <p className='text-red-500 mb-4'>
           {t('errors.practiceNotFound')}
         </p>
         <Link
@@ -125,18 +125,18 @@ const PracticeDetailsPage = () => {
         </h1>
 
         <div className='mt-6'>
-          <p className='text-start text-text mb-4 text-lg leading-relaxed'>
+          <p className='text-start text-text mb-4 leading-relaxed'>
             {practice.fields.introduction}
           </p>
 
-          <h2 className='font-primary text-2xl font-semibold text-text mb-2'>
+          <h2 className='font-primary font-semibold text-text mb-2'>
             {t('practice_details_page.cases_handled')}
           </h2>
           <ul className='list-disc list-inside mb-4 pl-5'>
             {casesHandledArray.map((caseItem, index) => (
               <li
                 key={index}
-                className='text-start text-text text-lg leading-relaxed'
+                className='text-start text-text leading-relaxed'
               >
                 {caseItem}
               </li>
@@ -147,7 +147,7 @@ const PracticeDetailsPage = () => {
           {/* Conditional Rendering of Specialized Attorneys Section */}
           {validAttorneys.length > 0 && (
             <>
-              <h2 className='font-primary text-2xl font-semibold text-text mb-4'>
+              <h2 className='font-primary font-semibold text-text mb-4'>
                 {t('practice_details_page.specialized_attorney')}
               </h2>
               <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
@@ -176,10 +176,10 @@ const PracticeDetailsPage = () => {
                           />
                         </div>
                         <div className='flex flex-col ml-4 flex-grow'>
-                          <p className='font-semibold text-text text-lg'>
+                          <p className='font-semibold text-text'>
                             {attorney.fields.name}
                           </p>
-                          <p className='text-text text-base'>
+                          <p className='text-text'>
                             {attorney.fields.title}
                           </p>
                         </div>
@@ -189,7 +189,7 @@ const PracticeDetailsPage = () => {
                       <hr className='border-gray-300 mb-4 w-full' />
 
                       {/* Introduction */}
-                      <p className='text-gray-600 mb-4 text-base leading-relaxed'>
+                      <p className='text-gray-600 mb-4 leading-relaxed'>
                         {attorney.fields.introduction}
                       </p>
 

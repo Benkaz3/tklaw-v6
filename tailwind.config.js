@@ -31,11 +31,13 @@ export default {
         logo: ["Georgia", "serif"],
       },
       fontSize: {
-        h1: "2.25rem", // 36px
-        h2: "1.75rem", // 28px
-        h3: "1.375rem", // 22px
-        body: "1rem", // 16px
-        caption: "0.75rem", // 12px
+        xs:   "0.694rem",
+        sm:   "0.833rem",
+        base: "1rem",
+        lg:   "1.2rem",
+        xl:   "1.44rem",
+        "2xl":  "1.728rem",
+        "3xl":  "2.074rem",
       },
       borderRadius: {
         sm: "0.3125rem", // 5px

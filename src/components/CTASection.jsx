@@ -10,7 +10,7 @@ const CTASection = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 text-start">
-        <h2 className="font-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <h2 className="font-primary font-bold mb-4">
           {t('homepage.cta_section.title')}{' '}
           <span className="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
             {t('homepage.cta_section.highlight_title')}
@@ -19,10 +19,10 @@ const CTASection = () => {
         <p className="text-text mb-8">{t('homepage.cta_section.subtitle')}</p>
         <Link
           to={contactPath}
-          className="relative inline-flex items-center justify-center uppercase text-white font-medium py-3 px-6 text-lg w-full sm:w-fit transition duration-300 bg-primary rounded shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          className="relative inline-flex items-center justify-center uppercase text-white font-medium py-3 px-6 w-full sm:w-fit transition duration-300 bg-primary rounded shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           aria-label={t('homepage.cta_section.button_text')}
         >
-          <span className="capitalize">{t('homepage.cta_section.button_text')}</span>
+          <p className="uppercase">{t('homepage.cta_section.button_text')}</p>
         </Link>
       </div>
     </section>

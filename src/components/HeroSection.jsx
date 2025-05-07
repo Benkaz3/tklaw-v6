@@ -13,6 +13,10 @@ const HeroSection = () => {
     return paths[path] || '/';
   };
 
+  const titles = Array.isArray(t('homepage.hero.title', { returnObjects: true }))
+  ? t('homepage.hero.title', { returnObjects: true })
+  : [];
+
   const subtitles = Array.isArray(t('homepage.hero.subtitle', { returnObjects: true }))
     ? t('homepage.hero.subtitle', { returnObjects: true })
     : [];
@@ -24,7 +28,7 @@ const HeroSection = () => {
       text: t('homepage.hero.button_text'),
       ariaLabel: t('homepage.hero.button_text'),
       classes:
-        'relative inline-flex items-center justify-center uppercase text-white font-medium py-3 px-6 text-lg transition duration-300 bg-primary rounded hover:shadow-lg transform hover:-translate-y-0.5',
+        'relative inline-flex items-center justify-center uppercase text-white font-medium py-3 px-6 transition duration-300 bg-primary rounded hover:shadow-lg transform hover:-translate-y-0.5',
     },
     {
       key: 'secondary',
@@ -32,18 +36,22 @@ const HeroSection = () => {
       text: t('homepage.hero.meet_the_team', { defaultValue: 'Meet the Team' }),
       ariaLabel: t('homepage.hero.meet_team_text'),
       classes:
-        'relative inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 text-lg transition duration-300 bg-transparent border border-primary rounded hover:bg-primary hover:text-white hover:shadow-lg transform hover:-translate-y-0.5',
+        'relative inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 transition duration-300 bg-transparent border border-primary rounded hover:bg-primary hover:text-white hover:shadow-lg transform hover:-translate-y-0.5',
     },
   ];
 
   return (
-    <header className="bg-card_background flex flex-col items-center justify-center mt-14 py-16">
+    <header className="bg-card_background flex flex-col items-center justify-center pb-16 pt-24 md:pt-28 lg:pt-36">
       <div className="relative z-10 max-w-2xl text-center px-6 md:px-12 lg:px-16 transition duration-300 fade-in">
-        <h1 className="font-primary capitalize text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-6 text-text">
-          {t('homepage.hero.title')}
-        </h1>
+        <div className='mb-6'>
+          {titles.map((title, index) => (
+            <h1 key={index} className="font-primary capitalize font-bold leading-tight text-text">
+              {title}
+            </h1>
+          ))}
+        </div>
         {subtitles.map((paragraph, index) => (
-          <p key={index} className="text-lg md:text-xl lg:text-2xl text-text mb-8 text-justify">
+          <p key={index} className=" text-text mb-8 text-justify">
             {paragraph}
           </p>
         ))}
@@ -55,7 +63,7 @@ const HeroSection = () => {
               className={classes}
               aria-label={ariaLabel}
             >
-              <span className="capitalize">{text}</span>
+              <p className="capitalize">{text}</p>
             </Link>
           ))}
         </div>

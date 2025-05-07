@@ -10,7 +10,7 @@ const ContactDetail = ({ label, value, href, type }) => {
   }
 
   return (
-    <div className="text-base md:text-lg text-text mb-2">
+    <p className=" text-text mb-2">
       <span className="font-bold">{label}:</span>
       {type === 'link' && href ? (
         <a href={href} className="text-primary font-bold hover:underline ml-1" target="_blank" rel="noopener noreferrer">
@@ -19,7 +19,7 @@ const ContactDetail = ({ label, value, href, type }) => {
       ) : (
         <span className="ml-1">{value}</span>
       )}
-    </div>
+    </p>
   );
 };
 
@@ -50,12 +50,12 @@ const ContactCard = ({ title, address, phone, email, language }) => {
   return (
     <div className="w-full md:w-3/4 lg:w-2/3 bg-card_background p-4 md:p-6 rounded-lg mx-auto transition-transform transform hover:scale-105">
       {title && (
-        <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-text">
+        <h3 className="font-semibold mb-3 md:mb-4 text-text">
           {title}
         </h3>
       )}
       {address && (
-        <p className="text-base md:text-lg text-text mb-4">{address}</p>
+        <p className=" text-text mb-4">{address}</p>
       )}
 
       <ContactDetail
@@ -76,10 +76,10 @@ const ContactCard = ({ title, address, phone, email, language }) => {
         <div className="mt-6 mb-2 md:mt-8 text-start">
           <Link
             to={mapRoute}
-            className="inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 text-lg transition duration-300 bg-transparent border border-primary rounded hover:bg-primary hover:text-white hover:shadow-lg transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center uppercase text-primary font-medium py-3 px-6 transition duration-300 bg-transparent border border-primary rounded hover:bg-primary hover:text-white hover:shadow-lg transform hover:-translate-y-0.5"
             aria-label={t('global.labels.view_on_map_label', 'View on Map')}
           >
-            {t('global.labels.view_on_map_label', 'View on Map')}
+            <p>{t('global.labels.view_on_map_label', 'View on Map')}</p>
           </Link>
         </div>
       )}
@@ -157,11 +157,11 @@ const ContactSection = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto max-w-container-desktop px-4">
           {contactDetails.title ? (
-            <h2 className="font-primary text-start md:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text">
+            <h2 className="font-primary text-start md:text-center font-bold leading-tight mb-6 text-text">
               {contactDetails.title}
             </h2>
           ) : (
-            <h2 className="font-primary text-start md:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text">
+            <h2 className="font-primary text-start md:text-center lg:text-6xl font-bold leading-tight mb-6 text-text">
               {t('global.labels.default_contact_title', 'Get in Touch')}
             </h2>
           )}

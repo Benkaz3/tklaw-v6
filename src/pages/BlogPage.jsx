@@ -86,7 +86,7 @@ const BlogPage = () => {
       <Breadcrumb />
       <div className='flex justify-center items-center mt-4 space-x-2'>
         <MdWarning color='orange' size={18} />
-        <span className='text-xs'>Available in Vietnamese only</span>
+        <span>Available in Vietnamese only</span>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
         {blogPosts.map((post) => {
@@ -97,10 +97,10 @@ const BlogPage = () => {
           return (
             <div key={sys?.id} className='p-6 bg-section_background border rounded-md'>
               <Link to={`/${language}/blog/${fields.slug || ''}`} className='flex items-center text-buttonBg hover:underline mt-4'>
-                <h2 className='text-xl font-semibold mb-2'>{fields.title || 'Untitled'}</h2>
+                <h2 className='font-semibold mb-2'>{fields.title || 'Untitled'}</h2>
               </Link>
               {fields.author && fields.author.length > 0 && (
-                <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
+                <div className='flex items-center text-gray-500 mb-4 space-x-2'>
                   {fields.author.map((author, index) => {
                     if (!author?.fields) return null
                     const { sys: authorSys, fields: authorFields } = author
@@ -130,7 +130,7 @@ const BlogPage = () => {
               )}
               <p className='mb-4'>{previewText}</p>
               <Link to={`/${language}/blog/${fields.slug || ''}`} className='flex items-center text-buttonBg hover:underline mt-4'>
-                <span className='mr-1 text-sm font-bold'>{t('global.labels.read_more')}</span>
+                <span className='mr-1 font-bold'>{t('global.labels.read_more')}</span>
               </Link>
             </div>
           )

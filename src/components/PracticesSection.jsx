@@ -12,9 +12,9 @@ const PracticeCard = ({ id, slug, title, description, url }) => (
     className='flex flex-col items-start border-2 rounded-lg shadow-sm p-8 group transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5'
   >
     <div className='relative inline-flex items-start justify-start capitalize text-text transition duration-300 group'>
-      <h3 className='relative z-10 text-h3 text-left font-semibold mb-2'>
+      <h4 className='relative z-10 text-h3 text-left font-semibold mb-2'>
         {title}
-      </h3>
+      </h4>
       <div className='absolute left-0 bottom-[14px] z-0 w-full h-[10px] bg-secondary transition-transform duration-300 scale-y-0 group-hover:scale-y-150' />
     </div>
 
@@ -64,12 +64,12 @@ const PracticesSection = () => {
   return (
     <section className='py-10 bg-background'>
       <div className='max-w-container-desktop mx-auto px-4'>
-        <h1 className='font-primary text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
+        <h2 className='font-primary text-center font-bold leading-tight mb-6 text-text'>
           {t('homepage.practices_section.title')}
-        </h1>
+        </h2>
 
         {noneFound ? (
-          <p className='text-text text-lg text-center'>
+          <p className='text-text text-center'>
             {t('homepage.practices_section.no_practices')}
           </p>
         ) : (

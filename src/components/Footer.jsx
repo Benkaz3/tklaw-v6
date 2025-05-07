@@ -1,4 +1,4 @@
-import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -30,7 +30,7 @@ const Footer = () => {
             <Link
               key={key}
               to={getDynamicPath(path)}
-              className="uppercase hover:text-accent transition duration-300"
+              className="hover:text-accent transition duration-300"
             >
               {t(`menu.${key}`)}
             </Link>
@@ -46,11 +46,11 @@ const Footer = () => {
               className="hover:text-accent transition duration-300"
               aria-label={label}
             >
-              <Icon size={20} />
+              <Icon size={32} />
             </a>
           ))}
         </div>
-        <div className="text-center border-t border-accent opacity-50 pt-4 text-sm w-full">
+        <div className="text-center border-t border-accent opacity-50 pt-4 w-full">
           <p>
             &copy; {new Date().getFullYear()} {t('global.footer_copy_statement')}
           </p>

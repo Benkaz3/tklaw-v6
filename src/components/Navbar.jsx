@@ -1,5 +1,5 @@
-import { useState, useCallback, useMemo } from 'react'
-import { FaBars, FaTimes, FaInfoCircle } from 'react-icons/fa'
+import { useState, useCallback } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LangSwitcher from './LangSwitcher'
@@ -9,55 +9,52 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { t, i18n } = useTranslation()
   const language = i18n.language || 'en'
-
-  const toggleMenu = useCallback(() => {
-    setIsOpen((prev) => !prev)
-  }, [])
-
+  const toggleMenu = useCallback(() => setIsOpen(prev => !prev), [])
   const getDynamicPath = useCallback(
-    (path) => {
-      const basePath = t(`menu.path.${path}`, { defaultValue: '' })
-      return `/${language}${basePath ? `/${basePath}` : ''}`
+    path => {
+      const base = t(`menu.path.${path}`, { defaultValue: '' })
+      return `/${language}${base ? `/${base}` : ''}`
     },
     [language, t]
   )
+  const menuItems = ['attorneys', 'practices_and_sectors', 'blog', 'contact']
+  const officeNameLines = t("navbar.office_name", { returnObjects: true });
 
-  const menuItems = useMemo(
-    () => [
-      { key: 'attorneys', Icon: null },
-      { key: 'practices_and_sectors', Icon: null },
-      { key: 'blog', Icon: null },
-      { key: 'contact', Icon: FaInfoCircle },
-    ],
-    []
-  )
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white text-black shadow">
+    <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow">
       <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-        {/* Top section: logo, centered title, language switcher, burger */}
-        <div className="flex items-center justify-between py-2">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
+        {/* top bar */}
+        <div className="relative flex items-center justify-between py-2">
+          {/* logo */}
+          <Link to="/" className="flex-none">
             <img
               src={logo}
               alt={t('logo.alt')}
               title={t('logo.title')}
-              loading="lazy"
-              aria-label={t('logo.alt')}
-              className="h-14 w-auto flex-shrink-0"
+              className="h-14 w-auto object-contain"
             />
           </Link>
 
-          {/* Centered title */}
-          <div className="flex-1 text-center">
-          <p className="text-[#3E4F7A] w-62 text-[1.15rem] md:text-[1.5rem] lg:text-[1.75rem] mx-auto font-bold">
-          <span className="block md:inline">VĂN PHÒNG LUẬT SƯ</span>
-              <span className="block md:inline"> TK & LIÊN DANH</span>
-            </p>
-          </div>
+          {/* centered, responsive title */}
+          <h2
+            className="
+              text-center
+              whitespace-nowrap text-primary font-bold pointer-events-none
+              text-base       /* 16px on smallest */
+              sm:text-lg      /* ~19px ≥640px */
+              md:text-xl      /* ~23px ≥768px */
+              lg:text-2xl     /* ~28px ≥1024px */
+            "
+          >
+            {officeNameLines.map((line, i) => (
+              <span key={i} className="block md:inline">
+                {line}
+              </span>
+            ))}
+          </h2>
 
-          {/* Lang switcher & burger */}
+          {/* lang + burger */}
           <div className="flex items-center space-x-4">
             <LangSwitcher />
             <button
@@ -70,29 +67,29 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Bottom section: desktop links */}
-        <div className="hidden lg:flex justify-center space-x-6 border-t border-gray-200 py-2">
-          {menuItems.map(({ key, Icon }) => (
+        {/* desktop links */}
+        <div className="hidden lg:flex justify-center space-x-6 border-t border-gray-200 py-2 max-w-max mx-auto">
+          {menuItems.map(key => (
             <Link
               key={key}
               to={getDynamicPath(key)}
-              className="flex items-center font-bold hover:text-buttonBg transition duration-300 uppercase"
+              className="transition-colors duration-300 hover:text-buttonBg"
             >
-              {Icon && <Icon className="mr-2" />} {t(`menu.${key}`)}
+              {t(`menu.${key}`)}
             </Link>
           ))}
         </div>
 
-        {/* Mobile dropdown */}
+        {/* mobile dropdown */}
         {isOpen && (
           <div className="lg:hidden bg-white text-black overflow-hidden transition-transform duration-300 ease-in-out">
             <div className="flex flex-col items-center space-y-4 py-4">
-              {menuItems.map(({ key }) => (
+              {menuItems.map(key => (
                 <Link
                   key={key}
                   to={getDynamicPath(key)}
-                  className="hover:text-accent transition duration-300 uppercase font-bold"
                   onClick={toggleMenu}
+                  className="uppercase font-bold transition-colors duration-300 hover:text-accent"
                 >
                   {t(`menu.${key}`)}
                 </Link>

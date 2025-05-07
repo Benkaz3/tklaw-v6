@@ -71,7 +71,7 @@ const ContactPage = () => {
                   <p className="text-text">{officeAddress}</p>
                 )}
                 {phone && (
-                  <p className="text-text text-xl font-bold">
+                  <p className="text-text font-bold">
                     {t('global.labels.phone_label')}:{' '}
                     <a href={`tel:${phone}`} className="text-blue-600 font-bold hover:underline">
                       {phone}

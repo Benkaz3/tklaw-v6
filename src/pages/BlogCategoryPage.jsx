@@ -66,7 +66,7 @@ const CategoryPage = () => {
         {blogPosts.length > 0 ? (
           blogPosts.map(({ sys, fields }) => (
             <div key={sys.id} className='p-6 border-b border-gray-300'>
-              <h2 className='text-2xl font-semibold mb-2'>{fields.title}</h2>
+              <h2 className='font-semibold mb-2'>{fields.title}</h2>
               <p>
                 {fields.body?.content?.[0]?.content?.[0]?.value || 'No content available'}
               </p>

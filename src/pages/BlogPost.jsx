@@ -16,7 +16,7 @@ const renderOptions = {
     [MARKS.ITALIC]: (text) => <em>{text}</em>,
     [MARKS.UNDERLINE]: (text) => <u>{text}</u>,
     [MARKS.CODE]: (text) => (
-      <code className='p-1 bg-gray-100 rounded text-sm font-mono'>{text}</code>
+      <code className='p-1 bg-gray-100 rounded font-mono'>{text}</code>
     ),
   },
   renderNode: {
@@ -24,13 +24,13 @@ const renderOptions = {
       <p className='mb-4 leading-relaxed text-gray-800'>{children}</p>
     ),
     [BLOCKS.HEADING_1]: (node, children) => (
-      <h1 className='text-3xl font-bold mb-4'>{children}</h1>
+      <h1 className='font-bold mb-4'>{children}</h1>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className='text-2xl font-semibold mb-3'>{children}</h2>
+      <h2 className='font-semibold mb-3'>{children}</h2>
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <h3 className='text-xl font-semibold mb-2'>{children}</h3>
+      <h3 className='font-semibold mb-2'>{children}</h3>
     ),
     [BLOCKS.QUOTE]: (node, children) => (
       <blockquote className='border-l-4 border-gray-300 pl-4 italic text-gray-700 mb-4'>
@@ -57,7 +57,7 @@ const renderOptions = {
             alt={title || 'Embedded Asset'}
             className='w-full h-auto rounded-lg'
           />
-          {title && <p className='text-center text-sm text-gray-600'>{title}</p>}
+          {title && <p className='text-center text-gray-600'>{title}</p>}
         </div>
       )
     },
@@ -75,7 +75,7 @@ const renderOptions = {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <div className='flex-grow text-lg font-bold'>{title || 'Untitled'}</div>
+          <div className='flex-grow font-bold'>{title || 'Untitled'}</div>
           {thumbnail && (
             <img
               src={thumbnail}
@@ -152,27 +152,27 @@ const BlogPost = () => {
       <Breadcrumb postTitle={title || 'Untitled Post'} />
       <div className='flex justify-center items-center mt-4 space-x-2'>
         <MdWarning color='orange' size={18} />
-        <span className='text-xs'>Available in Vietnamese only</span>
+        <span>Available in Vietnamese only</span>
       </div>
       <div className='py-10 max-w-3xl px-4 mx-auto'>
         <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
           {title || 'Untitled Post'}
         </h1>
-        <div className='flex items-center text-sm text-gray-500 mb-4 space-x-2'>
+        <div className='flex items-center text-gray-500 mb-4 space-x-2'>
           <span>
             {post.sys?.createdAt
               ? new Date(post.sys.createdAt).toLocaleDateString()
               : 'Unknown Date'}
           </span>
         </div>
-        <div className='mb-8 text-lg leading-relaxed text-gray-800'>
+        <div className='mb-8 leading-relaxed text-gray-800'>
           {body
             ? documentToReactComponents(body, renderOptions)
             : 'Content unavailable.'}
         </div>
         {authors.length > 0 && (
           <div className='mt-8'>
-            <h3 className='text-xl font-bold text-gray-800 mb-4'>
+            <h3 className='font-bold text-gray-800 mb-4'>
               {t('global.blog.about_the_author')}
             </h3>
             <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
@@ -195,15 +195,15 @@ const BlogPost = () => {
                         />
                       </div>
                       <div className='flex flex-col ml-4'>
-                        <p className='font-semibold text-text text-lg'>
+                        <p className='font-semibold text-text'>
                           {name || 'Unknown Author'}
                         </p>
-                        <p className='text-text text-base'>
+                        <p className='text-text'>
                           {title || 'Unknown Title'}
                         </p>
                       </div>
                     </div>
-                    <p className='text-gray-600 mb-4 text-base leading-relaxed'>
+                    <p className='text-gray-600 mb-4 leading-relaxed'>
                       {introduction || 'No introduction available.'}
                     </p>
                     <Link

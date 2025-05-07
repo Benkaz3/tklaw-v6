@@ -62,7 +62,7 @@ const PracticesAndSectorsPage = () => {
 
       <div className="max-w-container-desktop mx-auto px-4 mt-8">
         {t('homepage.practices_and_sectors_title') && (
-          <h1 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+          <h1 className="text-center font-bold mb-6">
           {t('homepage.practices_and_sectors_title')}
           </h1>
         )}
@@ -78,8 +78,8 @@ const PracticesAndSectorsPage = () => {
                   }`}
                   onClick={() => toggleRow(item.sys.id)}
                 >
-                  <h3 className="text-lg font-semibold">{item.fields.title}</h3>
-                  <span className="text-xl font-bold">{isExpanded ? '–' : '+'}</span>
+                  <h3 className="font-semibold">{item.fields.title}</h3>
+                  <span className="font-bold">{isExpanded ? '–' : '+'}</span>
                 </div>
 
                 {isExpanded && (

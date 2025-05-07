@@ -22,7 +22,7 @@ const TestimonialsSection = () => {
           <h2 className='font-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2 text-text'>
             {t('homepage.testimonials_section.title')}
           </h2>
-          <p className='text-lg md:text-xl text-text'>
+          <p className=' text-text'>
             {t('homepage.testimonials_section.no_testimonials')}
           </p>
         </div>
@@ -33,10 +33,10 @@ const TestimonialsSection = () => {
   return (
     <section id='testimonials' className='py-10 bg-background'>
       <div className='max-w-container-desktop mx-auto px-4'>
-        <h2 className='font-primary text-start sm:text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2 text-text'>
+        <h2 className='font-primary text-start sm:text-center font-bold leading-tight mb-2 text-text'>
           {t('homepage.testimonials_section.title')}
         </h2>
-        <p className='text-start sm:text-center text-lg md:text-xl text-text mb-6'>
+        <p className='text-start sm:text-center  text-text mb-6'>
           {t('homepage.testimonials_section.subtitle')}
         </p>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -64,14 +64,14 @@ const TestimonialsSection = () => {
                       }}
                     />
                   ) : (
-                    <span className='text-white text-xl font-bold'>
+                    <span className='text-white font-bold'>
                       {testimonial.name.charAt(0)}
                     </span>
                   )}
                 </div>
                 <div className='flex flex-col ml-4'>
                   <p className='font-semibold text-text'>{testimonial.name}</p>
-                  <p className='text-text text-sm'>{testimonial.caseDetail}</p>
+                  <p className='text-text'>{testimonial.caseDetail}</p>
                 </div>
               </div>
               <div className='flex mb-4'>

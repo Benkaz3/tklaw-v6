@@ -86,11 +86,11 @@ const AuthorProfile = () => {
       </section>
       <Breadcrumb attorneyName={name} />
       <div className='p-6 bg-white border border-gray-200 rounded-lg shadow'>
-        {name && <h1 className='text-3xl font-bold text-gray-800 mb-2'>{name}</h1>}
-        {title && <h2 className='text-xl text-gray-600 mb-4 italic'>{title}</h2>}
+        {name && <h1 className='font-bold text-gray-800 mb-2'>{name}</h1>}
+        {title && <h2 className=' text-gray-600 mb-4 italic'>{title}</h2>}
         {areasOfPractice && (
           <div className='mb-6'>
-            <h3 className='font-semibold text-lg text-gray-700 mb-2'>
+            <h3 className='font-semibold text-gray-700 mb-2'>
               {t('global.attorney_profile.areas_of_practice')}
             </h3>
             <div className='text-gray-600'>{renderList(areasOfPractice)}</div>
@@ -98,7 +98,7 @@ const AuthorProfile = () => {
         )}
         {education && (
           <div className='mb-6'>
-            <h3 className='font-semibold text-lg text-gray-700 mb-2'>
+            <h3 className='font-semibold text-gray-700 mb-2'>
               {t('global.attorney_profile.education')}
             </h3>
             <div className='text-gray-600'>{renderList(education)}</div>
@@ -106,7 +106,7 @@ const AuthorProfile = () => {
         )}
         {workExperience && (
           <div className='mb-6'>
-            <h3 className='font-semibold text-lg text-gray-700 mb-2'>
+            <h3 className='font-semibold text-gray-700 mb-2'>
               {t('global.attorney_profile.work_experience')}
             </h3>
             <div className='text-gray-600'>{renderList(workExperience)}</div>
@@ -114,7 +114,7 @@ const AuthorProfile = () => {
         )}
         {introduction && (
           <div className='mb-6'>
-            <h3 className='font-semibold text-lg text-gray-700 mb-2'>
+            <h3 className='font-semibold text-gray-700 mb-2'>
               {t('global.attorney_profile.introduction')}
             </h3>
             <p className='text-gray-600'>{introduction}</p>
@@ -122,7 +122,7 @@ const AuthorProfile = () => {
         )}
         {professionalAssociations && (
           <div className='mb-6'>
-            <h3 className='font-semibold text-lg text-gray-700 mb-2'>
+            <h3 className='font-semibold text-gray-700 mb-2'>
               {t('global.attorney_profile.professional_associations')}
             </h3>
             <div className='text-gray-600'>{renderList(professionalAssociations)}</div>

@@ -3,6 +3,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  h1               { @apply text-3xl; }
+  h2               { @apply text-2xl; }
+  h3               { @apply text-xl; }
+  h4               { @apply text-lg; }
+  p                { @apply text-base; }
+  small, .caption  { @apply text-xs; }
+}
+@layer base {
+  /* default (mobile) */
+  h1 { @apply text-2xl; }
+  h2 { @apply text-xl; }
+  p  { @apply text-base; }
+
+  /* ≥640px */
+  @screen sm {
+    h1 { @apply text-3xl; }
+    h2 { @apply text-2xl; }
+    p  { @apply text-lg; }
+  }
+
+  /* ≥768px */
+  @screen md {
+    h1 { @apply text-4xl; }
+    h2 { @apply text-3xl; }
+    p  { @apply text-xl; }
+  }
+}
+
 @font-face {
   font-family: "Georgia";
   src: url("./assets/fonts/georgia.ttf") format("truetype");

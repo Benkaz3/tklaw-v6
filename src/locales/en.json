@@ -1,7 +1,15 @@
 {
+  "navbar": {
+    "office_name": [
+       "TK & ASSOCIATES ",
+      "LAW OFFICE"
+     
+    ]  },
   "homepage": {
     "hero": {
-      "title": "TK & Associates Law Office - Superior Legal Solutions",
+      "title": 
+        ["TK & Associates Law Office",
+        "Superior Legal Solutions"],
       "subtitle": [
         "The Ho Chi Minh City Department of Justice licensed TK & Liên Danh Law Office on April 1, 2014. The Chief of Office is lawyer Khương Đình Tiến.", 
         "The office’s scope covers litigation under applicable law, legal consulting, delivery of legal services and out-of-court representation for legal matters."

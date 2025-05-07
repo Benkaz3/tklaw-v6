@@ -16,7 +16,7 @@ const WhyUsSection = () => {
           <h1 className='font-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-text'>
             {t('homepage.why_choose_us_section_title')}
           </h1>
-          <p className='text-lg md:text-xl text-text'>
+          <p className=' text-text'>
             {t('homepage.why_choose_us_section.no_points')}
           </p>
         </div>

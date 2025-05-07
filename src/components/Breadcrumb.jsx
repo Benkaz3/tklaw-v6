@@ -18,7 +18,7 @@ const BreadcrumbItem = React.memo(({ to, label, isLast, position }) => {
       <FiChevronRight className="mx-2 text-gray-500" aria-hidden="true" />
       {isLast ? (
         <span
-          className="text-gray-700 text-base capitalize"
+          className="text-gray-700 capitalize"
           aria-current="page"
           itemProp="name"
         >
@@ -27,7 +27,7 @@ const BreadcrumbItem = React.memo(({ to, label, isLast, position }) => {
       ) : (
         <Link
           to={to}
-          className="text-primary text-base capitalize hover:underline"
+          className="text-primary capitalize hover:underline"
           itemProp="item"
         >
           <span itemProp="name">{label}</span>

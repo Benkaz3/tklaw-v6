@@ -75,9 +75,9 @@ const PoliciesPage = () => {
 
           return (
             <section key={index} className="mb-6">
-              <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+              <h2 className="font-semibold mb-2">{title}</h2>
               {content.map((paragraph, idx) => (
-                <p key={idx} className="text-lg mb-4">
+                <p key={idx} className="mb-4">
                   {paragraph}
                 </p>
               ))}
