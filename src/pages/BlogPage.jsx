@@ -4,7 +4,6 @@ import useContentful from '../useContentful'
 import LoadingDots from '../components/LoadingDots'
 import Breadcrumb from '../components/Breadcrumb'
 import heroBg from '../assets/practices_hero_bg.webp'
-import { MdWarning } from 'react-icons/md'
 import { Helmet } from 'react-helmet-async';
 import useSeo from '../seo/useSeo';
 import generateMetaTags from '../seo/generateMetaTags';
@@ -78,16 +77,12 @@ const BlogPage = () => {
         )}
       </Helmet>
       <section
-        className='relative h-[25vh] bg-cover w-full bg-center flex items-center justify-center'
+        className='relative h-80 bg-cover w-full bg-center flex items-center justify-center'
         style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className='absolute inset-0 bg-black opacity-50' />
       </section>
       <Breadcrumb />
-      <div className='flex justify-center items-center mt-4 space-x-2'>
-        <MdWarning color='orange' size={18} />
-        <span>Available in Vietnamese only</span>
-      </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
         {blogPosts.map((post) => {
           if (!post?.fields) return null

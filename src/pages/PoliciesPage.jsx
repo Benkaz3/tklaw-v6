@@ -1,92 +1,216 @@
-import { useTranslation } from 'react-i18next';
-import heroBg from '../assets/practices_hero_bg.webp';
-import BreadCrumb from '../components/Breadcrumb';
-import { Helmet } from 'react-helmet-async';
-import useSeo from '../seo/useSeo';
-import generateMetaTags from '../seo/generateMetaTags';
+import React from 'react'
+import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet-async'
+import useContentful from '../useContentful'
+import LoadingDots from '../components/LoadingDots'
+import Breadcrumb from '../components/Breadcrumb'
+import generateMetaTags from '../seo/generateMetaTags'
+import useSeo from '../seo/useSeo'
+import heroBg from '../assets/practices_hero_bg.webp'
 
-const policies = [
-  {
-    titleKey: 'policies.terms_acceptance.title',
-    contentKey: 'policies.terms_acceptance.content',
-  },
-  {
-    titleKey: 'policies.use_of_information.title',
-    contentKey: 'policies.use_of_information.content',
-  },
-  {
-    titleKey: 'policies.copyrights_ip.title',
-    contentKey: 'policies.copyrights_ip.content',
-  },
-  {
-    titleKey: 'policies.limitation_of_liability.title',
-    contentKey: 'policies.limitation_of_liability.content',
-  },
-  {
-    titleKey: 'policies.changes_to_terms_of_use.title',
-    contentKey: 'policies.changes_to_terms_of_use.content',
-  },
-  {
-    titleKey: 'policies.third_party_links.title',
-    contentKey: 'policies.third_party_links.content',
-  },
-  {
-    titleKey: 'policies.privacy_policy.title',
-    contentKey: 'policies.privacy_policy.content',
-  },
-];
+const AuthorProfile = () => {
+  const seo = useSeo('AuthorProfilePage')
+  const metaTags = generateMetaTags(seo)
+  const { slug } = useParams()
+  const { t, i18n } = useTranslation()
+  const language = i18n.language
+  const { data, loading, error } = useContentful([
+    {
+      content_type: 'author',
+      'fields.slug': slug,
+      locale: language,
+    },
+  ])
 
-const PoliciesPage = () => {
-  const { t } = useTranslation();
-  const seo = useSeo('PoliciesPage');
-  const metaTags = generateMetaTags(seo);
+  if (loading) return <LoadingDots />
 
-  if (!heroBg) return null;
+  if (error) {
+    return (
+      <main className="px-4 sm:px-6 lg:px-8 py-10 text-center">
+        <p className="text-red-500">
+          {t('global.error_message', { message: error.message })}
+        </p>
+      </main>
+    )
+  }
+
+  const entry = data?.author?.[0]
+  if (!entry?.fields) {
+    return (
+      <main className="px-4 sm:px-6 lg:px-8 py-10 text-center">
+        <p className="text-gray-700">
+          {t('global.author_not_found')}
+        </p>
+      </main>
+    )
+  }
+
+  const {
+    name,
+    title,
+    profilePhoto,
+    areasOfPractice,
+    education,
+    workExperience,
+    introduction,
+    professionalAssociations,
+  } = entry.fields
+  const photoUrl = profilePhoto?.fields?.file?.url
+  const date = entry.sys.createdAt
+
+  const listItems = items =>
+    (typeof items === 'string' ? items.split('\n') : items || []).map(
+      (item, idx) => (
+        <li key={idx} className="mb-2">
+          {item}
+        </li>
+      )
+    )
 
   return (
-    <div className="container mx-auto">
-           <Helmet>
-        <title>{seo.Title}</title>
-        <link rel="canonical" href={seo.ogUrl} />
-        {metaTags.map((tag, index) =>
-          tag.name ? (
-            <meta key={index} name={tag.name} content={tag.content} />
-          ) : (
-            <meta key={index} property={tag.property} content={tag.content} />
-          )
-        )}
+    <main className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+      <Helmet>
+        <title>{seo?.Title || name}</title>
+        {Array.isArray(metaTags) &&
+          metaTags.map((meta, i) =>
+            meta && typeof meta === 'object' ? <meta key={i} {...meta} /> : null
+          )}
+        {seo?.ogUrl && <link rel="canonical" href={seo.ogUrl} />}
       </Helmet>
-      <section
-        className="relative h-[20vh] bg-cover bg-center flex items-center justify-start"
+
+      {/* Hero with overlaid avatar */}
+      <header
+        className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 bg-cover bg-center mb-12"
         style={{ backgroundImage: `url(${heroBg})` }}
+        aria-label={t('practice_details_page.hero_background')}
       >
-        <div className="absolute inset-0 bg-black opacity-50" />
-      </section>
-      <BreadCrumb />
-      <div className="px-4 py-16">
-        {t('policies.title') && (
-          <h1 className="text-4xl font-bold text-center mb-8">{t('policies.title')}</h1>
+        <div className="absolute inset-0 bg-black opacity-40" />
+
+        {photoUrl && (
+          <figure className="absolute left-1/2 bottom-0 transform translate-x-[-50%] translate-y-1/2">
+            <img
+              src={photoUrl}
+              alt={name}
+              className="
+                w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48
+                rounded-full border-4 border-white shadow-lg
+                object-cover
+              "
+            />
+          </figure>
         )}
-        {policies.map(({ titleKey, contentKey }, index) => {
-          const title = t(titleKey);
-          const content = t(contentKey, { returnObjects: true });
+      </header>
 
-          if (!title || !content) return null;
+      <Breadcrumb attorneyName={name} />
 
-          return (
-            <section key={index} className="mb-6">
-              <h2 className="font-semibold mb-2">{title}</h2>
-              {content.map((paragraph, idx) => (
-                <p key={idx} className="mb-4">
-                  {paragraph}
-                </p>
-              ))}
+      <article
+        className="bg-white border border-gray-200 rounded-lg shadow divide-y divide-gray-200"
+        itemScope
+        itemType="http://schema.org/Person"
+      >
+        {/* Name / Title */}
+        <div className="px-6 pt-20 pb-8 text-center sm:text-left space-y-2">
+          <h1
+            itemProp="name"
+            className="
+              font-bold text-3xl sm:text-4xl lg:text-5xl
+              leading-snug
+            "
+          >
+            {name}
+          </h1>
+          <p
+            itemProp="jobTitle"
+            className="text-gray-600 italic text-lg sm:text-xl"
+          >
+            {title}
+          </p>
+          {date && (
+            <time
+              dateTime={new Date(date).toISOString()}
+              className="text-gray-500 text-sm"
+            >
+              {new Date(date).toLocaleDateString()}
+            </time>
+          )}
+        </div>
+
+        {/* Content Sections */}
+        <div className="px-6 py-8 space-y-8">
+          {areasOfPractice && (
+            <section aria-labelledby="areas-heading">
+              <h2
+                id="areas-heading"
+                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
+              >
+                {t('global.attorney_profile.areas_of_practice')}
+              </h2>
+              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
+                {listItems(areasOfPractice)}
+              </ul>
             </section>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
+          )}
 
-export default PoliciesPage;
+          {education && (
+            <section aria-labelledby="education-heading">
+              <h2
+                id="education-heading"
+                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
+              >
+                {t('global.attorney_profile.education')}
+              </h2>
+              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
+                {listItems(education)}
+              </ul>
+            </section>
+          )}
+
+          {workExperience && (
+            <section aria-labelledby="experience-heading">
+              <h2
+                id="experience-heading"
+                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
+              >
+                {t('global.attorney_profile.work_experience')}
+              </h2>
+              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
+                {listItems(workExperience)}
+              </ul>
+            </section>
+          )}
+
+          {introduction && (
+            <section aria-labelledby="intro-heading">
+              <h2
+                id="intro-heading"
+                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
+              >
+                {t('global.attorney_profile.introduction')}
+              </h2>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+                {introduction}
+              </p>
+            </section>
+          )}
+
+          {professionalAssociations && (
+            <section aria-labelledby="associations-heading">
+              <h2
+                id="associations-heading"
+                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
+              >
+                {t('global.attorney_profile.professional_associations')}
+              </h2>
+              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
+                {listItems(professionalAssociations)}
+              </ul>
+            </section>
+          )}
+        </div>
+      </article>
+    </main>
+  )
+}
+
+export default AuthorProfile

@@ -38,7 +38,7 @@ const ContactPage = () => {
       </Helmet>
       {heroBg && (
         <section
-          className="relative h-64 bg-cover bg-center flex items-center justify-center"
+          className="relative h-80 bg-cover bg-center flex items-center justify-center"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>

@@ -1,88 +1,70 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 
-const generatePath = (language, segments) => {
-  return `/${[language, ...segments].join('/')}`;
-};
+const generatePath = (language, segments) =>
+  `/${[language, ...segments].join('/')}`;
 
-const BreadcrumbItem = React.memo(({ to, label, isLast, position }) => {
-  return (
-    <li
-      className="flex items-center"
-      itemProp="itemListElement"
-      itemScope
-      itemType="https://schema.org/ListItem"
-    >
+const BreadcrumbItem = React.memo(({ to, label, isLast, position }) => (
+  <li
+    className="flex items-center"
+    itemProp="itemListElement"
+    itemScope
+    itemType="https://schema.org/ListItem"
+  >
+    {position > 1 && (
       <FiChevronRight className="mx-2 text-gray-500" aria-hidden="true" />
-      {isLast ? (
-        <span
-          className="text-gray-700 capitalize"
-          aria-current="page"
-          itemProp="name"
-        >
-          {label}
-        </span>
-      ) : (
-        <Link
-          to={to}
-          className="text-primary capitalize hover:underline"
-          itemProp="item"
-        >
-          <span itemProp="name">{label}</span>
-        </Link>
-      )}
-      <meta itemProp="position" content={position} />
-    </li>
-  );
-});
+    )}
+    {isLast ? (
+      <span
+        className="text-gray-700 capitalize"
+        aria-current="page"
+        itemProp="name"
+      >
+        {label}
+      </span>
+    ) : (
+      <Link
+        to={to}
+        className="text-primary capitalize hover:underline"
+        itemProp="item"
+      >
+        <span itemProp="name">{label}</span>
+      </Link>
+    )}
+    <meta itemProp="position" content={position} />
+  </li>
+));
 
-const Breadcrumb = ({ postTitle, attorneyName }) => {
-  const location = useLocation();
+const Breadcrumb = () => {
   const { t } = useTranslation();
-  
-  const pathnames = useMemo(() => location.pathname.split('/').filter(Boolean), [location.pathname]);
+  const { pathname } = useLocation();
+  const parts = pathname.split('/').filter(Boolean);
+  if (parts.length < 2) return null;
 
-  if (location.pathname === '/' || pathnames.length === 0) {
-    return null;
-  }
+  const [lang, ...rest] = parts;
+  const parent = rest[0];
+  if (!parent) return null;
 
-  const lang = pathnames[0] || 'en';
-
-  const filteredPathnames = pathnames.slice(1); 
-
-  const breadcrumbItems = useMemo(() => {
-    const items = [
-      {
-        to: `/${lang}`,
-        label: t('global.labels.breadcrumb_labels.home') || 'Home',
-        position: 1,
-      },
-    ];
-
-    filteredPathnames.forEach((name, index) => {
-      const routeTo = generatePath(lang, pathnames.slice(1, index + 2));
-
-      let labelKey = `global.labels.breadcrumb_labels.${name}`;
-      let label = t(labelKey);
-      if (label === labelKey || !label) {
-        label = name.replace(/-/g, ' ');
-      }
-      if (index === filteredPathnames.length - 1) {
-        label = postTitle || attorneyName || label;
-      }
-
-      items.push({
-        to: index === filteredPathnames.length - 1 ? null : routeTo,
-        label,
-        isLast: index === filteredPathnames.length - 1,
-        position: items.length + 1,
-      });
-    });
-
-    return items;
-  }, [filteredPathnames, lang, t, pathnames, postTitle, attorneyName]);
+  const items = [
+    {
+      to: `/${lang}`,
+      label: t('global.labels.breadcrumb_labels.home') || 'Home',
+      isLast: false,
+      position: 1,
+    },
+    {
+      to: generatePath(lang, [parent]),
+      label:
+        t(`global.labels.breadcrumb_labels.${parent}`) !==
+        `global.labels.breadcrumb_labels.${parent}`
+          ? t(`global.labels.breadcrumb_labels.${parent}`)
+          : parent.replace(/-/g, ' '),
+      isLast: true,
+      position: 2,
+    },
+  ];
 
   return (
     <nav
@@ -92,10 +74,10 @@ const Breadcrumb = ({ postTitle, attorneyName }) => {
       itemType="https://schema.org/BreadcrumbList"
     >
       <ol className="flex items-center space-x-2 text-body max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-500">
-        {breadcrumbItems.map((item, index) => (
+        {items.map((item) => (
           <BreadcrumbItem
-            key={index}
-            to={item.to}
+            key={item.position}
+            to={item.isLast ? null : item.to}
             label={item.label}
             isLast={item.isLast}
             position={item.position}

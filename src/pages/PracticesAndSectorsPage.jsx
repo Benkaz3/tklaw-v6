@@ -44,7 +44,7 @@ const PracticesAndSectorsPage = () => {
   
 
   return (
-    <section className="py-10">
+    <section>
       <Helmet>
         <title>{seo.Title}</title>
         <meta name="description" content={seo.Description} />
@@ -52,7 +52,7 @@ const PracticesAndSectorsPage = () => {
       </Helmet>
 
       <section
-        className="relative h-[25vh] bg-cover bg-center flex items-center justify-center"
+        className="relative h-80 bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />
@@ -62,7 +62,7 @@ const PracticesAndSectorsPage = () => {
 
       <div className="max-w-container-desktop mx-auto px-4 mt-8">
         {t('homepage.practices_and_sectors_title') && (
-          <h1 className="text-center font-bold mb-6">
+          <h1 className="text-center font-semibold mb-6">
           {t('homepage.practices_and_sectors_title')}
           </h1>
         )}
@@ -79,7 +79,7 @@ const PracticesAndSectorsPage = () => {
                   onClick={() => toggleRow(item.sys.id)}
                 >
                   <h3 className="font-semibold">{item.fields.title}</h3>
-                  <span className="font-bold">{isExpanded ? '–' : '+'}</span>
+                  <span className=" font-semibold">{isExpanded ? '–' : '+'}</span>
                 </div>
 
                 {isExpanded && (
