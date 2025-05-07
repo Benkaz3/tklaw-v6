@@ -89,7 +89,7 @@ const Navbar = () => {
                   key={key}
                   to={getDynamicPath(key)}
                   onClick={toggleMenu}
-                  className="uppercase font-bold transition-colors duration-300 hover:text-accent"
+                  className="font-bold transition-colors duration-300 hover:text-accent"
                 >
                   {t(`menu.${key}`)}
                 </Link>

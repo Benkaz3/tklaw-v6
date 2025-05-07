@@ -42,10 +42,16 @@ const HeroSection = () => {
 
   return (
     <header className="bg-card_background flex flex-col items-center justify-center pb-16 pt-24 md:pt-28 lg:pt-36">
-      <div className="relative z-10 max-w-2xl text-center px-6 md:px-12 lg:px-16 transition duration-300 fade-in">
+      <div className="relative z-10 max-w-4xl text-center px-6 md:px-12 lg:px-16 transition duration-300 fade-in">
         <div className='mb-6'>
           {titles.map((title, index) => (
-            <h1 key={index} className="font-primary capitalize font-bold leading-tight text-text">
+            <h1 key={index} className="
+                              font-primary capitalize font-bold leading-tight text-text
+                              text-lg
+                              sm:text-xl
+                              md:text-2xl
+                              lg:text-3xl
+                              ">
               {title}
             </h1>
           ))}
