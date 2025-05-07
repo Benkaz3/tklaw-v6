@@ -144,7 +144,7 @@
   },
   "businessInfo": {
     "name": "Văn phòng Luật sư TK và Liên danh",
-    "hotline": "+84 28 2221 6597",
+    "hotline": "+84 9 1377 7995",
     "longHotlineText": "Gọi ngay để đặt lịch tư vấn: ",
     "shortHotlineText": "Gọi: ",
     "buttonText": "Gọi ngay để được tư vấn miễn phí!",
@@ -196,6 +196,8 @@
       "latest_posts": "Bài viết mới nhất",
       "featured_posts": "Bài viết được quan tâm",
       "post_not_found": "Không tìm thấy bài viết",
+      "contact_hero_alt": "Hình nền trang liên hệ",
+      "map_iframe_title": "Bản đồ tới văn phòng",
       "breadcrumb_labels": {
         "home": "Trang chủ",
         "chinh-sach": "Chính sách",

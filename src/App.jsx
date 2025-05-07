@@ -34,8 +34,8 @@ function App() {
           <Route path="/en" element={<HomePage />} />
           <Route path="/vi" element={<HomePage />} />
           <Route path="/vi/linh-vuc-hanh-nghe/:slug" element={<PracticeDetailsPage />} />
-          <Route path="/en/practices-and-sectors/:slug" element={<PracticeDetailsPage />} />
-          <Route path="/en/practices-and-sectors" element={<PracticesAndSectorsSection />} />
+          <Route path="/en/practices/:slug" element={<PracticeDetailsPage />} />
+          <Route path="/en/practices" element={<PracticesAndSectorsSection />} />
           <Route path="/vi/linh-vuc-hanh-nghe" element={<PracticesAndSectorsSection />} />
           <Route path="/vi/lien-he" element={<ContactPage />} />
           <Route path="/en/contact" element={<ContactPage />} />

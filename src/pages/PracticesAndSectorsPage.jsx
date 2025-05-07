@@ -78,7 +78,7 @@ const PracticesAndSectorsPage = () => {
                   }`}
                   onClick={() => toggleRow(item.sys.id)}
                 >
-                  <h3 className="font-semibold">{item.fields.title}</h3>
+                  <p className="font-semibold">{item.fields.title}</p>
                   <span className=" font-semibold">{isExpanded ? '–' : '+'}</span>
                 </div>
 

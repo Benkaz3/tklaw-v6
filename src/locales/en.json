@@ -145,7 +145,7 @@
   },
   "businessInfo": {
     "name": "TK & Associates",
-    "hotline": "+84 28 2221 6597",
+    "hotline": "+84 9 1377 7995",
     "longHotlineText": "Call to schedule your consultation today: ",
     "shortHotlineText": "Call: ",
     "buttonText": "Call now for a free consultation!",
@@ -194,6 +194,8 @@
       "read_more": "Continue Reading...",
       "view_on_map_label": "View on map",
       "post_not_found": "Post not found",
+      "contact_hero_alt": "Contact page hero background",
+      "map_iframe_title": "Office location map",
       "breadcrumb_labels": {
         "home": "Home",
         "about": "About",
