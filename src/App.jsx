@@ -29,10 +29,6 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {
-    window._PRERENDER_READY__ = true;
-  }, []);
-
   return (
     <SeoProvider>
       <Router>

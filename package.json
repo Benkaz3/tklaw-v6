@@ -7,17 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postbuild": "react-snap"
-  },
-  "reactSnap": {
-    "include": [
-      "/en",
-      "/vi"
-    ],
-    "puppeteerArgs": [
-      "--no-sandbox"
-    ]
+    "preview": "vite preview"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.0.0",
