@@ -1,216 +1,144 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { Helmet } from 'react-helmet-async'
-import useContentful from '../useContentful'
-import LoadingDots from '../components/LoadingDots'
-import Breadcrumb from '../components/Breadcrumb'
-import generateMetaTags from '../seo/generateMetaTags'
-import useSeo from '../seo/useSeo'
-import heroBg from '../assets/practices_hero_bg.webp'
+// src/pages/PoliciesPage.jsx
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
+import useContentful from '../useContentful';
+import LoadingDots from '../components/LoadingDots';
+import Breadcrumb from '../components/Breadcrumb';
+import generateMetaTags from '../seo/generateMetaTags';
+import useSeo from '../seo/useSeo';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
-const AuthorProfile = () => {
-  const seo = useSeo('AuthorProfilePage')
-  const metaTags = generateMetaTags(seo)
-  const { slug } = useParams()
-  const { t, i18n } = useTranslation()
-  const language = i18n.language
+// Replace with your Content Type ID (Copy ID in Contentful)
+const CONTENT_TYPE_ID = 'policiesPage';
+
+// Tailwind mapping for Rich Text
+const RICHTEXT_OPTIONS = {
+  renderNode: {
+    [BLOCKS.HEADING_1]: (_node, children) => (
+      <h1 className='text-3xl sm:text-4xl font-bold mt-6 mb-4'>{children}</h1>
+    ),
+    [BLOCKS.HEADING_2]: (_node, children) => (
+      <h2 className='text-2xl sm:text-3xl font-semibold mt-6 mb-3'>
+        {children}
+      </h2>
+    ),
+    [BLOCKS.HEADING_3]: (_node, children) => (
+      <h3 className='text-xl sm:text-2xl font-semibold mt-5 mb-2'>
+        {children}
+      </h3>
+    ),
+    [BLOCKS.PARAGRAPH]: (_node, children) => (
+      <p className='leading-relaxed my-3'>{children}</p>
+    ),
+    [BLOCKS.UL_LIST]: (_node, children) => (
+      <ul className='list-disc ml-6 space-y-1 my-3'>{children}</ul>
+    ),
+    [BLOCKS.OL_LIST]: (_node, children) => (
+      <ol className='list-decimal ml-6 space-y-1 my-3'>{children}</ol>
+    ),
+    [BLOCKS.LIST_ITEM]: (_node, children) => <li>{children}</li>,
+    [INLINES.HYPERLINK]: (node, children) => (
+      <a
+        href={node.data.uri}
+        className='underline hover:no-underline break-words'
+        rel='noopener noreferrer'
+        target='_blank'
+      >
+        {children}
+      </a>
+    ),
+  },
+};
+
+const PoliciesPage = () => {
+  const seo = useSeo('PolicyPage');
+  const metaTags = generateMetaTags(seo);
+  const { t, i18n } = useTranslation();
+
+  // Your locales are 'vi' and 'en'
+  const locale = i18n.language === 'vi' ? 'vi' : 'en';
+  const slug = locale === 'vi' ? 'chinh-sach' : 'policies';
+
   const { data, loading, error } = useContentful([
     {
-      content_type: 'author',
+      content_type: CONTENT_TYPE_ID,
       'fields.slug': slug,
-      locale: language,
+      locale,
     },
-  ])
+  ]);
 
-  if (loading) return <LoadingDots />
+  if (loading) return <LoadingDots />;
 
   if (error) {
     return (
-      <main className="px-4 sm:px-6 lg:px-8 py-10 text-center">
-        <p className="text-red-500">
-          {t('global.error_message', { message: error.message })}
+      <main className='px-4 sm:px-6 lg:px-8 py-10 text-center'>
+        <p className='text-red-500'>
+          {(t('global.error_message') || 'Error') + ': '}
+          {error.message}
         </p>
       </main>
-    )
+    );
   }
 
-  const entry = data?.author?.[0]
+  // Support either shape returned by your hook
+  const entry = data?.[CONTENT_TYPE_ID]?.[0] || data?.items?.[0] || null;
   if (!entry?.fields) {
     return (
-      <main className="px-4 sm:px-6 lg:px-8 py-10 text-center">
-        <p className="text-gray-700">
-          {t('global.author_not_found')}
+      <main className='px-4 sm:px-6 lg:px-8 py-10 text-center'>
+        <p className='text-gray-700'>
+          {t('global.policy_not_found') || 'Policy not found'}
         </p>
       </main>
-    )
+    );
   }
 
-  const {
-    name,
-    title,
-    profilePhoto,
-    areasOfPractice,
-    education,
-    workExperience,
-    introduction,
-    professionalAssociations,
-  } = entry.fields
-  const photoUrl = profilePhoto?.fields?.file?.url
-  const date = entry.sys.createdAt
-
-  const listItems = items =>
-    (typeof items === 'string' ? items.split('\n') : items || []).map(
-      (item, idx) => (
-        <li key={idx} className="mb-2">
-          {item}
-        </li>
-      )
-    )
+  const { title, body } = entry.fields;
+  const updated = entry.sys?.updatedAt;
 
   return (
-    <main className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+    <main className='px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto'>
       <Helmet>
-        <title>{seo?.Title || name}</title>
+        <title>{seo?.Title || title}</title>
         {Array.isArray(metaTags) &&
-          metaTags.map((meta, i) =>
-            meta && typeof meta === 'object' ? <meta key={i} {...meta} /> : null
+          metaTags.map((m, i) =>
+            m && typeof m === 'object' ? <meta key={i} {...m} /> : null
           )}
-        {seo?.ogUrl && <link rel="canonical" href={seo.ogUrl} />}
+        {seo?.ogUrl && <link rel='canonical' href={seo.ogUrl} />}
       </Helmet>
 
-      {/* Hero with overlaid avatar */}
-      <header
-        className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 bg-cover bg-center mb-12"
-        style={{ backgroundImage: `url(${heroBg})` }}
-        aria-label={t('practice_details_page.hero_background')}
-      >
-        <div className="absolute inset-0 bg-black opacity-40" />
-
-        {photoUrl && (
-          <figure className="absolute left-1/2 bottom-0 transform translate-x-[-50%] translate-y-1/2">
-            <img
-              src={photoUrl}
-              alt={name}
-              className="
-                w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48
-                rounded-full border-4 border-white shadow-lg
-                object-cover
-              "
-            />
-          </figure>
-        )}
-      </header>
-
-      <Breadcrumb attorneyName={name} />
+      {/* Reuse your Breadcrumb prop to avoid refactoring now */}
+      <Breadcrumb attorneyName={title} />
 
       <article
-        className="bg-white border border-gray-200 rounded-lg shadow divide-y divide-gray-200"
+        className='bg-white border border-gray-200 rounded-lg shadow'
         itemScope
-        itemType="http://schema.org/Person"
+        itemType='https://schema.org/WebPage'
       >
-        {/* Name / Title */}
-        <div className="px-6 pt-20 pb-8 text-center sm:text-left space-y-2">
+        <header className='px-6 pt-8 pb-2'>
           <h1
-            itemProp="name"
-            className="
-              font-bold text-3xl sm:text-4xl lg:text-5xl
-              leading-snug
-            "
-          >
-            {name}
-          </h1>
-          <p
-            itemProp="jobTitle"
-            className="text-gray-600 italic text-lg sm:text-xl"
+            className='font-bold text-3xl sm:text-4xl leading-snug'
+            itemProp='name'
           >
             {title}
-          </p>
-          {date && (
-            <time
-              dateTime={new Date(date).toISOString()}
-              className="text-gray-500 text-sm"
-            >
-              {new Date(date).toLocaleDateString()}
-            </time>
-          )}
-        </div>
+          </h1>
 
-        {/* Content Sections */}
-        <div className="px-6 py-8 space-y-8">
-          {areasOfPractice && (
-            <section aria-labelledby="areas-heading">
-              <h2
-                id="areas-heading"
-                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
-              >
-                {t('global.attorney_profile.areas_of_practice')}
-              </h2>
-              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
-                {listItems(areasOfPractice)}
-              </ul>
-            </section>
+          {updated && (
+            <div className='text-gray-500 text-sm mt-2'>
+              <time dateTime={new Date(updated).toISOString()}>
+                {new Date(updated).toLocaleDateString()}
+              </time>
+            </div>
           )}
+        </header>
 
-          {education && (
-            <section aria-labelledby="education-heading">
-              <h2
-                id="education-heading"
-                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
-              >
-                {t('global.attorney_profile.education')}
-              </h2>
-              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
-                {listItems(education)}
-              </ul>
-            </section>
-          )}
-
-          {workExperience && (
-            <section aria-labelledby="experience-heading">
-              <h2
-                id="experience-heading"
-                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
-              >
-                {t('global.attorney_profile.work_experience')}
-              </h2>
-              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
-                {listItems(workExperience)}
-              </ul>
-            </section>
-          )}
-
-          {introduction && (
-            <section aria-labelledby="intro-heading">
-              <h2
-                id="intro-heading"
-                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
-              >
-                {t('global.attorney_profile.introduction')}
-              </h2>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                {introduction}
-              </p>
-            </section>
-          )}
-
-          {professionalAssociations && (
-            <section aria-labelledby="associations-heading">
-              <h2
-                id="associations-heading"
-                className="font-semibold text-2xl sm:text-3xl text-gray-800 mb-4"
-              >
-                {t('global.attorney_profile.professional_associations')}
-              </h2>
-              <ul className="list-disc list-inside ml-5 text-base sm:text-lg leading-relaxed space-y-2">
-                {listItems(professionalAssociations)}
-              </ul>
-            </section>
-          )}
+        <div className='px-6 pb-8 prose max-w-none'>
+          {body ? documentToReactComponents(body, RICHTEXT_OPTIONS) : null}
         </div>
       </article>
     </main>
-  )
-}
+  );
+};
 
-export default AuthorProfile
+export default PoliciesPage;
