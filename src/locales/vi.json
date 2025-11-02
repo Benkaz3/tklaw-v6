@@ -1,18 +1,17 @@
 {
   "navbar": {
-    "office_name": [
-      "VĂN PHÒNG LUẬT SƯ ",
-      "TK & LIÊN DANH"
-    ]  },
+    "office_name": ["VĂN PHÒNG LUẬT SƯ ", "TK & LIÊN DANH"]
+  },
   "homepage": {
     "hero": {
-      "title": 
-        ["Văn phòng luật sư TK & Liên danh",
-        "Giải pháp Pháp lý ưu việt"],
+      "title": [
+        "Văn phòng luật sư TK & Liên danh",
+        "Giải pháp Pháp lý ưu việt"
+      ],
       "subtitle": [
         "Văn phòng Luật sư TK & Liên Danh được thành lập theo giấy phép ngày 01/04/2014 của sở Tư pháp Thành phố Hồ Chí Minh do Luật sư Khương Đình Tiến làm Trưởng văn phòng.",
-        "Lĩnh vực đăng ký hoạt động bao gồm tham gia tố tụng theo quy định của pháp luật, tư vấn pháp luật, thực hiện các dịch vụ pháp lý theo quy định pháp luật và đại diện ngoài tố tụng để thực hiện các công việc có liên quan đến pháp luật." 
-        ],
+        "Lĩnh vực đăng ký hoạt động bao gồm tham gia tố tụng theo quy định của pháp luật, tư vấn pháp luật, thực hiện các dịch vụ pháp lý theo quy định pháp luật và đại diện ngoài tố tụng để thực hiện các công việc có liên quan đến pháp luật."
+      ],
       "button_text": "Liên hệ với chúng tôi",
       "meet_the_team": "Đội ngũ luật sư"
     },

@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import LoadingDots from './LoadingDots'
-import useContentful from '../useContentful'
+import LoadingDots from './LoadingDots';
+import useContentful from '../useContentful';
 
 const PracticeCard = ({ id, slug, title, description, url }) => (
   <Link
@@ -20,19 +20,19 @@ const PracticeCard = ({ id, slug, title, description, url }) => (
 
     <p className='text-left text-text mb-2'>{description}</p>
   </Link>
-)
+);
 
 const PracticesSection = () => {
-  const { t, i18n } = useTranslation()
-  const language = i18n.language
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
 
   const practicePath = useMemo(
     () =>
       language === 'vi'
-        ? '/vi/linh-vuc-nganh-nghe/:slug'
+        ? '/vi/linh-vuc-hanh-nghe/:slug'
         : '/en/practices/:slug',
     [language]
-  )
+  );
 
   const { data, loading, error } = useContentful([
     {
@@ -40,26 +40,25 @@ const PracticesSection = () => {
       order: 'fields.title',
       locale: language,
     },
-  ])
+  ]);
 
   if (loading)
     return (
       <div className='flex bg-background items-center justify-center h-screen py-10'>
         <LoadingDots />
       </div>
-    )
+    );
 
   if (error)
     return (
       <div className='text-error text-center py-10'>
         {t('homepage.practices_section.error_message')}
       </div>
-    )
+    );
 
-  const practices =
-    data?.practice?.filter((e) => e.fields.isPractice) ?? []
+  const practices = data?.practice?.filter((e) => e.fields.isPractice) ?? [];
 
-  const noneFound = practices.length === 0
+  const noneFound = practices.length === 0;
 
   return (
     <section className='py-10 bg-background'>
@@ -75,8 +74,8 @@ const PracticesSection = () => {
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {practices.map(({ sys: { id }, fields }) => {
-              const { slug, title, homepageDescription } = fields
-              const url = practicePath.replace(':slug', slug)
+              const { slug, title, homepageDescription } = fields;
+              const url = practicePath.replace(':slug', slug);
 
               return (
                 <PracticeCard
@@ -87,13 +86,13 @@ const PracticesSection = () => {
                   description={homepageDescription}
                   url={url}
                 />
-              )
+              );
             })}
           </div>
         )}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default PracticesSection
+export default PracticesSection;

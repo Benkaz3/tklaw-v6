@@ -1,14 +1,46 @@
+// src/components/LangSwitcher.jsx
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 import CountryFlag from 'react-country-flag';
 import SLUG_MAPPING from '../config/slugMapping';
+import client from '../contentful'; // reuse your configured Contentful client
 
 const LANGUAGES = {
   en: { countryCode: 'US', label: 'English' },
   vi: { countryCode: 'VN', label: 'Tiếng Việt' },
 };
+
+// Only handle Practice detail routes
+const PRACTICE_MATCHERS = {
+  vi: /^\/vi\/linh-vuc-hanh-nghe\/([^/]+)$/,
+  en: /^\/en\/practices\/([^/]+)$/,
+  base: { vi: '/vi/linh-vuc-hanh-nghe', en: '/en/practices' },
+  contentType: 'practice',
+};
+
+// Get localized slug with Contentful client
+async function getLocalizedPracticeSlug(currentSlug, fromLang, toLang) {
+  try {
+    // 1) find entry id by current slug + locale
+    const res = await client.getEntries({
+      content_type: PRACTICE_MATCHERS.contentType,
+      'fields.slug': currentSlug,
+      locale: fromLang,
+      limit: 1,
+    });
+    const id = res?.items?.[0]?.sys?.id;
+    if (!id) return null;
+
+    // 2) load same entry in target locale and read fields.slug
+    const entry = await client.getEntry(id, { locale: toLang });
+    const slug = entry?.fields?.slug;
+    return typeof slug === 'string' ? slug : null;
+  } catch {
+    return null;
+  }
+}
 
 const LangSwitcher = () => {
   const { i18n } = useTranslation();
@@ -17,68 +49,89 @@ const LangSwitcher = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    const storedLang = localStorage.getItem('preferredLanguage');
-    if (storedLang && storedLang !== i18n.language) {
-      handleLanguageChange(storedLang);
+    const stored = localStorage.getItem('preferredLanguage');
+    if (stored && stored !== i18n.language) {
+      handleLanguageChange(stored);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isBlogPost = useMemo(() => {
-    const path = location.pathname.toLowerCase();
-    return path.startsWith('/vi/blog') || path.startsWith('/en/blog');
+    const p = location.pathname.toLowerCase();
+    return p.startsWith('/vi/blog') || p.startsWith('/en/blog');
   }, [location.pathname]);
 
   const toggleDropdown = useCallback(() => {
-    setIsDropdownOpen((prev) => !prev);
+    setIsDropdownOpen((v) => !v);
   }, []);
 
-  const getMappedPath = useCallback(
-    (lang, currentPath) => {
-      const pathSegments = currentPath.split('/').filter(Boolean);
-      if (pathSegments.length === 0) return `/${lang}`;
+  // Fallback for non-practice routes: map static segments
+  const mapStaticPath = useCallback((toLang, currentPath) => {
+    const segs = currentPath.split('/').filter(Boolean);
+    if (segs.length === 0) return `/${toLang}`;
+    const [, ...rest] = segs; // drop current lang
+    let next = `/${toLang}`;
+    rest.forEach((s) => {
+      const mapped = (SLUG_MAPPING[toLang] && SLUG_MAPPING[toLang][s]) || s;
+      next += `/${mapped}`;
+    });
+    return next || `/${toLang}`;
+  }, []);
 
-      const [currentLang, ...rest] = pathSegments;
-      let newPath = `/${lang}`;
+  // If on a practice detail page, resolve target-locale slug
+  const maybeBuildPracticeUrl = useCallback(
+    async (toLang, fromLang, currentPath) => {
+      const m =
+        fromLang === 'vi'
+          ? PRACTICE_MATCHERS.vi.exec(currentPath)
+          : PRACTICE_MATCHERS.en.exec(currentPath);
+      if (!m) return null;
 
-      rest.forEach((segment) => {
-        // Attempt to map the segment; fallback to the original if no mapping exists
-        const mappedSegment =
-          (SLUG_MAPPING[lang] && SLUG_MAPPING[lang][segment]) || segment;
-        newPath += `/${mappedSegment}`;
-      });
+      const currentSlug = m[1];
+      const targetSlug =
+        (await getLocalizedPracticeSlug(currentSlug, fromLang, toLang)) ||
+        currentSlug;
 
-      return newPath || `/${lang}`;
+      return `${PRACTICE_MATCHERS.base[toLang]}/${targetSlug}`;
     },
     []
   );
 
   const handleLanguageChange = useCallback(
-    (lang) => {
-      if (lang === i18n.language) {
+    async (toLang) => {
+      if (toLang === i18n.language) {
         setIsDropdownOpen(false);
         return;
       }
+      const fromLang = i18n.language === 'vi' ? 'vi' : 'en';
 
-      i18n.changeLanguage(lang);
-      localStorage.setItem('preferredLanguage', lang);
+      // Practices → fetch localized slug
+      const practiceUrl = await maybeBuildPracticeUrl(
+        toLang,
+        fromLang,
+        location.pathname
+      );
 
-      const newPath = getMappedPath(lang, location.pathname);
-      navigate(newPath, { replace: true });
+      // Otherwise, static mapping
+      const targetPath =
+        practiceUrl || mapStaticPath(toLang, location.pathname);
+
+      i18n.changeLanguage(toLang);
+      localStorage.setItem('preferredLanguage', toLang);
+      navigate(targetPath, { replace: true });
       setIsDropdownOpen(false);
     },
-    [i18n, location.pathname, navigate, getMappedPath]
+    [i18n, location.pathname, navigate, mapStaticPath, maybeBuildPracticeUrl]
   );
 
-  if (isBlogPost) {
-    return null;
-  }
+  if (isBlogPost) return null;
 
   return (
-    <div className="relative inline-block text-left">
+    <div className='relative inline-block text-left'>
       <button
         onClick={toggleDropdown}
-        className="flex items-center px-3 py-2 focus:outline-none text-black bg-white hover:bg-background rounded-sm transition duration-200"
-        aria-haspopup="true"
+        className='flex items-center px-3 py-2 focus:outline-none text-black bg-white hover:bg-background rounded-sm transition duration-200'
+        aria-haspopup='true'
         aria-expanded={isDropdownOpen}
       >
         <CountryFlag
@@ -86,15 +139,15 @@ const LangSwitcher = () => {
           svg
           style={{ width: '1.5em', height: '1.5em' }}
         />
-        <FaChevronDown className="ml-2" />
+        <FaChevronDown className='ml-2' />
       </button>
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-36 bg-white border rounded-md shadow-sm z-50">
-          {Object.entries(LANGUAGES).map(([lang, { label }]) => (
+        <div className='absolute right-0 mt-2 w-36 bg-white border rounded-md shadow-sm z-50'>
+          {Object.entries(LANGUAGES).map(([code, { label }]) => (
             <button
-              key={lang}
-              onClick={() => handleLanguageChange(lang)}
-              className="block px-4 py-2 w-full text-left text-black hover:bg-gray-100 transition duration-200"
+              key={code}
+              onClick={() => handleLanguageChange(code)}
+              className='block px-4 py-2 w-full text-left text-black hover:bg-gray-100 transition duration-200'
               aria-label={label}
             >
               {label}
